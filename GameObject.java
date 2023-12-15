@@ -1,3 +1,12 @@
+/*
+    Ian F., Kevin X., Matthew X.
+    Friday, December 15th, 2023
+    Guess Who - Final Programming Assignment
+    Version Alpha 0.1
+    +GameObject.java [2]
+*/
+
+/* Imports */
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.*;
@@ -5,15 +14,19 @@ import javax.swing.*;
 import java.util.*;
 import javax.sound.sampled.*;
 import java.io.*;
+/* Imports */
+
+// TODO: Comment the rest of the code in this class
 
 public abstract class GameObject {
     protected int x, y;
     protected int w, h;
     protected ID id;
     protected int velX, velY;
-    protected int velW, velH;
+    protected int dW, dH;
+    protected int z;
 
-    public GameObject(int x, int y, int w, int h, ID id, int velX, int velY, int velW, int velH) {
+    public GameObject(int x, int y, int w, int h, ID id, int velX, int velY, int dW, int dH, int z) {
         this.x = x;
         this.y = y;
         this.w = w;
@@ -21,8 +34,9 @@ public abstract class GameObject {
         this.id = id;
         this.velX = velX;
         this.velY = velY;
-        this.velW = velW;
-        this.velH = velH;
+        this.dW = dW;
+        this.dH = dH;
+        this.z = z;
     }
 
     public abstract void tick(int ticks);
@@ -42,8 +56,8 @@ public abstract class GameObject {
     public void setVelY(int velY) {this.velY = velY;}
     public int getVelX() {return velX;}
     public int getVelY() {return velY;}
-    public void setVelW(int velW) {this.velW = velW;}
-    public void setVelH(int velH) {this.velH = velH;}
-    public int getVelW() {return velW;}
-    public int getVelH() {return velH;}
+    public void setdW(int dW) {this.dW = dW;}
+    public void setdH(int dH) {this.dH = dH;}
+    public int getdW() {return dW;}
+    public int getdH() {return dH;}
 }
