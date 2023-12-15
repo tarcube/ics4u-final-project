@@ -3,8 +3,8 @@
     Mr.A ICS4U1
     Friday, December 15th, 2023
     Guess Who - Final Programming Assignment
-    Version Alpha 0.1a
-    +GameObject.java [2]
+    Version Alpha 0.1b
+    +GameObject.java [2] (Frontend)
 */
 
 /* Imports */

@@ -3,8 +3,8 @@
     Mr.A ICS4U1
     Friday, December 15th, 2023
     Guess Who - Final Programming Assignment
-    Version Alpha 0.1a
-    +Handler.java [7]
+    Version Alpha 0.1b
+    +Handler.java [7] (Frontend)
 */
 
 /* Imports */

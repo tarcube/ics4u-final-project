@@ -3,8 +3,8 @@
     Mr.A ICS4U1
     Friday, December 15th, 2023
     Guess Who - Final Programming Assignment
-    Version Alpha 0.1a
-    +Handler.java [6]
+    Version Alpha 0.1b
+    +Handler.java [6] (Frontend)
 */
 
 /* Imports */
@@ -37,9 +37,6 @@ public class Object extends GameObject {
             // If the object's x position is less than 0 or greater than the game's width minus its width, reverse its x velocity
             if (y < 0 || y > Game.HEIGHT-h) {velY *= -1;}
             // If the object's y position is less than 0 or greater than the game's height minus its height, reverse its y velocity
-        }
-        if (id == ID.Temporary) {
-        // If the object's ID is Temporary, check if keys are pressed
             if (KeyInput.keysPressed.contains((int)'W')) {
                 y -= velY;
             } // If the 'W' key is pressed, move the object up
@@ -61,9 +58,5 @@ public class Object extends GameObject {
             g.setColor(Game.randomColor);
             g.fillRect(x, y, w, h);
         } // If the object's ID is Object, draw a rectangle at its position with its dimensions and a random color
-        if (id == ID.Temporary) {
-            g.setColor(Game.randomColor);
-            g.fillRect(x, y, w, h);
-        } // If the object's ID is Temporary, draw a rectangle at its position with its dimensions and a random color
     }
 }

@@ -3,7 +3,7 @@
     Mr.A ICS4U1
     Friday, December 15th, 2023
     Guess Who - Final Programming Assignment
-    Version Alpha 0.1a
+    Version Alpha 0.1b
     +Game.java [1] (MAIN)
 */
 
@@ -27,7 +27,7 @@ import java.io.*;
 public class Game extends Canvas implements Runnable {
 // This class extends the Canvas class and implements the Runnable interface
 // indicating it can be used as a separate thread
-    public static int WIDTH = 800, HEIGHT = 600;
+    public static int WIDTH, HEIGHT;
     // Static variables for the canvas size
     private final int SPACEX = 14, SPACEY = 37;
     // Variables for the window size
@@ -52,18 +52,14 @@ public class Game extends Canvas implements Runnable {
     // Constructor for the game
         handler = new Handler();
         // Initialize the handler
-        this.addKeyListener(new KeyInput(handler));
+        this.addKeyListener(new KeyInput());
         // Add key listener
         new Window(WIDTH+SPACEX, HEIGHT+SPACEY, "Guess Who!", this);
         // Create a new window for the game
         r = new Random();
         // Initialize the random number generator
-        for (int i = 0; i < 100; i++) {
-            handler.addObject(new Object(r.nextInt(WIDTH), r.nextInt(HEIGHT), r.nextInt(20), r.nextInt(20), ID.Object, r.nextInt(5), r.nextInt(5), 1));
-            // Add objects to the game
-        }
-        handler.addObject(new Object(400, 300, 40, 40, ID.Temporary, 10, 10, 1));
-        // Add a temporary object to the game
+        handler.addObject(new Object(400, 300, 40, 40, ID.Object, 10, 10, 1));
+        // Add an object to the game
     }
 
     private void tick(int ticks) {
@@ -138,8 +134,13 @@ public class Game extends Canvas implements Runnable {
     // Main method to start the game
         if (args.length != 0) {
         // Check if arguments were provided
-            int w = Integer.parseInt(args[0]);
-            int h = Integer.parseInt(args[1]);
+            WIDTH = Integer.parseInt(args[0]);
+            HEIGHT = Integer.parseInt(args[1]);
+        }
+        else {
+        // If no arguments were provided, use the default
+            WIDTH = 800;
+            HEIGHT = 600;
         }
         new Game();
         // Start the game
