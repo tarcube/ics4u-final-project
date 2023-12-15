@@ -1,8 +1,9 @@
 /*
     Ian F., Kevin X., Matthew X.
+    Mr.A ICS4U1
     Friday, December 15th, 2023
     Guess Who - Final Programming Assignment
-    Version Alpha 0.1
+    Version Alpha 0.1a
     +Game.java [1] (MAIN)
 */
 
@@ -57,11 +58,11 @@ public class Game extends Canvas implements Runnable {
         // Create a new window for the game
         r = new Random();
         // Initialize the random number generator
-        for (int i = 0; i < 1_000; i++) {
-            handler.addObject(new Object(r.nextInt(WIDTH), r.nextInt(HEIGHT), r.nextInt(20), r.nextInt(20), ID.Object, r.nextInt(10), r.nextInt(10), 0, 0, 1));
+        for (int i = 0; i < 100; i++) {
+            handler.addObject(new Object(r.nextInt(WIDTH), r.nextInt(HEIGHT), r.nextInt(20), r.nextInt(20), ID.Object, r.nextInt(5), r.nextInt(5), 1));
             // Add objects to the game
         }
-        handler.addObject(new Object(0, 0, 0, 0, ID.Temporary, 0, 0, 0, 0, 1));
+        handler.addObject(new Object(400, 300, 40, 40, ID.Temporary, 10, 10, 1));
         // Add a temporary object to the game
     }
 
