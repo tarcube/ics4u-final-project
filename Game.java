@@ -1,9 +1,9 @@
 /*
     Ian F., Kevin X., Matthew X.
     Mr.A ICS4U1
-    Friday, December 15th, 2023
+    Wednesday, December 20th, 2023
     Guess Who - Final Programming Assignment
-    Version Alpha 0.1b
+    Version Alpha 0.2
     +Game.java [1] (MAIN)
 */
 
@@ -27,9 +27,9 @@ import java.io.*;
 public class Game extends Canvas implements Runnable {
 // This class extends the Canvas class and implements the Runnable interface
 // indicating it can be used as a separate thread
-    public static int WIDTH, HEIGHT;
+    public static int WIDTH = 480, HEIGHT = 360;
     // Static variables for the canvas size
-    private final int SPACEX = 14, SPACEY = 37;
+    public static int SPACEX = 14, SPACEY = 36;
     // Variables for the window size
     private Thread thread;
     // Thread for the game
@@ -39,11 +39,16 @@ public class Game extends Canvas implements Runnable {
     // Random number generator
     private Handler handler;
     // Handler for managing game objects
-    private final long init = System.currentTimeMillis();
+    private HUD hud;
+    // HUD for the game
+    public static final long init = System.currentTimeMillis();
+    // Get the exact time that the program was initialized
+    public static long timer;
+    public static int frames;
 
-    public static int red = (int) (Math.random()*255);
-    public static int green = (int) (Math.random()*255);
-    public static int blue = (int) (Math.random()*255);
+    private static int red = (int) (Math.random()*128+64);
+    private static int green = (int) (Math.random()*128+64);
+    private static int blue = (int) (Math.random()*128+64);
     public static Color randomColor = new Color(red, green, blue);
     public static Color randomColorBy2 = new Color(red/2, green/2, blue/2);
     // Random colors for the game
@@ -54,16 +59,21 @@ public class Game extends Canvas implements Runnable {
         // Initialize the handler
         this.addKeyListener(new KeyInput());
         // Add key listener
-        new Window(WIDTH+SPACEX, HEIGHT+SPACEY, "Guess Who!", this);
+        this.addMouseMotionListener(new HUD());
+        // Add MouseMotionListener
+        new Window(WIDTH+SPACEX, HEIGHT+SPACEY, "Guess Who?", this);
         // Create a new window for the game
+        hud = new HUD();
+        // Create a new HUD for the game
         r = new Random();
         // Initialize the random number generator
-        handler.addObject(new Object(400, 300, 40, 40, ID.Object, 10, 10, 1));
-        // Add an object to the game
+        //// handler.addObject(new Object(400, 300, 40, 40, ID.Object, 1));
+        //// Add an object to the game
     }
 
     private void tick(int ticks) {
         handler.tick(ticks);
+        hud.tick();
     } // Method to update the game state
 
     public synchronized void start() {
@@ -85,8 +95,8 @@ public class Game extends Canvas implements Runnable {
         double amountOfTicks = 60.0;
         double ns = 1_000_000_000.0 / amountOfTicks;
         double delta = 0;
-        long timer = System.currentTimeMillis();
-        int frames = 0;
+        timer = System.currentTimeMillis();
+        frames = 0;
         int ticks = 0;
         while (running) {
         // Game loop
@@ -104,11 +114,11 @@ public class Game extends Canvas implements Runnable {
                 }
             }
             if (System.currentTimeMillis() - timer > 1000) {
-            // Print the frames per second
+            //// Print the frames per second
                 timer += 1000;
-                if ((timer-init)/1000 % 5 == 0) {
-                    System.out.println("Timer: " + (timer-init)/1000 + " | FPS: " + frames);
-                }
+                ////if ((timer-init)/1000 % 5 == 0) {
+                ////    System.out.println("Timer: " + (timer-init)/1000 + " | FPS: " + frames);
+                ////}
                 frames = 0;
                 ticks = 0;
             }
@@ -123,25 +133,16 @@ public class Game extends Canvas implements Runnable {
             return;
         }
         Graphics g = bs.getDrawGraphics();
-        g.setColor(randomColorBy2);
+        g.setColor(randomColor);
         g.fillRect(0,0,WIDTH,HEIGHT);
         handler.render(g);
+        hud.render(g);
         g.dispose();
         bs.show();
     } // Method to render the game
 
     public static void main(String[] args) {
     // Main method to start the game
-        if (args.length != 0) {
-        // Check if arguments were provided
-            WIDTH = Integer.parseInt(args[0]);
-            HEIGHT = Integer.parseInt(args[1]);
-        }
-        else {
-        // If no arguments were provided, use the default
-            WIDTH = 800;
-            HEIGHT = 600;
-        }
         new Game();
         // Start the game
     }
