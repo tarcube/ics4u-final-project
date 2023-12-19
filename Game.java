@@ -3,7 +3,7 @@
     Mr.A ICS4U1
     Wednesday, December 20th, 2023
     Guess Who - Final Programming Assignment
-    Version Alpha 0.2
+    Version Alpha 0.2a
     +Game.java [1] (MAIN)
 */
 
@@ -46,9 +46,9 @@ public class Game extends Canvas implements Runnable {
     public static long timer;
     public static int frames;
 
-    private static int red = (int) (Math.random()*128+64);
-    private static int green = (int) (Math.random()*128+64);
-    private static int blue = (int) (Math.random()*128+64);
+    public static int red = (int) (Math.random()*128+64);
+    public static int green = (int) (Math.random()*128+64);
+    public static int blue = (int) (Math.random()*128+64);
     public static Color randomColor = new Color(red, green, blue);
     public static Color randomColorBy2 = new Color(red/2, green/2, blue/2);
     // Random colors for the game
@@ -59,6 +59,8 @@ public class Game extends Canvas implements Runnable {
         // Initialize the handler
         this.addKeyListener(new KeyInput());
         // Add key listener
+        this.addMouseListener(new HUD());
+        // Add MouseListener
         this.addMouseMotionListener(new HUD());
         // Add MouseMotionListener
         new Window(WIDTH+SPACEX, HEIGHT+SPACEY, "Guess Who?", this);

@@ -3,7 +3,7 @@
     Mr.A ICS4U1
     Wednesday, December 20th, 2023
     Guess Who - Final Programming Assignment
-    Version Alpha 0.2
+    Version Alpha 0.2a
     +Handler.java [7] (Frontend)
 */
 
@@ -28,8 +28,19 @@ public class Window extends Canvas {
         frame.setPreferredSize(new Dimension(width, height));
         frame.setMaximumSize(new Dimension(width*2, height*2));
         frame.setMinimumSize(new Dimension(width/2, height/2));
-        frame.setSize(new Dimension(width, height));
-        // Set the preferred, maximum, minimum, and actual size of the frame
+        // Set the preferred, maximum, and minimum size of the frame
+        try {
+            File file = new File("preferences.txt");
+            Scanner scanner = new Scanner(file);
+            Game.WIDTH = scanner.nextInt();
+            Game.HEIGHT = scanner.nextInt();
+        }
+        catch (FileNotFoundException e) {
+            System.out.println(e);
+        }
+        // Get window dimension preferences
+        Window.frame.setSize(new Dimension(Game.WIDTH+Game.SPACEX, Game.HEIGHT+Game.SPACEY));
+        // Set the size of the window
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // Set the default close operation to exit the application when the window is closed
         frame.setResizable(false);

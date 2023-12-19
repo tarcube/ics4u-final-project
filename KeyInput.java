@@ -3,7 +3,7 @@
     Mr.A ICS4U1
     Wednesday, December 20th, 2023
     Guess Who - Final Programming Assignment
-    Version Alpha 0.2
+    Version Alpha 0.2a
     +Handler.java [5] (Frontend)
 */
 
@@ -35,18 +35,6 @@ public class KeyInput extends KeyAdapter {
             System.out.println("Force quitting...");
             System.exit(1);
             // Exit the program
-        }
-        if (key == KeyEvent.VK_COMMA && Game.WIDTH > 240 && Game.HEIGHT > 180) {
-            Game.WIDTH -= 40;
-            Game.HEIGHT -= 30;
-            Window.frame.setSize(Game.WIDTH+Game.SPACEX, Game.HEIGHT+Game.SPACEY);
-            Window.frame.setLocationRelativeTo(null);
-        }
-        if (key == KeyEvent.VK_PERIOD && Game.WIDTH < 960 && Game.HEIGHT < 720) {
-            Game.WIDTH += 40;
-            Game.HEIGHT += 30;
-            Window.frame.setSize(Game.WIDTH+Game.SPACEX, Game.HEIGHT+Game.SPACEY);
-            Window.frame.setLocationRelativeTo(null);
         }
     }
 
