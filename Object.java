@@ -3,8 +3,8 @@
     Mr.A ICS4U1
     Wednesday, December 20th, 2023
     Guess Who - Final Programming Assignment
-    Version Alpha 0.2a
-    +Handler.java [6] (Frontend)
+    Version Alpha 0.2b
+    +Object.java [10] (Frontend)
 */
 
 /* Imports */
@@ -57,7 +57,7 @@ public class Object extends GameObject {
     public void render(Graphics g) {
     // Method to render the object
         if (id == ID.Object) {
-            g.setColor(Game.randomColor);
+            g.setColor(Game.randomColorBy2);
             g.fillRect(x, y, w, h);
         } // If the object's ID is Object, draw a rectangle at its position with its dimensions and a random color
     }

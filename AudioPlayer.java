@@ -3,8 +3,8 @@
     Mr.A ICS4U1
     Wednesday, December 20th, 2023
     Guess Who - Final Programming Assignment
-    Version Alpha 0.2a
-    +Data.java [10] (Frontend)
+    Version Alpha 0.2b
+    +AudioPlayer.java [1] (Frontend)
 */
 
 /* Imports */

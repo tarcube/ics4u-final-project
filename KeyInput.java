@@ -3,8 +3,8 @@
     Mr.A ICS4U1
     Wednesday, December 20th, 2023
     Guess Who - Final Programming Assignment
-    Version Alpha 0.2a
-    +Handler.java [5] (Frontend)
+    Version Alpha 0.2b
+    +KeyInput.java [8] (Frontend)
 */
 
 /* Imports */
@@ -35,6 +35,16 @@ public class KeyInput extends KeyAdapter {
             System.out.println("Force quitting...");
             System.exit(1);
             // Exit the program
+        }
+        if (key == KeyEvent.VK_SPACE && Data.turn == 10) {
+            Data.turn = 11;
+            String file = "colon_3.wav";
+            AudioPlayer.play(file);
+        }
+        if (key == KeyEvent.VK_SPACE && Data.turn == 20) {
+            Data.turn = 21;
+            String file = "colon_3.wav";
+            AudioPlayer.play(file);
         }
     }
 

@@ -3,8 +3,8 @@
     Mr.A ICS4U1
     Wednesday, December 20th, 2023
     Guess Who - Final Programming Assignment
-    Version Alpha 0.2a
-    +Game.java [1] (MAIN)
+    Version Alpha 0.2b
+    +Game.java [3] (MAIN)
 */
 
 /* Imports */
@@ -35,12 +35,12 @@ public class Game extends Canvas implements Runnable {
     // Thread for the game
     private boolean running = false;
     // Flag to check if the game is running
-    private Random r;
-    // Random number generator
     private Handler handler;
     // Handler for managing game objects
     private HUD hud;
     // HUD for the game
+    public static Data data;
+    // Backend for the game
     public static final long init = System.currentTimeMillis();
     // Get the exact time that the program was initialized
     public static long timer;
@@ -59,16 +59,16 @@ public class Game extends Canvas implements Runnable {
         // Initialize the handler
         this.addKeyListener(new KeyInput());
         // Add key listener
-        this.addMouseListener(new HUD());
+        this.addMouseListener(new MouseInput());
         // Add MouseListener
-        this.addMouseMotionListener(new HUD());
+        this.addMouseMotionListener(new MouseInput());
         // Add MouseMotionListener
         new Window(WIDTH+SPACEX, HEIGHT+SPACEY, "Guess Who?", this);
         // Create a new window for the game
         hud = new HUD();
         // Create a new HUD for the game
-        r = new Random();
-        // Initialize the random number generator
+        data = new Data();
+        // Add the backend to the game
         //// handler.addObject(new Object(400, 300, 40, 40, ID.Object, 1));
         //// Add an object to the game
     }
