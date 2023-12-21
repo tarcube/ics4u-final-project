@@ -1,9 +1,9 @@
 /*
     Ian F., Kevin X., Matthew X.
     Mr.A ICS4U1
-    Wednesday, December 20th, 2023
+    Thursday, December 21st, 2023
     Guess Who - Final Programming Assignment
-    Version Alpha 0.2b
+    Version Alpha 0.2c
     +ID.java [7] (Mixed)
 */
 

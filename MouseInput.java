@@ -1,9 +1,9 @@
 /*
     Ian F., Kevin X., Matthew X.
     Mr.A ICS4U1
-    Wednesday, December 20th, 2023
+    Thursday, December 21st, 2023
     Guess Who - Final Programming Assignment
-    Version Alpha 0.2b
+    Version Alpha 0.2c
     +MouseInput.java [9] (Frontend)
 */
 
@@ -20,9 +20,16 @@ import java.io.*;
 // TODO: Comment
 
 public class MouseInput extends MouseAdapter {
+    public static AudioPlayer audioplayer;
+
+    public MouseInput() {
+        audioplayer = new AudioPlayer();
+    }
+    // Constructor to initialize the audioplayer object
+
     public void mousePressed(MouseEvent e) {
         String file = "colon_3.wav";
-        AudioPlayer.play(file);
+        audioplayer.play(file);
         if (mouseOver(HUD.mx, HUD.my, HUD.play) && HUD.menu == "Title") {HUD.menu = "Play";}
         else if (mouseOver(HUD.mx, HUD.my, HUD.settings) && HUD.menu == "Title") {HUD.menu = "Settings";}
         else if (mouseOver(HUD.mx, HUD.my, HUD.op1) && HUD.menu == "Settings") {
@@ -63,6 +70,56 @@ public class MouseInput extends MouseAdapter {
         }
         else if (mouseOver(HUD.mx, HUD.my, HUD.op4) && HUD.menu == "???") {
             // TODO: menu = "???";
+        }
+
+        else if (mouseOver(HUD.mx, HUD.my, HUD.op1) && Data.turn == 12) {
+            Data.turn = 13;
+            Data.cata = 1;
+        }
+        else if (mouseOver(HUD.mx, HUD.my, HUD.op2) && Data.turn == 12) {
+            Data.turn = 13;
+            Data.cata = 2;
+        }
+        else if (mouseOver(HUD.mx, HUD.my, HUD.op3) && Data.turn == 12) {
+            Data.turn = 13;
+            Data.cata = 3;
+        }
+        else if (mouseOver(HUD.mx, HUD.my, HUD.op4) && Data.turn == 12) {
+            Data.turn = 13;
+            Data.cata = 4;
+        }
+        else if (mouseOver(HUD.mx, HUD.my, HUD.op5) && Data.turn == 12) {
+            Data.turn = 13;
+            Data.cata = 5;
+        }
+        else if (mouseOver(HUD.mx, HUD.my, HUD.op6) && Data.turn == 12) {
+            Data.turn = 13;
+            Data.cata = 6;
+        }
+
+        else if (mouseOver(HUD.mx, HUD.my, HUD.op1) && Data.turn == 13 && !Data.questions.get(-Data.cata).get(0).contains("+")) {
+            Data.removeCharactersFromGrid(Data.attributes.get(-(10*Data.cata+1)), 1);
+            Data.turn = 14;
+        }
+        else if (mouseOver(HUD.mx, HUD.my, HUD.op2) && Data.turn == 13 && !Data.questions.get(-Data.cata).get(0).contains("+")) {
+            Data.removeCharactersFromGrid(Data.attributes.get(-(10*Data.cata+2)), 1);
+            Data.turn = 14;
+        }
+        else if (mouseOver(HUD.mx, HUD.my, HUD.op3) && Data.turn == 13 && !Data.questions.get(-Data.cata).get(0).contains("+")) {
+            Data.removeCharactersFromGrid(Data.attributes.get(-(10*Data.cata+3)), 1);
+            Data.turn = 14;
+        }
+        else if (mouseOver(HUD.mx, HUD.my, HUD.op4) && Data.turn == 13 && !Data.questions.get(-Data.cata).get(0).contains("+")) {
+            Data.removeCharactersFromGrid(Data.attributes.get(-(10*Data.cata+4)), 1);
+            Data.turn = 14;
+        }
+        else if (mouseOver(HUD.mx, HUD.my, HUD.op5) && Data.turn == 13 && !Data.questions.get(-Data.cata).get(0).contains("+")) {
+            Data.removeCharactersFromGrid(Data.attributes.get(-(10*Data.cata+5)), 1);
+            Data.turn = 14;
+        }
+        else if (mouseOver(HUD.mx, HUD.my, HUD.op6) && Data.turn == 13) {
+            Data.turn = 12;
+            Data.cata = 0;
         }
     }
 

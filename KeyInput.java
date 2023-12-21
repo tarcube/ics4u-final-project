@@ -1,9 +1,9 @@
 /*
     Ian F., Kevin X., Matthew X.
     Mr.A ICS4U1
-    Wednesday, December 20th, 2023
+    Thursday, December 21st, 2023
     Guess Who - Final Programming Assignment
-    Version Alpha 0.2b
+    Version Alpha 0.2c
     +KeyInput.java [8] (Frontend)
 */
 
@@ -21,9 +21,12 @@ public class KeyInput extends KeyAdapter {
 // This class extends KeyAdapter to handle keyboard inputs
     public static HashSet<Integer> keysPressed = new HashSet<Integer>();
     // ! Package calls for a keysPressed HashSet or the code will not work for some reason
+    public static AudioPlayer audioplayer;
 
-    public KeyInput() {}
-    // Constructor to initialize the handler object
+    public KeyInput() {
+        audioplayer = new AudioPlayer();
+    }
+    // Constructor to initialize the audioplayer object
 
     @Override
     public void keyPressed(KeyEvent e) {
@@ -36,15 +39,20 @@ public class KeyInput extends KeyAdapter {
             System.exit(1);
             // Exit the program
         }
-        if (key == KeyEvent.VK_SPACE && Data.turn == 10) {
+        else if (key == KeyEvent.VK_SPACE && Data.turn == 10) {
             Data.turn = 11;
             String file = "colon_3.wav";
-            AudioPlayer.play(file);
+            audioplayer.play(file);
         }
-        if (key == KeyEvent.VK_SPACE && Data.turn == 20) {
+        else if (key == KeyEvent.VK_SPACE && Data.turn == 11) {
+            Data.turn = 12;
+            String file = "colon_3.wav";
+            audioplayer.play(file);
+        }
+        else if (key == KeyEvent.VK_SPACE && Data.turn == 20) {
             Data.turn = 21;
             String file = "colon_3.wav";
-            AudioPlayer.play(file);
+            audioplayer.play(file);
         }
     }
 
