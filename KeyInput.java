@@ -1,9 +1,9 @@
 /*
     Ian F., Kevin X., Matthew X.
     Mr.A ICS4U1
-    Thursday, December 21st, 2023
+    Monday, January 8th, 2024
     Guess Who - Final Programming Assignment
-    Version Alpha 0.2c
+    Version Beta 0.3a
     +KeyInput.java [8] (Frontend)
 */
 

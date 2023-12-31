@@ -4,7 +4,7 @@
     Monday, January 8th, 2024
     Guess Who - Final Programming Assignment
     Version Beta 0.3a
-    +ID.java [7] (Mixed)
+    +HumanCharacter.java [12] (Backend)
 */
 
 /* Imports */
@@ -17,10 +17,12 @@ import javax.sound.sampled.*;
 import java.io.*;
 /* Imports */
 
-public enum ID {
-// This is an enumeration named ID
-// Enumerations serve as a way to create a collection of related constants
-    Object();
-    // This is a constant of the enumeration. It represents an object ID.
-    // TODO: Add character names to the enumeration
+public class HumanCharacter extends GameObject {
+    public HumanCharacter(int x, int y, int w, int h, ID id, int z) {
+        super(x, y, w, h, id, z);
+    }
+
+    public void tick(int ticks) {}
+
+    public void render(Graphics g) {}
 }
