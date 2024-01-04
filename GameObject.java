@@ -3,7 +3,7 @@
     Mr.A ICS4U1
     Monday, January 8th, 2024
     Guess Who - Final Programming Assignment
-    Version Beta 0.3a
+    Version Beta 0.3b
     +GameObject.java [4] (Frontend)
 */
 

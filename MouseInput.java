@@ -3,8 +3,8 @@
     Mr.A ICS4U1
     Monday, January 8th, 2024
     Guess Who - Final Programming Assignment
-    Version Beta 0.3a
-    +MouseInput.java [9] (Frontend)
+    Version Beta 0.3b
+    +MouseInput.java [10] (Frontend)
 */
 
 /* Imports */

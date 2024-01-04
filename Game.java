@@ -3,7 +3,7 @@
     Mr.A ICS4U1
     Monday, January 8th, 2024
     Guess Who - Final Programming Assignment
-    Version Beta 0.3a
+    Version Beta 0.3b
     +Game.java [3] (MAIN)
 */
 
@@ -69,8 +69,8 @@ public class Game extends Canvas implements Runnable {
         // Create a new HUD for the game
         data = new Data();
         // Add the backend to the game
-        //// handler.addObject(new Object(400, 300, 40, 40, ID.Object, 1));
-        //// Add an object to the game
+        handler.addObject(new Human(400, 300, 40, 40, ID.Object, 1, "a", "b", "c", true, false, true, false, true, "e"));
+        // Add an object to the game
     }
 
     private void tick(int ticks) {

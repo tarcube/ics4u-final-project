@@ -3,8 +3,8 @@
     Mr.A ICS4U1
     Monday, January 8th, 2024
     Guess Who - Final Programming Assignment
-    Version Beta 0.3a
-    +ID.java [7] (Mixed)
+    Version Beta 0.3b
+    +ID.java [8] (Mixed)
 */
 
 /* Imports */

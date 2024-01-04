@@ -3,8 +3,8 @@
     Mr.A ICS4U1
     Monday, January 8th, 2024
     Guess Who - Final Programming Assignment
-    Version Beta 0.3a
-    +KeyInput.java [8] (Frontend)
+    Version Beta 0.3b
+    +KeyInput.java [9] (Frontend)
 */
 
 /* Imports */
