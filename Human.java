@@ -1,16 +1,12 @@
 /*
     +Human.java [7] (Backend)
+    TODO: Add summary of contents in this class
 */
 
-/* Imports */
+// TODO: Comment this class
+
+// Imports
 import java.awt.*;
-import java.awt.event.*;
-import java.awt.image.*;
-import javax.swing.*;
-import java.util.*;
-import javax.sound.sampled.*;
-import java.io.*;
-/* Imports */
 
 public class Human extends GameObject {
     private String name = "";

@@ -3,19 +3,10 @@
     Mr.A ICS4U1
     Monday, January 8th, 2024
     Guess Who - Final Programming Assignment
-    Version Beta 0.4b
+    Version Beta 0.4c
     +Game.java [3] (MAIN)
+    TODO: Add summary of contents in this class
 */
-
-/* Imports */
-import java.awt.*;
-import java.awt.event.*;
-import java.awt.image.*;
-import javax.swing.*;
-import java.util.*;
-import javax.sound.sampled.*;
-import java.io.*;
-/* Imports */
 
 // TODO: Self-explanatory
 // ! Use this if the code contains errors
@@ -24,74 +15,84 @@ import java.io.*;
 // . Use this for normal comments
 //// Use this to disregard things
 
-public class Game extends Canvas implements Runnable {
+// Imports
+import java.awt.*;
+import java.awt.image.*;
+
 // This class extends the Canvas class and implements the Runnable interface
 // indicating it can be used as a separate thread
-    public static int WIDTH = 800, HEIGHT = 600;
+public class Game extends Canvas implements Runnable {
     // Static variables for the canvas size
-    public static int SPACEX = 14, SPACEY = 36;
+    public static int WIDTH = 800, HEIGHT = 600;
     // Variables for the window size
-    private Thread thread;
+    public static int SPACEX = 14, SPACEY = 36;
     // Thread for the game
-    private boolean running = false;
+    private Thread thread;
     // Flag to check if the game is running
-    private Handler handler;
+    private boolean running = false;
     // Handler for managing game objects
-    private HUD hud;
+    private Handler handler;
     // HUD for the game
+    private HUD hud;
+    // One of the backend classes for the game
     public static BoardInitialiser boardInitialiser;
-    // Backend for the game
-    public static final long init = System.currentTimeMillis();
     // Get the exact time that the program was initialized
+    public static final long init = System.currentTimeMillis();
+    // timer
     public static long timer;
+    // frames
     public static int frames;
 
+    // Random colors for the game
     public static int red = (int) (Math.random()*128+64);
     public static int green = (int) (Math.random()*128+64);
     public static int blue = (int) (Math.random()*128+64);
     public static Color randomColor = new Color(red, green, blue);
     public static Color randomColorBy2 = new Color(red/2, green/2, blue/2);
-    // Random colors for the game
 
-    public Game() {
     // Constructor for the game
-        handler = new Handler();
+    public Game() {
         // Initialize the handler
-        this.addKeyListener(new KeyInput());
+        handler = new Handler();
         // Add key listener
-        this.addMouseListener(new MouseInput());
+        this.addKeyListener(new KeyInput());
         // Add MouseListener
-        this.addMouseMotionListener(new MouseInput());
+        this.addMouseListener(new MouseInput());
         // Add MouseMotionListener
-        new Window(WIDTH+SPACEX, HEIGHT+SPACEY, "Guess Who?", this);
+        this.addMouseMotionListener(new MouseInput());
         // Create a new window for the game
-        hud = new HUD();
+        new Window(WIDTH+SPACEX, HEIGHT+SPACEY, "Guess Who?", this);
         // Create a new HUD for the game
-        boardInitialiser = new BoardInitialiser(handler);
+        hud = new HUD();
         // Add the backend to the game
+        boardInitialiser = new BoardInitialiser(handler);
+        // Add objects to the game
         handler.addObject(new Object(0, 0, 0, 0, ID.Object, 0));
         handler.addObject(new Human(0, 0, 0, 0, ID.Human, 0));
-        // Add an object to the game
     }
 
+    // Method to update the game state
     private void tick(int ticks) {
         handler.tick(ticks);
         hud.tick();
-    } // Method to update the game state
+    }
 
+    // Method to start the game
     public synchronized void start() {
         thread = new Thread(this);
         thread.start();
         running = true;
-    } // Method to start the game
+    }
 
+    // Method to stop the game
     public synchronized void stop() {
         try {
             thread.join();
             running = false;
         } catch (Exception e) {}
-    } // Method to stop the game
+    }
 
+    // Method to run the game
     public void run() {
         this.requestFocus();
         long lastTime = System.nanoTime();
@@ -101,8 +102,8 @@ public class Game extends Canvas implements Runnable {
         timer = System.currentTimeMillis();
         frames = 0;
         int ticks = 0;
-        while (running) {
         // Game loop
+        while (running) {
             long now = System.nanoTime();
             delta += (now - lastTime)/ns;
             lastTime = now;
@@ -117,18 +118,15 @@ public class Game extends Canvas implements Runnable {
                 }
             }
             if (System.currentTimeMillis() - timer > 1000) {
-            //// Print the frames per second
                 timer += 1000;
-                ////if ((timer-init)/1000 % 5 == 0) {
-                ////    System.out.println("Timer: " + (timer-init)/1000 + " | FPS: " + frames);
-                ////}
                 frames = 0;
                 ticks = 0;
             }
         }
         stop();
-    } // Method to run the game
+    }
 
+    // Method to render the game
     private void render() {
         BufferStrategy bs = this.getBufferStrategy();
         if (bs == null) {
@@ -142,11 +140,11 @@ public class Game extends Canvas implements Runnable {
         hud.render(g);
         g.dispose();
         bs.show();
-    } // Method to render the game
+    }
 
-    public static void main(String[] args) {
     // Main method to start the game
-        new Game();
+    public static void main(String[] args) {
         // Start the game
+        new Game();
     }
 }

@@ -1,16 +1,13 @@
 /*
     +BoardInitialiser.java [2] (Backend)
+    TODO: Add summary of contents in this class
 */
 
-/* Imports */
-import java.awt.*;
-import java.awt.event.*;
-import java.awt.image.*;
-import javax.swing.*;
+// TODO: Comment this class
+
+// Imports
 import java.util.*;
-import javax.sound.sampled.*;
 import java.io.*;
-/* Imports */
 
 public class BoardInitialiser {
     // ArrayList of humans

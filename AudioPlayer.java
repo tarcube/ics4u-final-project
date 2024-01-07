@@ -1,16 +1,12 @@
 /*
     +AudioPlayer.java [1] (Frontend)
+    TODO: Add summary of contents in this class
 */
 
-/* Imports */
-import java.awt.*;
-import java.awt.event.*;
-import java.awt.image.*;
-import javax.swing.*;
-import java.util.*;
+// TODO: Comment this class
+
+// Imports
 import javax.sound.sampled.*;
-import java.io.*;
-/* Imports */
 
 public class AudioPlayer {
     public static void play(String file) {
