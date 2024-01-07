@@ -43,13 +43,13 @@ public class HUD {
             // Play
             font = new Font("Splatfont 2", Font.PLAIN, Game.WIDTH/16);
             play = new Rectangle(Game.WIDTH/4, Game.HEIGHT/2+Game.HEIGHT/20, Game.WIDTH/2, Game.HEIGHT/8);
-            if (MouseInput.mouseOver(mx, my, play)) {drawCenteredString(g, "> Play <", play, font, Color.black, Color.yellow);}
+            if (MouseInput.mouseCollideRect(mx, my, play)) {drawCenteredString(g, "> Play <", play, font, Color.black, Color.yellow);}
             else drawCenteredString(g, "Play", play, font, Color.black, Color.white);
 
             // Settings
             font = new Font("Splatfont 2", Font.PLAIN, Game.WIDTH/16);
             settings = new Rectangle(Game.WIDTH/4, Game.HEIGHT/2+Game.HEIGHT/5, Game.WIDTH/2, Game.HEIGHT/8);
-            if (MouseInput.mouseOver(mx, my, settings)) {drawCenteredString(g, "> Settings <", settings, font, Color.black, Color.yellow);}
+            if (MouseInput.mouseCollideRect(mx, my, settings)) {drawCenteredString(g, "> Settings <", settings, font, Color.black, Color.yellow);}
             else drawCenteredString(g, "Settings", settings, font, Color.black, Color.white);
         }
 
@@ -57,47 +57,54 @@ public class HUD {
             font = new Font("Splatfont 2", Font.PLAIN, Game.WIDTH/16);
 
             // 640x480
-            if (MouseInput.mouseOver(mx, my, op1)) {drawCenteredString(g, "> 640x480 <", op1, font, Color.black, Color.yellow);}
+            if (MouseInput.mouseCollideRect(mx, my, op1)) {drawCenteredString(g, "> 640x480 <", op1, font, Color.black, Color.yellow);}
             else drawCenteredString(g, "640x480", op1, font, Color.black, Color.white);
 
             // 800x600
-            if (MouseInput.mouseOver(mx, my, op2)) {drawCenteredString(g, "> 800x600 <", op2, font, Color.black, Color.yellow);}
+            if (MouseInput.mouseCollideRect(mx, my, op2)) {drawCenteredString(g, "> 800x600 <", op2, font, Color.black, Color.yellow);}
             else drawCenteredString(g, "800x600", op2, font, Color.black, Color.white);
 
             // 960x720
-            if (MouseInput.mouseOver(mx, my, op3)) {drawCenteredString(g, "> 960x720 <", op3, font, Color.black, Color.yellow);}
+            if (MouseInput.mouseCollideRect(mx, my, op3)) {drawCenteredString(g, "> 960x720 <", op3, font, Color.black, Color.yellow);}
             else drawCenteredString(g, "960x720", op3, font, Color.black, Color.white);
 
             // Colour
-            if (MouseInput.mouseOver(mx, my, op4)) {drawCenteredString(g, "> BG Colour <", op4, font, Color.black, Color.yellow);}
+            if (MouseInput.mouseCollideRect(mx, my, op4)) {drawCenteredString(g, "> BG Colour <", op4, font, Color.black, Color.yellow);}
             else drawCenteredString(g, "BG Colour", op4, font, Color.black, Color.white);
 
             // Back
-            if (MouseInput.mouseOver(mx, my, op6)) {drawCenteredString(g, "> Back <", op6, font, Color.black, Color.yellow);}
+            if (MouseInput.mouseCollideRect(mx, my, op6)) {drawCenteredString(g, "> Back <", op6, font, Color.black, Color.yellow);}
             else drawCenteredString(g, "Back", op6, font, Color.black, Color.white);
         }
 
         if (menu == "Play") {
             font = new Font("Splatfont 2", Font.PLAIN, Game.WIDTH/16);
+
             // Against AI
-            if (MouseInput.mouseOver(mx, my, op1)) {drawCenteredString(g, "> Against AI <", op1, font, Color.gray, Color.gray);}
-            else drawCenteredString(g, "Against AI", op1, font, Color.gray, Color.gray);
+            if (MouseInput.mouseCollideRect(mx, my, op1)) {drawCenteredString(g, "> Against AI <", op1, font, Color.black, Color.yellow);}
+            else drawCenteredString(g, "Against AI", op1, font, Color.black, Color.white);
 
             // Pass and Play
-            if (MouseInput.mouseOver(mx, my, op2)) {drawCenteredString(g, "> Pass and Play <", op2, font, Color.black, Color.yellow);}
+            if (MouseInput.mouseCollideRect(mx, my, op2)) {drawCenteredString(g, "> Pass and Play <", op2, font, Color.black, Color.yellow);}
             else drawCenteredString(g, "Pass and Play", op2, font, Color.black, Color.white);
 
             // Local Area Network
-            if (MouseInput.mouseOver(mx, my, op3)) {drawCenteredString(g, "> Local Area Network <", op3, font, Color.gray, Color.gray);}
-            else drawCenteredString(g, "Local Area Network", op3, font, Color.gray, Color.gray);
+            if (MouseInput.mouseCollideRect(mx, my, op3)) {drawCenteredString(g, "> Local Area Network <", op3, font, Color.black, Color.yellow);}
+            else drawCenteredString(g, "Local Area Network", op3, font, Color.black, Color.white);
 
             // ???
-            if (MouseInput.mouseOver(mx, my, op4)) {drawCenteredString(g, "> ??? <", op4, font, Color.gray, Color.gray);}
-            else drawCenteredString(g, "???", op4, font, Color.gray, Color.gray);
+            if (MouseInput.mouseCollideRect(mx, my, op4)) {drawCenteredString(g, "> ??? <", op4, font, Color.black, Color.yellow);}
+            else drawCenteredString(g, "???", op4, font, Color.black, Color.white);
 
             // Back
-            if (MouseInput.mouseOver(mx, my, op6)) {drawCenteredString(g, "> Back <", op6, font, Color.black, Color.yellow);}
+            if (MouseInput.mouseCollideRect(mx, my, op6)) {drawCenteredString(g, "> Back <", op6, font, Color.black, Color.yellow);}
             else drawCenteredString(g, "Back", op6, font, Color.black, Color.white);
+        }
+
+        if (menu == "PvC") {
+            font = new Font("Splatfont 2", Font.PLAIN, Game.WIDTH/16);
+            drawCenteredString(g, "Choose Your Character", new Rectangle(Game.WIDTH/4, 0, Game.WIDTH/2, Game.HEIGHT/8), font, Color.black, Color.white);
+            drawCenteredString(g, "Confirm", new Rectangle(Game.WIDTH/4, Game.HEIGHT/2+Game.HEIGHT/3, Game.WIDTH/2, Game.HEIGHT/8), font, Color.black, Color.white);
         }
     }
 

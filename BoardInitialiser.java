@@ -10,6 +10,8 @@ import java.util.*;
 import java.io.*;
 
 public class BoardInitialiser {
+    // Initialise random number generator
+    private static Random r = new Random();
     // ArrayList of humans
     public static ArrayList<Human> humans = new ArrayList<>();
     // Handler for managing game objects
@@ -58,7 +60,7 @@ public class BoardInitialiser {
     // This method takes the information gathered earlier and builds the human objects
     public static void humanFactory(ArrayList<String> humanNames, HashMap<String, ArrayList<String>> attributes) {
         for (int i = 0; i < humanNames.size(); i++) {
-            int x = (int)(i%6+1)*Game.WIDTH/7-Game.WIDTH/20;
+            int x = (int)(i%6+1)*Game.WIDTH/7-Game.WIDTH/16;
             int y = (int)(Math.floor(i/6)+1)*Game.HEIGHT/6;
             Human human = new Human(x, y, Game.WIDTH/8, Game.HEIGHT/8, ID.Human, 0);
             String name = humanNames.get(i);
@@ -85,6 +87,10 @@ public class BoardInitialiser {
             handler.addObject(human);
         }
         //// for (int i = 0; i < 24; i++) System.out.println(humans.get(i).getName());
+        for (int j = 0; j < humans.size(); j++) {
+            humans.get(j).setIfSelected(false);
+        }
+        humans.get(r.nextInt(24)).setIfSelected(true);
     }
 
     public static void initialisePlayerVsComputer() {

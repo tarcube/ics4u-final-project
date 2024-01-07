@@ -19,23 +19,39 @@ public class Human extends GameObject {
     private boolean beard;
     private boolean moustache;
     private String skinColour;
+    private boolean hovered;
+    private boolean selected;
 
     public Human(int x, int y, int w, int h, ID id, int z) {
         super(x, y, w, h, id, z);
     }
 
     public void tick(int ticks) {
-        if (id == ID.Human) {}
+        if (id == ID.Human) {
+            if (mouseOverHuman(HUD.mx, HUD.my)) hovered = true;
+            else hovered = false;
+        }
     }
 
     public void render(Graphics g) {
         if (id == ID.Human) {
-            g.setColor(Game.randomColorBy2);
+            if (!hovered) g.setColor(Game.randomColorBy2);
+            else g.setColor(new Color(0, 0, 0, 64));
+            if (selected) g.setColor(new Color(255, 255, 0, 128));
             g.fillRect(x, y, w, h);
             Font font = new Font("Splatfont 2", Font.PLAIN, Game.WIDTH/40);
             g.setFont(font);
             g.setColor(Game.randomColor);
             g.drawString(name, x+w/10, y+h/2+h/3);
+        }
+    }
+
+    public boolean mouseOverHuman(int mx, int my) {
+        if ((mx > x && mx < x + w) && (my > y && my < y + h)) {
+            return true;
+        }
+        else {
+            return false;
         }
     }
 
@@ -59,4 +75,6 @@ public class Human extends GameObject {
     public void setMoustache(Boolean moustache) {this.moustache = moustache;}
     public String getSkinColour() {return skinColour;}
     public void setSkinColour(String skinColour) {this.skinColour = skinColour;}
+
+    public void setIfSelected(boolean selected) {this.selected = selected;}
 }
