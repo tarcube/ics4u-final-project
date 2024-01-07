@@ -34,21 +34,6 @@ public class KeyInput extends KeyAdapter {
             System.exit(1);
             // Exit the program
         }
-        else if (key == KeyEvent.VK_SPACE && Data.turn == 10) {
-            Data.turn = 11;
-            String file = "colon_3.wav";
-            audioplayer.play(file);
-        }
-        else if (key == KeyEvent.VK_SPACE && Data.turn == 11) {
-            Data.turn = 12;
-            String file = "colon_3.wav";
-            audioplayer.play(file);
-        }
-        else if (key == KeyEvent.VK_SPACE && Data.turn == 20) {
-            Data.turn = 21;
-            String file = "colon_3.wav";
-            audioplayer.play(file);
-        }
     }
 
     @Override

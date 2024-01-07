@@ -66,56 +66,6 @@ public class MouseInput extends MouseAdapter {
         else if (mouseOver(HUD.mx, HUD.my, HUD.op4) && HUD.menu == "???") {
             // TODO: menu = "???";
         }
-
-        else if (mouseOver(HUD.mx, HUD.my, HUD.op1) && Data.turn == 12) {
-            Data.turn = 13;
-            Data.cata = 1;
-        }
-        else if (mouseOver(HUD.mx, HUD.my, HUD.op2) && Data.turn == 12) {
-            Data.turn = 13;
-            Data.cata = 2;
-        }
-        else if (mouseOver(HUD.mx, HUD.my, HUD.op3) && Data.turn == 12) {
-            Data.turn = 13;
-            Data.cata = 3;
-        }
-        else if (mouseOver(HUD.mx, HUD.my, HUD.op4) && Data.turn == 12) {
-            Data.turn = 13;
-            Data.cata = 4;
-        }
-        else if (mouseOver(HUD.mx, HUD.my, HUD.op5) && Data.turn == 12) {
-            Data.turn = 13;
-            Data.cata = 5;
-        }
-        else if (mouseOver(HUD.mx, HUD.my, HUD.op6) && Data.turn == 12) {
-            Data.turn = 13;
-            Data.cata = 6;
-        }
-
-        else if (mouseOver(HUD.mx, HUD.my, HUD.op1) && Data.turn == 13 && !Data.questions.get(-Data.cata).get(0).contains("+")) {
-            Data.removeCharactersFromGrid(Data.attributes.get(-(10*Data.cata+1)), 1);
-            Data.turn = 14;
-        }
-        else if (mouseOver(HUD.mx, HUD.my, HUD.op2) && Data.turn == 13 && !Data.questions.get(-Data.cata).get(0).contains("+")) {
-            Data.removeCharactersFromGrid(Data.attributes.get(-(10*Data.cata+2)), 1);
-            Data.turn = 14;
-        }
-        else if (mouseOver(HUD.mx, HUD.my, HUD.op3) && Data.turn == 13 && !Data.questions.get(-Data.cata).get(0).contains("+")) {
-            Data.removeCharactersFromGrid(Data.attributes.get(-(10*Data.cata+3)), 1);
-            Data.turn = 14;
-        }
-        else if (mouseOver(HUD.mx, HUD.my, HUD.op4) && Data.turn == 13 && !Data.questions.get(-Data.cata).get(0).contains("+")) {
-            Data.removeCharactersFromGrid(Data.attributes.get(-(10*Data.cata+4)), 1);
-            Data.turn = 14;
-        }
-        else if (mouseOver(HUD.mx, HUD.my, HUD.op5) && Data.turn == 13 && !Data.questions.get(-Data.cata).get(0).contains("+")) {
-            Data.removeCharactersFromGrid(Data.attributes.get(-(10*Data.cata+5)), 1);
-            Data.turn = 14;
-        }
-        else if (mouseOver(HUD.mx, HUD.my, HUD.op6) && Data.turn == 13) {
-            Data.turn = 12;
-            Data.cata = 0;
-        }
     }
 
     public void mouseReleased(MouseEvent e) {}

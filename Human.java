@@ -13,7 +13,7 @@ import java.io.*;
 /* Imports */
 
 public class Human extends GameObject {
-    private String name;
+    private String name = "";
     private String hairColour;
     private String hairLength;
     private String eyeColour;
@@ -36,6 +36,10 @@ public class Human extends GameObject {
         if (id == ID.Human) {
             g.setColor(Game.randomColorBy2);
             g.fillRect(x, y, w, h);
+            Font font = new Font("Splatfont 2", Font.PLAIN, Game.WIDTH/40);
+            g.setFont(font);
+            g.setColor(Game.randomColor);
+            g.drawString(name, x+w/10, y+h/2+h/3);
         }
     }
 

@@ -3,7 +3,7 @@
     Mr.A ICS4U1
     Monday, January 8th, 2024
     Guess Who - Final Programming Assignment
-    Version Beta 0.4a
+    Version Beta 0.4b
     +Game.java [3] (MAIN)
 */
 
@@ -27,7 +27,7 @@ import java.io.*;
 public class Game extends Canvas implements Runnable {
 // This class extends the Canvas class and implements the Runnable interface
 // indicating it can be used as a separate thread
-    public static int WIDTH = 480, HEIGHT = 360;
+    public static int WIDTH = 800, HEIGHT = 600;
     // Static variables for the canvas size
     public static int SPACEX = 14, SPACEY = 36;
     // Variables for the window size
@@ -70,6 +70,7 @@ public class Game extends Canvas implements Runnable {
         boardInitialiser = new BoardInitialiser(handler);
         // Add the backend to the game
         handler.addObject(new Object(0, 0, 0, 0, ID.Object, 0));
+        handler.addObject(new Human(0, 0, 0, 0, ID.Human, 0));
         // Add an object to the game
     }
 
