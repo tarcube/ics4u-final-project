@@ -3,7 +3,7 @@
     Mr.A ICS4U1
     Monday, January 8th, 2024
     Guess Who - Final Programming Assignment
-    Version Beta 0.3b
+    Version Beta 0.4a
     +Game.java [3] (MAIN)
 */
 
@@ -39,7 +39,7 @@ public class Game extends Canvas implements Runnable {
     // Handler for managing game objects
     private HUD hud;
     // HUD for the game
-    public static Data data;
+    public static BoardInitialiser boardInitialiser;
     // Backend for the game
     public static final long init = System.currentTimeMillis();
     // Get the exact time that the program was initialized
@@ -67,9 +67,9 @@ public class Game extends Canvas implements Runnable {
         // Create a new window for the game
         hud = new HUD();
         // Create a new HUD for the game
-        data = new Data();
+        boardInitialiser = new BoardInitialiser(handler);
         // Add the backend to the game
-        handler.addObject(new Human(400, 300, 40, 40, ID.Object, 1, "a", "b", "c", true, false, true, false, true, "e"));
+        handler.addObject(new Object(0, 0, 0, 0, ID.Object, 0));
         // Add an object to the game
     }
 

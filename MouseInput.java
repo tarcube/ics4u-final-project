@@ -1,9 +1,4 @@
 /*
-    Ian F., Kevin X., Matthew X.
-    Mr.A ICS4U1
-    Monday, January 8th, 2024
-    Guess Who - Final Programming Assignment
-    Version Beta 0.3b
     +MouseInput.java [10] (Frontend)
 */
 
@@ -63,7 +58,7 @@ public class MouseInput extends MouseAdapter {
         }
         else if (mouseOver(HUD.mx, HUD.my, HUD.op2) && HUD.menu == "Play") {
             HUD.menu = "PnP";
-            Data.InitPnP();
+            BoardInitialiser.parseHumanAttributes();
         }
         else if (mouseOver(HUD.mx, HUD.my, HUD.op3) && HUD.menu == "Play") {
             // TODO: menu = "LAN";

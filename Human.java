@@ -1,9 +1,4 @@
 /*
-    Ian F., Kevin X., Matthew X.
-    Mr.A ICS4U1
-    Monday, January 8th, 2024
-    Guess Who - Final Programming Assignment
-    Version Beta 0.3b
     +Human.java [7] (Backend)
 */
 
@@ -18,6 +13,7 @@ import java.io.*;
 /* Imports */
 
 public class Human extends GameObject {
+    private String name;
     private String hairColour;
     private String hairLength;
     private String eyeColour;
@@ -28,27 +24,23 @@ public class Human extends GameObject {
     private boolean moustache;
     private String skinColour;
 
-    public Human(int x, int y, int w, int h, ID id, int z,
-    String hairColour, String hairLength, String eyeColour,
-    boolean glasses, boolean earrings, boolean headGear,
-    boolean beard, boolean moustache, String skinColour)
-    {
+    public Human(int x, int y, int w, int h, ID id, int z) {
         super(x, y, w, h, id, z);
-        this.hairColour = hairColour;
-        this.hairLength = hairLength;
-        this.eyeColour = eyeColour;
-        this.glasses = glasses;
-        this.earrings = earrings;
-        this.headGear = headGear;
-        this.beard = beard;
-        this.moustache = moustache;
-        this.skinColour = skinColour;
     }
 
-    public void tick(int ticks) {}
+    public void tick(int ticks) {
+        if (id == ID.Human) {}
+    }
 
-    public void render(Graphics g) {}
+    public void render(Graphics g) {
+        if (id == ID.Human) {
+            g.setColor(Game.randomColorBy2);
+            g.fillRect(x, y, w, h);
+        }
+    }
 
+    public String getName() {return name;}
+    public void setName(String name) {this.name = name;}
     public String getHairColour() {return hairColour;}
     public void setHairColour(String hairColour) {this.hairColour = hairColour;}
     public String getHairLength() {return hairLength;}
