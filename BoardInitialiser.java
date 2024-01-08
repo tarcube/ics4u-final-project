@@ -60,7 +60,7 @@ public class BoardInitialiser {
     // This method takes the information gathered earlier and builds the human objects
     public static void humanFactory(ArrayList<String> humanNames, HashMap<String, ArrayList<String>> attributes) {
         for (int i = 0; i < humanNames.size(); i++) {
-            int x = (int)(i%6+1)*Game.WIDTH/7-Game.WIDTH/16;
+            int x = (int)(i%6+1)*Game.WIDTH/7-Game.WIDTH/9;
             int y = (int)(Math.floor(i/6)+1)*Game.HEIGHT/6;
             Human human = new Human(x, y, Game.WIDTH/8, Game.HEIGHT/8, ID.Human, 0);
             String name = humanNames.get(i);

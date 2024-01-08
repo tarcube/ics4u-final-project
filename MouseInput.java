@@ -94,13 +94,13 @@ public class MouseInput extends MouseAdapter {
         HUD.mx = e.getX();
         HUD.my = e.getY();
         if (StateChecker.turn == "Player") {
-            if (e.getX() < Game.WIDTH/4 && StateChecker.camera == "PromptQuestions") {
+            if (e.getX() < Game.WIDTH/10 && StateChecker.camera == "PromptQuestions") {
                 for (int i = 0; i < BoardInitialiser.humans.size(); i++) {
                     BoardInitialiser.humans.get(i).setDx(Game.WIDTH/40);
                     StateChecker.camera = "HumansGrid";
                 }
             }
-            if (e.getX() > Game.WIDTH/2+Game.WIDTH/4 && StateChecker.camera == "HumansGrid") {
+            if (e.getX() > Game.WIDTH-Game.WIDTH/10 && StateChecker.camera == "HumansGrid") {
                 for (int i = 0; i < BoardInitialiser.humans.size(); i++) {
                     BoardInitialiser.humans.get(i).setDx(-Game.WIDTH/40);
                     StateChecker.camera = "PromptQuestions";

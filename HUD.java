@@ -109,6 +109,16 @@ public class HUD {
             }
             else drawCenteredString(g, "Confirm", new Rectangle(Game.WIDTH/4, Game.HEIGHT/2+Game.HEIGHT/3, Game.WIDTH/2, Game.HEIGHT/8), font, Color.black, Color.white);
         }
+
+        if (StateChecker.camera == "PromptQuestions") {
+            font = new Font("Splatfont 2", Font.PLAIN, Game.WIDTH/8);
+            drawCenteredString(g, "<", new Rectangle(0, 0, Game.WIDTH/10, Game.HEIGHT), font, new Color(255, 255, 255, 64), new Color(255, 255, 255, 64));
+        }
+
+        if (StateChecker.camera == "HumansGrid") {
+            font = new Font("Splatfont 2", Font.PLAIN, Game.WIDTH/8);
+            drawCenteredString(g, ">", new Rectangle(Game.WIDTH-Game.WIDTH/10, 0, Game.WIDTH/10, Game.HEIGHT), font, new Color(255, 255, 255, 64), new Color(255, 255, 255, 64));
+        }
     }
 
     // ? https://stackoverflow.com/questions/27706197/how-can-i-center-graphics-drawstring-in-java
