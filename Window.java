@@ -23,7 +23,7 @@ public class Window extends Canvas {
         frame.setMinimumSize(new Dimension(width/2, height/2));
         // Get window dimension preferences
         try {
-            File file = new File("preferences.txt");
+            File file = new File("Preferences.txt");
             Scanner scanner = new Scanner(file);
             Game.WIDTH = scanner.nextInt();
             Game.HEIGHT = scanner.nextInt();

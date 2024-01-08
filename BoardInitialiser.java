@@ -26,7 +26,7 @@ public class BoardInitialiser {
         try {
             ArrayList<String> humanNames = new ArrayList<String>(24);
             String line = "";
-            File file = new File("HumanAttributes.txt");
+            File file = new File("HumanAttribute.txt");
             Scanner reader = new Scanner(file);
             line = reader.nextLine();
             while (line != "") {
@@ -54,7 +54,7 @@ public class BoardInitialiser {
             //// System.out.println(attributes);
             humanFactory(humanNames, attributes);
         }
-        catch (FileNotFoundException e) {System.out.println("bruh");}
+        catch (FileNotFoundException e) {System.out.println(e);}
     }
 
     // This method takes the information gathered earlier and builds the human objects
@@ -96,6 +96,7 @@ public class BoardInitialiser {
     public static void initialisePlayerVsComputer() {
         for (int i = 0; i < humans.size(); i++) {handler.removeObject(humans.get(i));}
         parseHumanAttributes();
+        StateChecker.computerGrid = new ArrayList<Human>(humans);
     }
 
     public static void finishSetup(int type) {
@@ -105,12 +106,38 @@ public class BoardInitialiser {
             for (int i = 0; i < humans.size(); i++) {
                 humans.get(i).setDx(-Game.WIDTH/40);
                 if (humans.get(i).getIfSelected()) {
-                    State.playerHuman = humans.get(i);
+                    StateChecker.playerHuman = humans.get(i);
                     humans.get(i).setIfOutlawed(true);
                 }
                 humans.get(i).setIfSelected(false);
             }
+            StateChecker.playerGrid = humans;
             StateChecker.camera = "PromptQuestions";
+            StateChecker.computerHuman = humans.get(r.nextInt(24));
+            while (StateChecker.computerHuman.getIfOutlawed()) {
+                StateChecker.computerHuman = humans.get(r.nextInt(24));
+            }
         }
+        //// System.out.println(StateChecker.playerHuman + " " + StateChecker.playerHuman.getName() + " Glasses:" + StateChecker.playerHuman.getGlasses());
+        //// System.out.println(StateChecker.computerHuman + " " + StateChecker.computerHuman.getName() + " Glasses:" + StateChecker.computerHuman.getGlasses());
+        try {
+            File file = new File("QuestionPrompt.txt");
+            Scanner reader = new Scanner(file);
+            String line = reader.nextLine();
+            ArrayList<String> temporary = new ArrayList<String>();
+            for (int i = 0; i < 6; i++) {
+                Integer id = Integer.parseInt(line);
+                line = reader.nextLine();
+                while (!line.contains("-")) {
+                    if (line != "") temporary.add(line);
+                    line = reader.nextLine();
+                }
+                StateChecker.questions.put(id, new ArrayList<String>(temporary));
+                temporary.clear();
+            }
+            reader.close();
+        }
+        catch (Exception e) {System.out.println(e);}
+        //// System.out.println(StateChecker.questions);
     }
 }
