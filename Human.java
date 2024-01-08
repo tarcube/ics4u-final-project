@@ -19,17 +19,29 @@ public class Human extends GameObject {
     private boolean beard;
     private boolean moustache;
     private String skinColour;
+
     private boolean hovered;
     private boolean selected;
+    private boolean outlawed;
+    private int initX;
+    private int initY;
+    private int dx = 0;
+    private int dy = 0;
 
     public Human(int x, int y, int w, int h, ID id, int z) {
         super(x, y, w, h, id, z);
+        this.initX = x;
+        this.initY = y;
     }
 
     public void tick(int ticks) {
         if (id == ID.Human) {
             if (mouseOverHuman(HUD.mx, HUD.my)) hovered = true;
             else hovered = false;
+            x += dx;
+            y += dy;
+            if (x < initX-Game.WIDTH) dx = 0;
+            if (x > initX) dx = 0;
         }
     }
 
@@ -43,6 +55,12 @@ public class Human extends GameObject {
             g.setFont(font);
             g.setColor(Game.randomColor);
             g.drawString(name, x+w/10, y+h/2+h/3);
+            if (outlawed) {
+                g.setColor(new Color(255, 0, 0, 255));
+                font = new Font("Splatfont 2", Font.PLAIN, Game.WIDTH/8);
+                g.setFont(font);
+                g.drawString("X", x+w/4, y+h);
+            }
         }
     }
 
@@ -76,5 +94,11 @@ public class Human extends GameObject {
     public String getSkinColour() {return skinColour;}
     public void setSkinColour(String skinColour) {this.skinColour = skinColour;}
 
+    public boolean getIfSelected() {return selected;}
     public void setIfSelected(boolean selected) {this.selected = selected;}
+    public boolean getIfOutlawed() {return outlawed;}
+    public void setIfOutlawed(boolean outlawed) {this.outlawed = outlawed;}
+
+    public void setDx(int dx) {this.dx = dx;}
+    public void setDy(int dy) {this.dy = dy;}
 }

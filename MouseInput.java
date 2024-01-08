@@ -58,7 +58,7 @@ public class MouseInput extends MouseAdapter {
         else if (HUD.menu == "Play") {
             if (mouseCollideRect(HUD.mx, HUD.my, HUD.op1)) {
                 HUD.menu = "PvC";
-                BoardInitialiser.parseHumanAttributes();
+                BoardInitialiser.initialisePlayerVsComputer();
             }
             else if (mouseCollideRect(HUD.mx, HUD.my, HUD.op2)) {
                 // TODO: HUD.menu = "PnP";
@@ -72,11 +72,17 @@ public class MouseInput extends MouseAdapter {
             else if (mouseCollideRect(HUD.mx, HUD.my, HUD.op6)) HUD.menu = "Title";
         }
 
-        else for (int i = 0; i < BoardInitialiser.humans.size(); i++) {
-            if (BoardInitialiser.humans.get(i).mouseOverHuman(HUD.mx, HUD.my)) {
-                BoardInitialiser.humans.get(i).setIfSelected(true);
-                for (int j = 0; j < BoardInitialiser.humans.size(); j++) {
-                    if (i != j) BoardInitialiser.humans.get(j).setIfSelected(false);
+        else if (HUD.menu == "PvC") {
+            if (MouseInput.mouseCollideRect(HUD.mx, HUD.my, new Rectangle(Game.WIDTH/4, Game.HEIGHT/2+Game.HEIGHT/3, Game.WIDTH/2, Game.HEIGHT/8))) {
+                BoardInitialiser.finishSetup(0);
+            }
+            else for (int i = 0; i < BoardInitialiser.humans.size(); i++) {
+                if (BoardInitialiser.humans.get(i).mouseOverHuman(HUD.mx, HUD.my)) {
+                    BoardInitialiser.humans.get(i).setIfSelected(true);
+                    StateChecker.playerHuman = BoardInitialiser.humans.get(i);
+                    for (int j = 0; j < BoardInitialiser.humans.size(); j++) {
+                        if (i != j) BoardInitialiser.humans.get(j).setIfSelected(false);
+                    }
                 }
             }
         }
@@ -87,6 +93,20 @@ public class MouseInput extends MouseAdapter {
     public void mouseMoved(MouseEvent e) {
         HUD.mx = e.getX();
         HUD.my = e.getY();
+        if (StateChecker.turn == "Player") {
+            if (e.getX() < Game.WIDTH/4 && StateChecker.camera == "PromptQuestions") {
+                for (int i = 0; i < BoardInitialiser.humans.size(); i++) {
+                    BoardInitialiser.humans.get(i).setDx(Game.WIDTH/40);
+                    StateChecker.camera = "HumansGrid";
+                }
+            }
+            if (e.getX() > Game.WIDTH/2+Game.WIDTH/4 && StateChecker.camera == "HumansGrid") {
+                for (int i = 0; i < BoardInitialiser.humans.size(); i++) {
+                    BoardInitialiser.humans.get(i).setDx(-Game.WIDTH/40);
+                    StateChecker.camera = "PromptQuestions";
+                }
+            }
+        }
     }
 
     public static boolean mouseCollideRect(int mx, int my, Rectangle rect) {

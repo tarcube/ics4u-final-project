@@ -3,7 +3,7 @@
     Mr.A ICS4U1
     Monday, January 8th, 2024
     Guess Who - Final Programming Assignment
-    Version Beta 0.5a
+    Version Beta 0.5b
     +Game.java [3] (MAIN)
     TODO: Add summary of contents in this class
 */
@@ -34,8 +34,9 @@ public class Game extends Canvas implements Runnable {
     private Handler handler;
     // HUD for the game
     private HUD hud;
-    // One of the backend classes for the game
+    // Backend classes for the game
     public static BoardInitialiser boardInitialiser;
+    public static StateChecker stateChecker;
     // Get the exact time that the program was initialized
     public static final long init = System.currentTimeMillis();
     // timer
@@ -66,6 +67,7 @@ public class Game extends Canvas implements Runnable {
         hud = new HUD();
         // Add the backend to the game
         boardInitialiser = new BoardInitialiser(handler);
+        stateChecker = new StateChecker();
         // Add objects to the game
         handler.addObject(new Object(0, 0, 0, 0, ID.Object, 0));
         handler.addObject(new Human(0, 0, 0, 0, ID.Human, 0));

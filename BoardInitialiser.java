@@ -95,5 +95,22 @@ public class BoardInitialiser {
 
     public static void initialisePlayerVsComputer() {
         for (int i = 0; i < humans.size(); i++) {handler.removeObject(humans.get(i));}
+        parseHumanAttributes();
+    }
+
+    public static void finishSetup(int type) {
+        if (type == 0) {
+            HUD.menu = "";
+            StateChecker.turn = "Player";
+            for (int i = 0; i < humans.size(); i++) {
+                humans.get(i).setDx(-Game.WIDTH/40);
+                if (humans.get(i).getIfSelected()) {
+                    State.playerHuman = humans.get(i);
+                    humans.get(i).setIfOutlawed(true);
+                }
+                humans.get(i).setIfSelected(false);
+            }
+            StateChecker.camera = "PromptQuestions";
+        }
     }
 }
