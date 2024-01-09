@@ -29,8 +29,8 @@ Does your character have facial hair?
 -5
 Does your character have pale skin?
 Does your character have dark skin?
-Does your character have a male gender?
-Does your character have a female gender?
+Is your character male?
+Is your character female?
 +
 
 -6
