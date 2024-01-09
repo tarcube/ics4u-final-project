@@ -7,9 +7,9 @@ Does your character have ginger hair?
 
 -2
 Does your character have long hair?
+Does your character have tied hair?
 Does your character have short hair?
 Does your character have no hair?
-+
 +
 
 -3
@@ -21,21 +21,21 @@ Does your character have blue eyes?
 
 -4
 Does your character have glasses?
-Does your character have earings?
-Does your character cover their hair?
-+
+Does your character have piercings?
+Does your character have headgear?
+Does your character have facial hair?
 +
 
 -5
-Does your character have a beard?
-Does your character have a moustache?
-+
-+
+Does your character have pale skin?
+Does your character have dark skin?
+Does your character have a male gender?
+Does your character have a female gender?
 +
 
 -6
-Does your character have pale skin?
-Does your character have dark skin?
+Does your character have visible teeth?
++
 +
 +
 +

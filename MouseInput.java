@@ -63,13 +63,13 @@ public class MouseInput extends MouseAdapter {
                 BoardInitialiser.initialisePlayerVsComputer();
             }
             else if (mouseCollideRect(HUD.mx, HUD.my, HUD.op2)) {
-                // TODO: HUD.menu = "PnP";
+                // TODO: HUD.menu = "PvC2";
             }
             else if (mouseCollideRect(HUD.mx, HUD.my, HUD.op3)) {
-                // TODO: HUD.menu = "LAN";
+                // TODO: HUD.menu = "PnP";
             }
             else if (mouseCollideRect(HUD.mx, HUD.my, HUD.op4)) {
-                // TODO: HUD.menu = "???";
+                // TODO: HUD.menu = "LAN";
             }
             else if (mouseCollideRect(HUD.mx, HUD.my, HUD.op6)) HUD.menu = "Title";
         }

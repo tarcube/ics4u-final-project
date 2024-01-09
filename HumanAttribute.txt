@@ -156,7 +156,7 @@ AMY
 RACHEL
 JOE
 
-_piercing_
+_piercings_
 BEN
 NICK
 SOFIA

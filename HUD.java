@@ -114,21 +114,21 @@ public class HUD {
         else if (menu == "Play") {
             font = new Font("Splatfont 2", Font.PLAIN, Game.WIDTH/16);
 
-            // Against AI
-            if (MouseInput.mouseCollideRect(mx, my, op1)) {drawCenteredString(g, "> Against AI <", op1, font, Color.black, Color.yellow);}
-            else drawCenteredString(g, "Against AI", op1, font, Color.black, Color.white);
+            // Against AI V1
+            if (MouseInput.mouseCollideRect(mx, my, op1)) {drawCenteredString(g, "> Against AI V1 <", op1, font, Color.black, Color.yellow);}
+            else drawCenteredString(g, "Against AI V1", op1, font, Color.black, Color.white);
 
-            // Pass and Play
-            if (MouseInput.mouseCollideRect(mx, my, op2)) {drawCenteredString(g, "> Pass and Play <", op2, font, Color.black, Color.yellow);}
-            else drawCenteredString(g, "Pass and Play", op2, font, Color.black, Color.white);
+            // Against AI V2
+            if (MouseInput.mouseCollideRect(mx, my, op2)) {drawCenteredString(g, "> Against AI V2 <", op2, font, Color.black, Color.yellow);}
+            else drawCenteredString(g, "Against AI V2", op2, font, Color.black, Color.white);
+
+            // Pass And Play
+            if (MouseInput.mouseCollideRect(mx, my, op3)) {drawCenteredString(g, "> Pass And Play <", op3, font, Color.black, Color.yellow);}
+            else drawCenteredString(g, "Pass And Play", op3, font, Color.black, Color.white);
 
             // Local Area Network
-            if (MouseInput.mouseCollideRect(mx, my, op3)) {drawCenteredString(g, "> Local Area Network <", op3, font, Color.black, Color.yellow);}
-            else drawCenteredString(g, "Local Area Network", op3, font, Color.black, Color.white);
-
-            // ???
-            if (MouseInput.mouseCollideRect(mx, my, op4)) {drawCenteredString(g, "> ??? <", op4, font, Color.black, Color.yellow);}
-            else drawCenteredString(g, "???", op4, font, Color.black, Color.white);
+            if (MouseInput.mouseCollideRect(mx, my, op4)) {drawCenteredString(g, "> Local Area Network <", op4, font, Color.black, Color.yellow);}
+            else drawCenteredString(g, "Local Area Network", op4, font, Color.black, Color.white);
 
             // Back
             if (MouseInput.mouseCollideRect(mx, my, op6)) {drawCenteredString(g, "> Back <", op6, font, Color.black, Color.yellow);}

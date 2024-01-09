@@ -10,14 +10,15 @@ import java.awt.*;
 
 public class Human extends GameObject {
     private String name = "";
+    private String gender;
     private String hairColour;
     private String hairLength;
     private String eyeColour;
     private boolean glasses;
     private boolean earrings;
     private boolean headGear;
-    private boolean beard;
-    private boolean moustache;
+    private boolean facialHair;
+    private boolean visibleTeeth;
     private String skinColour;
 
     private boolean hovered;
@@ -75,6 +76,8 @@ public class Human extends GameObject {
 
     public String getName() {return name;}
     public void setName(String name) {this.name = name;}
+    public String getGender() {return gender;}
+    public void setGender(String gender) {this.gender = gender;}
     public String getHairColour() {return hairColour;}
     public void setHairColour(String hairColour) {this.hairColour = hairColour;}
     public String getHairLength() {return hairLength;}
@@ -87,10 +90,10 @@ public class Human extends GameObject {
     public void setEarrings(Boolean earrings) {this.earrings = earrings;}
     public boolean getHeadGear() {return headGear;}
     public void setHeadGear(Boolean headGear) {this.headGear = headGear;}
-    public boolean getBeard() {return beard;}
-    public void setBeard(Boolean beard) {this.beard = beard;}
-    public boolean getMoustache() {return moustache;}
-    public void setMoustache(Boolean moustache) {this.moustache = moustache;}
+    public boolean getFacialHair() {return facialHair;}
+    public void setFacialHair(Boolean beard) {this.facialHair = facialHair;}
+    public boolean getVisibleTeeth() {return visibleTeeth;}
+    public void setVisibleTeeth(Boolean visibleTeeth) {this.visibleTeeth = visibleTeeth;}
     public String getSkinColour() {return skinColour;}
     public void setSkinColour(String skinColour) {this.skinColour = skinColour;}
 
