@@ -14,17 +14,14 @@ public abstract class GameObject {
     protected int w, h;
     // unique identifier for each object
     protected ID id;
-    // z-index for layering objects
-    protected int z;
 
     // Constructor for the GameObject class
-    public GameObject(int x, int y, int w, int h, ID id, int z) {
+    public GameObject(int x, int y, int w, int h, ID id) {
         this.x = x;
         this.y = y;
         this.w = w;
         this.h = h;
         this.id = id;
-        this.z = z;
     }
 
     // Abstract methods that will be implemented in the subclasses
@@ -44,6 +41,4 @@ public abstract class GameObject {
     public int getH() {return h;}
     public void setId(ID id) {this.id = id;}
     public ID getId() {return id;}
-    public void setZ(int z) {this.z = z;}
-    public int getZ() {return z;}
 }

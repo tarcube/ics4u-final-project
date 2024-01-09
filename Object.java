@@ -9,9 +9,9 @@ import java.awt.*;
 // This class extends the GameObject class and represents an object in the game
 public class Object extends GameObject {
     // Constructor for the Object class
-    public Object(int x, int y, int w, int h, ID id, int z) {
+    public Object(int x, int y, int w, int h, ID id) {
         // Calling the superclass constructor with the given parameters
-        super(x, y, w, h, id, z);
+        super(x, y, w, h, id);
     }
 
     // Method to update the state of the object

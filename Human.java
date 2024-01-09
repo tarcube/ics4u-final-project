@@ -28,8 +28,8 @@ public class Human extends GameObject {
     private int dx = 0;
     private int dy = 0;
 
-    public Human(int x, int y, int w, int h, ID id, int z) {
-        super(x, y, w, h, id, z);
+    public Human(int x, int y, int w, int h, ID id) {
+        super(x, y, w, h, id);
         this.initX = x;
         this.initY = y;
     }

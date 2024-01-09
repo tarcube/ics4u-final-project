@@ -62,7 +62,7 @@ public class BoardInitialiser {
         for (int i = 0; i < humanNames.size(); i++) {
             int x = (int)(i%6+1)*Game.WIDTH/7-Game.WIDTH/9;
             int y = (int)(Math.floor(i/6)+1)*Game.HEIGHT/6;
-            Human human = new Human(x, y, Game.WIDTH/8, Game.HEIGHT/8, ID.Human, 0);
+            Human human = new Human(x, y, Game.WIDTH/8, Game.HEIGHT/8, ID.Human);
             String name = humanNames.get(i);
             human.setName(name);
             if (attributes.get("_brown_hair_").contains(name)) human.setHairColour("brown");
@@ -118,8 +118,6 @@ public class BoardInitialiser {
                 StateChecker.computerHuman = humans.get(r.nextInt(24));
             }
         }
-        //// System.out.println(StateChecker.playerHuman + " " + StateChecker.playerHuman.getName() + " Glasses:" + StateChecker.playerHuman.getGlasses());
-        //// System.out.println(StateChecker.computerHuman + " " + StateChecker.computerHuman.getName() + " Glasses:" + StateChecker.computerHuman.getGlasses());
         try {
             File file = new File("QuestionPrompt.txt");
             Scanner reader = new Scanner(file);
@@ -141,10 +139,28 @@ public class BoardInitialiser {
         }
         catch (Exception e) {System.out.println(e);}
         //// System.out.println(StateChecker.questions);
-        for (int i = 0; i < 6; i++) {
-            PromptQuestionButton op = new PromptQuestionButton(Game.WIDTH/4, 35+100*i, Game.WIDTH/2, 80, ID.Button, 0);
-            handler.addObject(op);
-            StateChecker.prompts.add(op);
-        }
+        addButtons();
+        StateChecker.catagory = 0;
+    }
+
+    public static void addButtons() {
+        PromptQuestionButton op = new PromptQuestionButton(Game.WIDTH/4, Game.HEIGHT/7*0+Game.HEIGHT/12, Game.WIDTH/2, Game.HEIGHT/8, ID.Button1);
+        handler.addObject(op);
+        StateChecker.prompts.add(op);
+        op = new PromptQuestionButton(Game.WIDTH/4, Game.HEIGHT/7*1+Game.HEIGHT/12, Game.WIDTH/2, Game.HEIGHT/8, ID.Button2);
+        handler.addObject(op);
+        StateChecker.prompts.add(op);
+        op = new PromptQuestionButton(Game.WIDTH/4, Game.HEIGHT/7*2+Game.HEIGHT/12, Game.WIDTH/2, Game.HEIGHT/8, ID.Button3);
+        handler.addObject(op);
+        StateChecker.prompts.add(op);
+        op = new PromptQuestionButton(Game.WIDTH/4, Game.HEIGHT/7*3+Game.HEIGHT/12, Game.WIDTH/2, Game.HEIGHT/8, ID.Button4);
+        handler.addObject(op);
+        StateChecker.prompts.add(op);
+        op = new PromptQuestionButton(Game.WIDTH/4, Game.HEIGHT/7*4+Game.HEIGHT/12, Game.WIDTH/2, Game.HEIGHT/8, ID.Button5);
+        handler.addObject(op);
+        StateChecker.prompts.add(op);
+        op = new PromptQuestionButton(Game.WIDTH/4, Game.HEIGHT/7*5+Game.HEIGHT/12, Game.WIDTH/2, Game.HEIGHT/8, ID.Button6);
+        handler.addObject(op);
+        StateChecker.prompts.add(op);
     }
 }

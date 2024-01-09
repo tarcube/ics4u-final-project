@@ -15,4 +15,5 @@ public class StateChecker {
     public static ArrayList<Human> computerGrid;
     public static HashMap<Integer, ArrayList<String>> questions = new HashMap<Integer, ArrayList<String>>();
     public static ArrayList<PromptQuestionButton> prompts = new ArrayList<>();
+    public static int catagory;
 }

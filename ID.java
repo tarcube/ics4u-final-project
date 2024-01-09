@@ -7,7 +7,12 @@
 
 public enum ID {
     // These are constants of the enumeration. It represents an object ID.
-    Object(),
-    Human(),
-    Button();
+    Object,
+    Human,
+    Button1,
+    Button2,
+    Button3,
+    Button4,
+    Button5,
+    Button6;
 }
