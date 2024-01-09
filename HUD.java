@@ -9,8 +9,6 @@ import java.awt.*;
 public class HUD {
     public static String menu = "Title";
     public static int mx, my;
-    public static Rectangle play;
-    public static Rectangle settings;
     public static Rectangle op1, op2, op3, op4, op5, op6;
 
     public void tick() {}
@@ -37,23 +35,31 @@ public class HUD {
         if (menu == "Title") {
             // Title
             font = new Font("Splatfont 2", Font.PLAIN, Game.WIDTH/8);
-            rect = new Rectangle(Game.WIDTH/4, 0, Game.WIDTH/2, Game.HEIGHT/2);
+            rect = new Rectangle(Game.WIDTH/4, 0, Game.WIDTH/2, Game.HEIGHT/3);
             drawCenteredString(g, "Guess Who?", rect, font, Color.red, Color.blue);
 
             // Play
             font = new Font("Splatfont 2", Font.PLAIN, Game.WIDTH/16);
-            play = new Rectangle(Game.WIDTH/4, Game.HEIGHT/2+Game.HEIGHT/20, Game.WIDTH/2, Game.HEIGHT/8);
-            if (MouseInput.mouseCollideRect(mx, my, play)) {drawCenteredString(g, "> Play <", play, font, Color.black, Color.yellow);}
-            else drawCenteredString(g, "Play", play, font, Color.black, Color.white);
+            if (MouseInput.mouseCollideRect(mx, my, op3)) {drawCenteredString(g, "> Play <", op3, font, Color.black, Color.yellow);}
+            else drawCenteredString(g, "Play", op3, font, Color.black, Color.white);
 
             // Settings
             font = new Font("Splatfont 2", Font.PLAIN, Game.WIDTH/16);
-            settings = new Rectangle(Game.WIDTH/4, Game.HEIGHT/2+Game.HEIGHT/5, Game.WIDTH/2, Game.HEIGHT/8);
-            if (MouseInput.mouseCollideRect(mx, my, settings)) {drawCenteredString(g, "> Settings <", settings, font, Color.black, Color.yellow);}
-            else drawCenteredString(g, "Settings", settings, font, Color.black, Color.white);
+            if (MouseInput.mouseCollideRect(mx, my, op4)) {drawCenteredString(g, "> Settings <", op4, font, Color.black, Color.yellow);}
+            else drawCenteredString(g, "Settings", op4, font, Color.black, Color.white);
+
+            // Information
+            font = new Font("Splatfont 2", Font.PLAIN, Game.WIDTH/16);
+            if (MouseInput.mouseCollideRect(mx, my, op5)) {drawCenteredString(g, "> Information <", op5, font, Color.black, Color.yellow);}
+            else drawCenteredString(g, "Information", op5, font, Color.black, Color.white);
+
+            // Credits
+            font = new Font("Splatfont 2", Font.PLAIN, Game.WIDTH/16);
+            if (MouseInput.mouseCollideRect(mx, my, op6)) {drawCenteredString(g, "> Credits <", op6, font, Color.black, Color.yellow);}
+            else drawCenteredString(g, "Credits", op6, font, Color.black, Color.white);
         }
 
-        if (menu == "Settings") {
+        else if (menu == "Settings") {
             font = new Font("Splatfont 2", Font.PLAIN, Game.WIDTH/16);
 
             // 640x480
@@ -77,7 +83,35 @@ public class HUD {
             else drawCenteredString(g, "Back", op6, font, Color.black, Color.white);
         }
 
-        if (menu == "Play") {
+        else if (menu == "Information") {
+            font = new Font("Splatfont 2", Font.PLAIN, Game.WIDTH/16);
+
+            // Info
+            drawCenteredString(g, "Lorem", op1, font, Color.black, Color.white);
+            drawCenteredString(g, "Ipsum", op2, font, Color.black, Color.white);
+            drawCenteredString(g, "Check", op3, font, Color.black, Color.white);
+            drawCenteredString(g, "README.md", op4, font, Color.black, Color.white);
+
+            // Back
+            if (MouseInput.mouseCollideRect(mx, my, op6)) {drawCenteredString(g, "> Back <", op6, font, Color.black, Color.yellow);}
+            else drawCenteredString(g, "Back", op6, font, Color.black, Color.white);
+        }
+
+        else if (menu == "Credits") {
+            font = new Font("Splatfont 2", Font.PLAIN, Game.WIDTH/16);
+
+            // Credits
+            drawCenteredString(g, "Ian F.", op1, font, Color.black, Color.white);
+            drawCenteredString(g, "Kevin X.", op2, font, Color.black, Color.white);
+            drawCenteredString(g, "Matthew F.", op3, font, Color.black, Color.white);
+            drawCenteredString(g, "ICS4U", op4, font, Color.black, Color.white);
+
+            // Back
+            if (MouseInput.mouseCollideRect(mx, my, op6)) {drawCenteredString(g, "> Back <", op6, font, Color.black, Color.yellow);}
+            else drawCenteredString(g, "Back", op6, font, Color.black, Color.white);
+        }
+
+        else if (menu == "Play") {
             font = new Font("Splatfont 2", Font.PLAIN, Game.WIDTH/16);
 
             // Against AI
@@ -101,7 +135,7 @@ public class HUD {
             else drawCenteredString(g, "Back", op6, font, Color.black, Color.white);
         }
 
-        if (menu == "PvC") {
+        else if (menu == "PvC") {
             font = new Font("Splatfont 2", Font.PLAIN, Game.WIDTH/16);
             drawCenteredString(g, "Choose Your Character", new Rectangle(Game.WIDTH/4, 0, Game.WIDTH/2, Game.HEIGHT/8), font, Color.black, Color.white);
             if (MouseInput.mouseCollideRect(mx, my, new Rectangle(Game.WIDTH/4, Game.HEIGHT/2+Game.HEIGHT/3, Game.WIDTH/2, Game.HEIGHT/8))) {

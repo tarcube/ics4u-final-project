@@ -14,14 +14,16 @@ public class PromptQuestionButton extends GameObject {
 
     public PromptQuestionButton(int x, int y, int w, int h, ID id, int z) {
         super(x, y, w, h, id, z);
+        this.initX = x;
+        this.initY = y;
     }
 
     public void tick(int ticks) {
         if (id == ID.Button) {
             x += dx;
             y += dy;
-            // if (x < initX) dx = 0;
-            // if (x > initX) dx = 0;
+            if (x < initX) dx = 0;
+            if (x > initX+Game.WIDTH) dx = 0;
         }
     }
 
@@ -29,6 +31,15 @@ public class PromptQuestionButton extends GameObject {
         if (id == ID.Button) {
             g.setColor(Game.randomColorBy2);
             g.fillRect(x, y, w, h);
+        }
+    }
+
+    public boolean mouseOverButton(int mx, int my) {
+        if ((mx > x && mx < x + w) && (my > y && my < y + h)) {
+            return true;
+        }
+        else {
+            return false;
         }
     }
 

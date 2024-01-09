@@ -129,7 +129,9 @@ public class BoardInitialiser {
                 Integer id = Integer.parseInt(line);
                 line = reader.nextLine();
                 while (!line.contains("-")) {
-                    if (line != "") temporary.add(line);
+                    if (line != "") {
+                        temporary.add(line);
+                    }
                     line = reader.nextLine();
                 }
                 StateChecker.questions.put(id, new ArrayList<String>(temporary));
@@ -139,5 +141,10 @@ public class BoardInitialiser {
         }
         catch (Exception e) {System.out.println(e);}
         //// System.out.println(StateChecker.questions);
+        for (int i = 0; i < 6; i++) {
+            PromptQuestionButton op = new PromptQuestionButton(Game.WIDTH/4, 35+100*i, Game.WIDTH/2, 80, ID.Button, 0);
+            handler.addObject(op);
+            StateChecker.prompts.add(op);
+        }
     }
 }
