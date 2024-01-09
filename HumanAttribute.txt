@@ -24,6 +24,34 @@ RACHEL
 JOE
 MIA
 
+_male_gender_
+SAM
+NICK
+DAVID
+LEO
+DANIEL
+BEN
+AL
+MIKE
+GABE
+JORDAN
+ERIC
+JOE
+
+_female_gender_
+OLIVIA
+SOFIA
+LIZ
+LILY
+EMMA
+KATIE
+AMY
+FARAH
+LAURA
+CARMEN
+RACHEL
+MIA
+
 _brown_hair_
 SOFIA
 LILY
@@ -59,15 +87,18 @@ EMMA
 DANIEL
 
 _long_hair_
-OLIVIA
 LIZ
 LILY
-EMMA
-KATIE
-FARAH
 LAURA
 RACHEL
 MIA
+
+_tied_hair_
+OLIVIA
+EMMA
+DANIEL
+KATIE
+FARAH
 
 _short_hair_
 SAM
@@ -75,7 +106,6 @@ NICK
 DAVID
 SOFIA
 LEO
-DANIEL
 BEN
 AMY
 MIKE
@@ -126,31 +156,41 @@ AMY
 RACHEL
 JOE
 
-_earrings_
-DAVID
+_piercing_
+BEN
+NICK
 SOFIA
 LAURA
 JORDAN
 CARMEN
 RACHEL
 
-_covering_
+_headgear_
 SAM
 DAVID
 LILY
 KATIE
 MIKE
 
-_beard_
+_facial_hair_
 DANIEL
 AL
 JORDAN
-
-_moustache_
 LEO
-DANIEL
-AL
+DAVID
 JOE
+
+_visible_teeth_
+DAVID
+SOFIA
+LIZ
+LILY
+LEO
+MIKE
+LAURA
+CARMEN
+JOE
+MIA
 
 _pale_skin_
 NICK
