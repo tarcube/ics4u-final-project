@@ -3,7 +3,7 @@
     Mr.A ICS4U1
     Wednesday, January 10th, 2024
     Guess Who - Final Programming Assignment
-    Version Beta 0.5h
+    Version Beta 0.5i
     +Game.java [3] (MAIN)
     TODO: Add summary of contents in this class
 */
@@ -70,8 +70,8 @@ public class Game extends Canvas implements Runnable {
         stateChecker = new StateChecker();
         // Add objects to the game
         handler.addObject(new Object(0, 0, 0, 0, ID.Object));
-        handler.addObject(new Human(0, 0, 0, 0, ID.Human));
-        handler.addObject(new PromptQuestionButton(0, 0, 0, 0, ID.Button1));
+        handler.addObject(new Human(0, 0, 0, 0, ID.Object));
+        handler.addObject(new PromptQuestionButton(0, 0, 0, 0, ID.Object));
     }
 
     // Method to update the game state

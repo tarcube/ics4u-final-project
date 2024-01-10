@@ -1,3 +1,11 @@
+0
+Hair Colour
+Hair Length
+Eye Colour
+Accessories
+Skin / Gender
+Other
+
 -1
 Does your character have brown hair?
 Does your character have black hair?

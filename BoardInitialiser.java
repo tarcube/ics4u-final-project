@@ -123,7 +123,7 @@ public class BoardInitialiser {
             Scanner reader = new Scanner(file);
             String line = reader.nextLine();
             ArrayList<String> temporary = new ArrayList<String>();
-            for (int i = 0; i < 6; i++) {
+            for (int i = 0; i < 7; i++) {
                 Integer id = Integer.parseInt(line);
                 line = reader.nextLine();
                 while (!line.contains("-")) {
