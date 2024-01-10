@@ -103,7 +103,7 @@ public class HUD {
             // Credits
             drawCenteredString(g, "Ian F.", op1, font, Color.black, Color.white);
             drawCenteredString(g, "Kevin X.", op2, font, Color.black, Color.white);
-            drawCenteredString(g, "Matthew F.", op3, font, Color.black, Color.white);
+            drawCenteredString(g, "Matthew X.", op3, font, Color.black, Color.white);
             drawCenteredString(g, "ICS4U", op4, font, Color.black, Color.white);
 
             // Back
