@@ -1,6 +1,8 @@
 /*
     +KeyInput.java [9] (Frontend)
-    TODO: Add summary of contents in this class
+
+    Registers key input
+    
 */
 
 // Imports

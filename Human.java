@@ -1,14 +1,14 @@
 /*
     +Human.java [7] (Backend)
-    TODO: Add summary of contents in this class
-*/
 
-// TODO: Comment this class
+    This class handles character object creation
+*/
 
 // Imports
 import java.awt.*;
 
 public class Human extends GameObject {
+    // initialize all the character attribute variables
     private String name = "";
     private String gender;
     private String hairColour;
@@ -30,11 +30,13 @@ public class Human extends GameObject {
     private int dy = 0;
 
     public Human(int x, int y, int w, int h, ID id) {
+        // inherits variables from GameObject
         super(x, y, w, h, id);
         this.initX = x;
         this.initY = y;
     }
 
+    // this method handles ticks
     public void tick(int ticks) {
         if (id == ID.Human) {
             if (mouseOverHuman(HUD.mx, HUD.my)) hovered = true;
@@ -46,12 +48,15 @@ public class Human extends GameObject {
         }
     }
 
+    // This method handles how the GUI is displayed
     public void render(Graphics g) {
         if (id == ID.Human) {
+            // generates a random background color
             if (!hovered) g.setColor(Game.randomColorBy2);
             else g.setColor(new Color(0, 0, 0, 64));
             if (selected) g.setColor(new Color(255, 255, 0, 128));
             g.fillRect(x, y, w, h);
+            // imports the font used for the game
             Font font = new Font("Splatfont 2", Font.PLAIN, Game.WIDTH/40);
             g.setFont(font);
             g.setColor(Game.randomColor);
@@ -65,6 +70,7 @@ public class Human extends GameObject {
         }
     }
 
+    // This method handles if the mouse is hovering over a character box
     public boolean mouseOverHuman(int mx, int my) {
         if ((mx > x && mx < x + w) && (my > y && my < y + h)) {
             return true;
@@ -74,6 +80,7 @@ public class Human extends GameObject {
         }
     }
 
+    // Getters and Setter methods
     public String getName() {return name;}
     public void setName(String name) {this.name = name;}
     public String getGender() {return gender;}
