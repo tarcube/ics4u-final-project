@@ -7,7 +7,7 @@
 import java.awt.*;
 
 public class HUD {
-    public static String menu = "Title";
+    private static String menu = "Title";
     public static int mx, my;
     public static Rectangle op1, op2, op3, op4, op5, op6;
 
@@ -144,12 +144,12 @@ public class HUD {
             else drawCenteredString(g, "Confirm", new Rectangle(Game.WIDTH/4, Game.HEIGHT/2+Game.HEIGHT/3, Game.WIDTH/2, Game.HEIGHT/8), font, Color.black, Color.white);
         }
 
-        if (StateChecker.camera == "PromptQuestions") {
+        if (StateChecker.getCamera() == "PromptQuestions") {
             font = new Font("Splatfont 2", Font.PLAIN, Game.WIDTH/8);
             drawCenteredString(g, "<", new Rectangle(0, 0, Game.WIDTH/10, Game.HEIGHT), font, new Color(255, 255, 255, 64), new Color(255, 255, 255, 64));
         }
 
-        if (StateChecker.camera == "HumansGrid") {
+        if (StateChecker.getCamera() == "HumansGrid") {
             font = new Font("Splatfont 2", Font.PLAIN, Game.WIDTH/8);
             drawCenteredString(g, ">", new Rectangle(Game.WIDTH-Game.WIDTH/10, 0, Game.WIDTH/10, Game.HEIGHT), font, new Color(255, 255, 255, 64), new Color(255, 255, 255, 64));
         }
@@ -187,4 +187,7 @@ public class HUD {
         // Draw the String
         g.drawString(text, x, y);
     }
+
+    public static String getMenu() {return menu;}
+    public static void setMenu(String menu) {HUD.menu = menu;}
 }

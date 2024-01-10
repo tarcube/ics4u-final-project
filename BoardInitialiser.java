@@ -101,7 +101,7 @@ public class BoardInitialiser {
 
     public static void finishSetup(int type) {
         if (type == 0) {
-            HUD.menu = "";
+            HUD.setMenu("");
             StateChecker.turn = "Player";
             for (int i = 0; i < humans.size(); i++) {
                 humans.get(i).setDx(-Game.WIDTH/40);
@@ -112,7 +112,7 @@ public class BoardInitialiser {
                 humans.get(i).setIfSelected(false);
             }
             StateChecker.playerGrid = humans;
-            StateChecker.camera = "PromptQuestions";
+            StateChecker.setCamera("PromptQuestions");
             StateChecker.computerHuman = humans.get(r.nextInt(24));
             while (StateChecker.computerHuman.getIfOutlawed()) {
                 StateChecker.computerHuman = humans.get(r.nextInt(24));

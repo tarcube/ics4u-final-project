@@ -21,14 +21,14 @@ public class MouseInput extends MouseAdapter {
         String file = "colon_3.wav";
         audioplayer.play(file);
 
-        if (HUD.menu == "Title") {
-            if (mouseCollideRect(HUD.mx, HUD.my, HUD.op3)) HUD.menu = "Play";
-            else if (mouseCollideRect(HUD.mx, HUD.my, HUD.op4)) HUD.menu = "Settings";
-            else if (mouseCollideRect(HUD.mx, HUD.my, HUD.op5)) HUD.menu = "Information";
-            else if (mouseCollideRect(HUD.mx, HUD.my, HUD.op6)) HUD.menu = "Credits";
+        if (HUD.getMenu() == "Title") {
+            if (mouseCollideRect(HUD.mx, HUD.my, HUD.op3)) HUD.setMenu("Play");
+            else if (mouseCollideRect(HUD.mx, HUD.my, HUD.op4)) HUD.setMenu("Settings");
+            else if (mouseCollideRect(HUD.mx, HUD.my, HUD.op5)) HUD.setMenu("Information");
+            else if (mouseCollideRect(HUD.mx, HUD.my, HUD.op6)) HUD.setMenu("Credits");
         }
 
-        else if (HUD.menu == "Settings") {
+        else if (HUD.getMenu() == "Settings") {
             if (mouseCollideRect(HUD.mx, HUD.my, HUD.op1)) {
                 Game.WIDTH = 640;
                 Game.HEIGHT = 480;
@@ -54,12 +54,12 @@ public class MouseInput extends MouseAdapter {
                 Game.randomColor = new Color(Game.red, Game.green, Game.blue);
                 Game.randomColorBy2 = new Color(Game.red/2, Game.green/2, Game.blue/2);
             }
-            else if (mouseCollideRect(HUD.mx, HUD.my, HUD.op6)) HUD.menu = "Title";
+            else if (mouseCollideRect(HUD.mx, HUD.my, HUD.op6)) HUD.setMenu("Title");
         }
 
-        else if (HUD.menu == "Play") {
+        else if (HUD.getMenu() == "Play") {
             if (mouseCollideRect(HUD.mx, HUD.my, HUD.op1)) {
-                HUD.menu = "PvC";
+                HUD.setMenu("PvC");
                 BoardInitialiser.initialisePlayerVsComputer();
             }
             else if (mouseCollideRect(HUD.mx, HUD.my, HUD.op2)) {
@@ -71,18 +71,18 @@ public class MouseInput extends MouseAdapter {
             else if (mouseCollideRect(HUD.mx, HUD.my, HUD.op4)) {
                 // TODO: HUD.menu = "LAN";
             }
-            else if (mouseCollideRect(HUD.mx, HUD.my, HUD.op6)) HUD.menu = "Title";
+            else if (mouseCollideRect(HUD.mx, HUD.my, HUD.op6)) HUD.setMenu("Title");
         }
 
-        else if (HUD.menu == "Information") {
-            if (mouseCollideRect(HUD.mx, HUD.my, HUD.op6)) HUD.menu = "Title";
+        else if (HUD.getMenu() == "Information") {
+            if (mouseCollideRect(HUD.mx, HUD.my, HUD.op6)) HUD.setMenu("Title");
         }
 
-        else if (HUD.menu == "Credits") {
-            if (mouseCollideRect(HUD.mx, HUD.my, HUD.op6)) HUD.menu = "Title";
+        else if (HUD.getMenu() == "Credits") {
+            if (mouseCollideRect(HUD.mx, HUD.my, HUD.op6)) HUD.setMenu("Title");
         }
 
-        else if (HUD.menu == "PvC") {
+        else if (HUD.getMenu() == "PvC") {
             if (MouseInput.mouseCollideRect(HUD.mx, HUD.my, new Rectangle(Game.WIDTH/4, Game.HEIGHT/2+Game.HEIGHT/3, Game.WIDTH/2, Game.HEIGHT/8))) {
                 BoardInitialiser.finishSetup(0);
             }
@@ -97,7 +97,7 @@ public class MouseInput extends MouseAdapter {
             }
         }
 
-        else if (StateChecker.camera == "PromptQuestions") {
+        else if (StateChecker.getCamera() == "PromptQuestions") {
             for (int i = 0; i < StateChecker.prompts.size(); i++) {
                 if (StateChecker.prompts.get(i).mouseOverButton(HUD.mx, HUD.my) && !StateChecker.prompts.get(i).getIfUnavailable()) {
                     if (StateChecker.catagory == 0) {
@@ -151,23 +151,23 @@ public class MouseInput extends MouseAdapter {
         HUD.mx = e.getX();
         HUD.my = e.getY();
         if (StateChecker.turn == "Player") {
-            if (e.getX() < Game.WIDTH/10 && StateChecker.camera == "PromptQuestions") {
+            if (e.getX() < Game.WIDTH/10 && StateChecker.getCamera() == "PromptQuestions") {
                 for (int i = 0; i < BoardInitialiser.humans.size(); i++) {
                     BoardInitialiser.humans.get(i).setDx(Game.WIDTH/40);
                 }
                 for (int i = 0; i < StateChecker.prompts.size(); i++) {
                     StateChecker.prompts.get(i).setDx(Game.WIDTH/40);
                 }
-                StateChecker.camera = "HumansGrid";
+                StateChecker.setCamera("HumansGrid");
             }
-            if (e.getX() > Game.WIDTH-Game.WIDTH/10 && StateChecker.camera == "HumansGrid") {
+            if (e.getX() > Game.WIDTH-Game.WIDTH/10 && StateChecker.getCamera() == "HumansGrid") {
                 for (int i = 0; i < BoardInitialiser.humans.size(); i++) {
                     BoardInitialiser.humans.get(i).setDx(-Game.WIDTH/40);
                 }
                 for (int i = 0; i < StateChecker.prompts.size(); i++) {
                     StateChecker.prompts.get(i).setDx(-Game.WIDTH/40);
                 }
-                StateChecker.camera = "PromptQuestions";
+                StateChecker.setCamera("PromptQuestions");
             }
         }
     }
