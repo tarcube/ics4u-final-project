@@ -117,6 +117,7 @@ public class BoardInitialiser {
             while (StateChecker.computerHuman.getIfOutlawed()) {
                 StateChecker.computerHuman = humans.get(r.nextInt(24));
             }
+            System.out.println(StateChecker.computerHuman.getName());
         }
         try {
             File file = new File("QuestionPrompt.txt");

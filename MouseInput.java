@@ -122,19 +122,19 @@ public class MouseInput extends MouseAdapter {
                     }
                     else {
                         if (StateChecker.prompts.get(i).getId() == ID.Button1) {
-                            StateChecker.compareAttributes(StateChecker.catagory*10-1);
+                            System.out.println(StateChecker.compareAttributes(StateChecker.catagory*10-1));
                         }
                         if (StateChecker.prompts.get(i).getId() == ID.Button2) {
-                            StateChecker.compareAttributes(StateChecker.catagory*10-2);
+                            System.out.println(StateChecker.compareAttributes(StateChecker.catagory*10-2));
                         }
                         if (StateChecker.prompts.get(i).getId() == ID.Button3) {
-                            StateChecker.compareAttributes(StateChecker.catagory*10-3);
+                            System.out.println(StateChecker.compareAttributes(StateChecker.catagory*10-3));
                         }
                         if (StateChecker.prompts.get(i).getId() == ID.Button4) {
-                            StateChecker.compareAttributes(StateChecker.catagory*10-4);
+                            System.out.println(StateChecker.compareAttributes(StateChecker.catagory*10-4));
                         }
                         if (StateChecker.prompts.get(i).getId() == ID.Button5) {
-                            StateChecker.compareAttributes(StateChecker.catagory*10-5);
+                            System.out.println(StateChecker.compareAttributes(StateChecker.catagory*10-5));
                         }
                         if (StateChecker.prompts.get(i).getId() == ID.Button6) {
                             StateChecker.catagory = 0;
