@@ -1,6 +1,8 @@
 /*
     +Handler.java [5] (Frontend)
-    TODO: Add summary of contents in this class
+
+    This class handles all the objects in the game. 
+
 */
 
 // Imports
