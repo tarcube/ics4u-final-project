@@ -16,4 +16,8 @@ public class StateChecker {
     public static HashMap<Integer, ArrayList<String>> questions = new HashMap<Integer, ArrayList<String>>();
     public static ArrayList<PromptQuestionButton> prompts = new ArrayList<>();
     public static int catagory;
+
+    public static void compareAttributes(int id) {
+        System.out.println("bruh");
+    }
 }

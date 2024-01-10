@@ -99,7 +99,7 @@ public class MouseInput extends MouseAdapter {
 
         else if (StateChecker.camera == "PromptQuestions") {
             for (int i = 0; i < StateChecker.prompts.size(); i++) {
-                if (StateChecker.prompts.get(i).mouseOverButton(HUD.mx, HUD.my)) {
+                if (StateChecker.prompts.get(i).mouseOverButton(HUD.mx, HUD.my) && !StateChecker.prompts.get(i).getIfUnavailable()) {
                     if (StateChecker.catagory == 0) {
                         if (StateChecker.prompts.get(i).getId() == ID.Button1) {
                             StateChecker.catagory = -1;
@@ -121,6 +121,21 @@ public class MouseInput extends MouseAdapter {
                         }
                     }
                     else {
+                        if (StateChecker.prompts.get(i).getId() == ID.Button1) {
+                            StateChecker.compareAttributes(StateChecker.catagory*10-1);
+                        }
+                        if (StateChecker.prompts.get(i).getId() == ID.Button2) {
+                            StateChecker.compareAttributes(StateChecker.catagory*10-2);
+                        }
+                        if (StateChecker.prompts.get(i).getId() == ID.Button3) {
+                            StateChecker.compareAttributes(StateChecker.catagory*10-3);
+                        }
+                        if (StateChecker.prompts.get(i).getId() == ID.Button4) {
+                            StateChecker.compareAttributes(StateChecker.catagory*10-4);
+                        }
+                        if (StateChecker.prompts.get(i).getId() == ID.Button5) {
+                            StateChecker.compareAttributes(StateChecker.catagory*10-5);
+                        }
                         if (StateChecker.prompts.get(i).getId() == ID.Button6) {
                             StateChecker.catagory = 0;
                         }
