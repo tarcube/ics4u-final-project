@@ -96,6 +96,38 @@ public class MouseInput extends MouseAdapter {
                 }
             }
         }
+
+        else if (StateChecker.camera == "PromptQuestions") {
+            for (int i = 0; i < StateChecker.prompts.size(); i++) {
+                if (StateChecker.prompts.get(i).mouseOverButton(HUD.mx, HUD.my)) {
+                    if (StateChecker.catagory == 0) {
+                        if (StateChecker.prompts.get(i).getId() == ID.Button1) {
+                            StateChecker.catagory = -1;
+                        }
+                        if (StateChecker.prompts.get(i).getId() == ID.Button2) {
+                            StateChecker.catagory = -2;
+                        }
+                        if (StateChecker.prompts.get(i).getId() == ID.Button3) {
+                            StateChecker.catagory = -3;
+                        }
+                        if (StateChecker.prompts.get(i).getId() == ID.Button4) {
+                            StateChecker.catagory = -4;
+                        }
+                        if (StateChecker.prompts.get(i).getId() == ID.Button5) {
+                            StateChecker.catagory = -5;
+                        }
+                        if (StateChecker.prompts.get(i).getId() == ID.Button6) {
+                            StateChecker.catagory = -6;
+                        }
+                    }
+                    else {
+                        if (StateChecker.prompts.get(i).getId() == ID.Button6) {
+                            StateChecker.catagory = 0;
+                        }
+                    }
+                }
+            }
+        }
     }
 
     public void mouseReleased(MouseEvent e) {}
