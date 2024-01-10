@@ -1,7 +1,8 @@
 /*
     +KeyInput.java [9] (Frontend)
 
-    Registers key input. 
+    Registers key input
+    
 */
 
 // Imports

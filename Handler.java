@@ -1,7 +1,7 @@
 /*
     +Handler.java [5] (Frontend)
 
-    This class handles all the objects in the game. 
+    This class handles all the objects in the game
 
 */
 

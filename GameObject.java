@@ -1,7 +1,7 @@
 /*
     +GameObject.java [4] (Frontend)
 
-    Abstract class to make object attributes 
+    Abstract class to make object attributes
 */
 
 // Imports
@@ -26,7 +26,7 @@ public abstract class GameObject {
     }
 
     // Abstract methods that will be implemented in the subclasses
-    
+
     // method to update the state of the object
     public abstract void tick(int ticks);
     // method to draw the object

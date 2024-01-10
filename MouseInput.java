@@ -1,14 +1,16 @@
 /*
     +MouseInput.java [10] (Frontend)
-    TODO: Add summary of contents in this class
+    
+    This program handles all mouse action
 */
 
 // Imports
 import java.awt.*;
 import java.awt.event.*;
 
-// TODO: Comment
+// TODO: complete detailed comments 
 
+// handles all mouse activities 
 public class MouseInput extends MouseAdapter {
     public static AudioPlayer audioplayer;
 
@@ -17,7 +19,9 @@ public class MouseInput extends MouseAdapter {
         audioplayer = new AudioPlayer();
     }
 
+    // actions when mouse is pressed
     public void mousePressed(MouseEvent e) {
+        // sound feedback everytime mouse is pressed
         String file = "sfx/colon_3.wav";
         audioplayer.play(file);
 
@@ -145,6 +149,7 @@ public class MouseInput extends MouseAdapter {
         }
     }
 
+    // actions when moused is released 
     public void mouseReleased(MouseEvent e) {}
 
     public void mouseMoved(MouseEvent e) {
