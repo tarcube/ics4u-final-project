@@ -21,7 +21,7 @@ public class PromptQuestionButton extends GameObject {
     }
 
     public void tick(int ticks) {
-        if (mouseOverButton(HUD.mx, HUD.my)) hovered = true;
+        if (mouseOverButton(HUD.mx, HUD.my) && StateChecker.catagory != -7) hovered = true;
         else hovered = false;
         x += dx;
         y += dy;
@@ -30,9 +30,11 @@ public class PromptQuestionButton extends GameObject {
     }
 
     public void render(Graphics g) {
-        if (!hovered) g.setColor(Game.randomColorBy2);
-        else g.setColor(new Color(0, 0, 0, 64));
-        g.fillRect(x, y, w, h);
+        if (id != ID.Button7 || StateChecker.catagory == -7) {
+            if (!hovered) g.setColor(Game.randomColorBy2);
+            else g.setColor(new Color(0, 0, 0, 64));
+            g.fillRect(x, y, w, h);
+        }
         String text = "";
         if (id == ID.Button1) {
             Font font = new Font("Splatfont 2", Font.PLAIN, Game.WIDTH/40);
@@ -71,11 +73,18 @@ public class PromptQuestionButton extends GameObject {
             if (StateChecker.catagory == 0) {
                 text = StateChecker.questions.get(StateChecker.catagory).get(5);
             }
-            else {
-                text = "Back";
-            }
+            else if (StateChecker.catagory == -7) {text = "+";}
+            else {text = "Back";}
         }
-        if (!text.contains("+") && StateChecker.catagory != 7) {
+        if (id == ID.Button7 && StateChecker.catagory == -7) {
+            Font font = new Font("Splatfont 2", Font.PLAIN, Game.WIDTH/40);
+            g.setFont(font);
+            g.setColor(Game.randomColor);
+            if (StateChecker.output) text = "Yes";
+            else if (!StateChecker.output) text = "No";
+            g.drawString(text, x+w/10, y+h/2+h/3);
+        }
+        if (!text.contains("+")) {
             g.drawString(text, x+w/10, y+h/2+h/3);
             unavailable = false;
         }

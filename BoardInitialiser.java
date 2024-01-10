@@ -118,7 +118,7 @@ public class BoardInitialiser {
             while (StateChecker.computerHuman.getIfOutlawed()) {
                 StateChecker.computerHuman = humans.get(r.nextInt(24));
             }
-            System.out.println(StateChecker.computerHuman.getName());
+            //// System.out.println(StateChecker.computerHuman.getName());
         }
         try {
             File file = new File("QuestionPrompt.txt");
@@ -137,7 +137,6 @@ public class BoardInitialiser {
                 StateChecker.questions.put(id, new ArrayList<String>(temporary));
                 temporary.clear();
             }
-            System.out.println(StateChecker.questions);
             reader.close();
         }
         catch (Exception e) {System.out.println(e);}
@@ -166,6 +165,9 @@ public class BoardInitialiser {
         handler.addObject(op);
         StateChecker.prompts.add(op);
         op = new PromptQuestionButton(Game.WIDTH/4+Game.WIDTH, Game.HEIGHT/7*5+Game.HEIGHT/12, Game.WIDTH/2, Game.HEIGHT/8, ID.Button6);
+        handler.addObject(op);
+        StateChecker.prompts.add(op);
+        op = new PromptQuestionButton(Game.WIDTH/4+Game.WIDTH, Game.HEIGHT/7*0+Game.HEIGHT/12, Game.WIDTH/2, Game.HEIGHT-Game.HEIGHT/6, ID.Button7);
         handler.addObject(op);
         StateChecker.prompts.add(op);
     }

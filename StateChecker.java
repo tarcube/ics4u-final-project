@@ -16,9 +16,10 @@ public class StateChecker {
     public static HashMap<Integer, ArrayList<String>> questions = new HashMap<Integer, ArrayList<String>>();
     public static ArrayList<PromptQuestionButton> prompts = new ArrayList<>();
     public static int catagory;
+    public static Boolean output = true;
 
     public static Boolean compareAttributes(int id) {
-        catagory = 7;
+        catagory = -7;
         if (-11 == id) {return computerHuman.getHairColour() == "brown";}
         if (-12 == id) {return computerHuman.getHairColour() == "black";}
         if (-13 == id) {return computerHuman.getHairColour() == "blond";}

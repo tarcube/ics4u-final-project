@@ -14,5 +14,6 @@ public enum ID {
     Button3,
     Button4,
     Button5,
-    Button6;
+    Button6,
+    Button7;
 }
