@@ -1,9 +1,7 @@
 /*
     +BoardInitialiser.java [2] (Backend)
-    TODO: Add summary of contents in this class
+    This class initializes all the necessary components for creating the character board
 */
-
-// TODO: Comment this class
 
 // Imports
 import java.util.*;
@@ -24,8 +22,10 @@ public class BoardInitialiser {
     // This method parses a text file to gather information about which attributes humans have
     public static void parseHumanAttributes() {
         try {
+            // Creates ArrayList that stores all of the character names
             ArrayList<String> humanNames = new ArrayList<String>(24);
             String line = "";
+            // This Scanner Class identifies all the character names from the text file and inputs them into the ArrayList
             File file = new File("HumanAttribute.txt");
             Scanner reader = new Scanner(file);
             line = reader.nextLine();
@@ -36,6 +36,8 @@ public class BoardInitialiser {
             //// for (int i = 0; i < humans.size(); i++) {
             ////     System.out.println(humans.get(i));
             //// }
+
+            // This hashmap handles all the names that each attribute contains
             HashMap<String, ArrayList<String>> attributes = new HashMap<>();
             String attribute = "";
             ArrayList<String> names = new ArrayList<String>();
@@ -60,11 +62,13 @@ public class BoardInitialiser {
     // This method takes the information gathered earlier and builds the human objects
     public static void humanFactory(ArrayList<String> humanNames, HashMap<String, ArrayList<String>> attributes) {
         for (int i = 0; i < humanNames.size(); i++) {
+            // Each character's position in the grid
             int x = (int)(i%6+1)*Game.WIDTH/7-Game.WIDTH/9;
             int y = (int)(Math.floor(i/6)+1)*Game.HEIGHT/6;
             Human human = new Human(x, y, Game.WIDTH/8, Game.HEIGHT/8, ID.Human);
             String name = humanNames.get(i);
             human.setName(name);
+            // if character contains attribute, add that attribute to the character
             if (attributes.get("_brown_hair_").contains(name)) human.setHairColour("brown");
             if (attributes.get("_black_hair_").contains(name)) human.setHairColour("black");
             if (attributes.get("_blond_hair_").contains(name)) human.setHairColour("blond");
@@ -88,19 +92,23 @@ public class BoardInitialiser {
             handler.addObject(human);
         }
         //// for (int i = 0; i < 24; i++) System.out.println(humans.get(i).getName());
+        // Checks if the character is selected/highlighted by the user. If not it sets it back to false.
         for (int j = 0; j < humans.size(); j++) {
             humans.get(j).setIfSelected(false);
         }
         humans.get(r.nextInt(24)).setIfSelected(true);
     }
 
+    // initializes the player vs AI gamemode
     public static void initialisePlayerVsComputer() {
         for (int i = 0; i < humans.size(); i++) {handler.removeObject(humans.get(i));}
         parseHumanAttributes();
         StateChecker.computerGrid = new ArrayList<Human>(humans);
     }
 
+    // This method finalizes the game after the player has chosen a character
     public static void finishSetup(int type) {
+        // Sets the question menu and sets it as the player's turn
         if (type == 0) {
             HUD.setMenu("");
             StateChecker.turn = "Player";
@@ -120,6 +128,7 @@ public class BoardInitialiser {
             }
             System.out.println(StateChecker.computerHuman.getName());
         }
+        // opens the text file that contains the questions that can be asked
         try {
             File file = new File("QuestionPrompt.txt");
             Scanner reader = new Scanner(file);
@@ -149,6 +158,7 @@ public class BoardInitialiser {
         StateChecker.catagory = 0;
     }
 
+    // This method adds buttons to the GUI for each option
     public static void addButtons() {
         PromptQuestionButton op = new PromptQuestionButton(Game.WIDTH/4+Game.WIDTH, Game.HEIGHT/7*0+Game.HEIGHT/12, Game.WIDTH/2, Game.HEIGHT/8, ID.Button1);
         handler.addObject(op);
