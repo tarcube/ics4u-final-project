@@ -18,6 +18,7 @@ public class StateChecker {
     public static int catagory;
 
     public static Boolean compareAttributes(int id) {
+        catagory = 7;
         if (-11 == id) {return computerHuman.getHairColour() == "brown";}
         if (-12 == id) {return computerHuman.getHairColour() == "black";}
         if (-13 == id) {return computerHuman.getHairColour() == "blond";}

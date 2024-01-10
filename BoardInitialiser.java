@@ -81,6 +81,7 @@ public class BoardInitialiser {
             human.setEarrings(attributes.get("_piercings_").contains(name));
             human.setHeadGear(attributes.get("_headgear_").contains(name));
             human.setFacialHair(attributes.get("_facial_hair_").contains(name));
+            human.setVisibleTeeth(attributes.get("_visible_teeth_").contains(name));
             if (attributes.get("_pale_skin_").contains(name)) human.setSkinColour("pale");
             if (attributes.get("_dark_skin_").contains(name)) human.setSkinColour("dark");
             humans.add(human);
@@ -124,7 +125,7 @@ public class BoardInitialiser {
             Scanner reader = new Scanner(file);
             String line = reader.nextLine();
             ArrayList<String> temporary = new ArrayList<String>();
-            for (int i = 0; i < 7; i++) {
+            for (int i = 0; i <= 7; i++) {
                 Integer id = Integer.parseInt(line);
                 line = reader.nextLine();
                 while (!line.contains("-")) {
@@ -136,6 +137,7 @@ public class BoardInitialiser {
                 StateChecker.questions.put(id, new ArrayList<String>(temporary));
                 temporary.clear();
             }
+            System.out.println(StateChecker.questions);
             reader.close();
         }
         catch (Exception e) {System.out.println(e);}

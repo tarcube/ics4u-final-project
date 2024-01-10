@@ -75,7 +75,7 @@ public class PromptQuestionButton extends GameObject {
                 text = "Back";
             }
         }
-        if (!text.contains("+")) {
+        if (!text.contains("+") && StateChecker.catagory != 7) {
             g.drawString(text, x+w/10, y+h/2+h/3);
             unavailable = false;
         }
