@@ -16,7 +16,7 @@ public class PromptQuestionButton extends GameObject {
 
     public PromptQuestionButton(int x, int y, int w, int h, ID id) {
         super(x, y, w, h, id);
-        this.initX = x;
+        this.initX = x - Game.WIDTH;
         this.initY = y;
     }
 

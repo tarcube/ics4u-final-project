@@ -140,26 +140,29 @@ public class BoardInitialiser {
         catch (Exception e) {System.out.println(e);}
         //// System.out.println(StateChecker.questions);
         addButtons();
+        for (int i = 0; i < StateChecker.prompts.size(); i++) {
+            StateChecker.prompts.get(i).setDx(-Game.WIDTH/40);
+        }
         StateChecker.catagory = 0;
     }
 
     public static void addButtons() {
-        PromptQuestionButton op = new PromptQuestionButton(Game.WIDTH/4, Game.HEIGHT/7*0+Game.HEIGHT/12, Game.WIDTH/2, Game.HEIGHT/8, ID.Button1);
+        PromptQuestionButton op = new PromptQuestionButton(Game.WIDTH/4+Game.WIDTH, Game.HEIGHT/7*0+Game.HEIGHT/12, Game.WIDTH/2, Game.HEIGHT/8, ID.Button1);
         handler.addObject(op);
         StateChecker.prompts.add(op);
-        op = new PromptQuestionButton(Game.WIDTH/4, Game.HEIGHT/7*1+Game.HEIGHT/12, Game.WIDTH/2, Game.HEIGHT/8, ID.Button2);
+        op = new PromptQuestionButton(Game.WIDTH/4+Game.WIDTH, Game.HEIGHT/7*1+Game.HEIGHT/12, Game.WIDTH/2, Game.HEIGHT/8, ID.Button2);
         handler.addObject(op);
         StateChecker.prompts.add(op);
-        op = new PromptQuestionButton(Game.WIDTH/4, Game.HEIGHT/7*2+Game.HEIGHT/12, Game.WIDTH/2, Game.HEIGHT/8, ID.Button3);
+        op = new PromptQuestionButton(Game.WIDTH/4+Game.WIDTH, Game.HEIGHT/7*2+Game.HEIGHT/12, Game.WIDTH/2, Game.HEIGHT/8, ID.Button3);
         handler.addObject(op);
         StateChecker.prompts.add(op);
-        op = new PromptQuestionButton(Game.WIDTH/4, Game.HEIGHT/7*3+Game.HEIGHT/12, Game.WIDTH/2, Game.HEIGHT/8, ID.Button4);
+        op = new PromptQuestionButton(Game.WIDTH/4+Game.WIDTH, Game.HEIGHT/7*3+Game.HEIGHT/12, Game.WIDTH/2, Game.HEIGHT/8, ID.Button4);
         handler.addObject(op);
         StateChecker.prompts.add(op);
-        op = new PromptQuestionButton(Game.WIDTH/4, Game.HEIGHT/7*4+Game.HEIGHT/12, Game.WIDTH/2, Game.HEIGHT/8, ID.Button5);
+        op = new PromptQuestionButton(Game.WIDTH/4+Game.WIDTH, Game.HEIGHT/7*4+Game.HEIGHT/12, Game.WIDTH/2, Game.HEIGHT/8, ID.Button5);
         handler.addObject(op);
         StateChecker.prompts.add(op);
-        op = new PromptQuestionButton(Game.WIDTH/4, Game.HEIGHT/7*5+Game.HEIGHT/12, Game.WIDTH/2, Game.HEIGHT/8, ID.Button6);
+        op = new PromptQuestionButton(Game.WIDTH/4+Game.WIDTH, Game.HEIGHT/7*5+Game.HEIGHT/12, Game.WIDTH/2, Game.HEIGHT/8, ID.Button6);
         handler.addObject(op);
         StateChecker.prompts.add(op);
     }

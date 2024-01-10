@@ -18,7 +18,7 @@ public class MouseInput extends MouseAdapter {
     }
 
     public void mousePressed(MouseEvent e) {
-        String file = "colon_3.wav";
+        String file = "sfx/colon_3.wav";
         audioplayer.play(file);
 
         if (HUD.getMenu() == "Title") {
