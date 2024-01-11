@@ -126,19 +126,39 @@ public class MouseInput extends MouseAdapter {
                     }
                     else {
                         if (StateChecker.prompts.get(i).getId() == ID.Button1) {
-                            StateChecker.output = StateChecker.compareAttributes(StateChecker.catagory*10-1);
+                            StateChecker.output += "You asked \n'" + StateChecker.questions.get(StateChecker.catagory).get(0) +"'";
+                            if (StateChecker.compareAttributes(StateChecker.catagory*10-1)) {
+                                StateChecker.output += "\n The answer is 'Yes.' \n";
+                            }
+                            else StateChecker.output += "\n The answer is 'Yes.' \n";
                         }
                         if (StateChecker.prompts.get(i).getId() == ID.Button2) {
-                            StateChecker.output = StateChecker.compareAttributes(StateChecker.catagory*10-2);
+                            StateChecker.output += "You asked \n'" + StateChecker.questions.get(StateChecker.catagory).get(1) +"'";
+                            if (StateChecker.compareAttributes(StateChecker.catagory*10-2)) {
+                                StateChecker.output += "\n The answer is 'Yes.' \n";
+                            }
+                            else StateChecker.output += "\n The answer is 'Yes.' \n";
                         }
                         if (StateChecker.prompts.get(i).getId() == ID.Button3) {
-                            StateChecker.output = StateChecker.compareAttributes(StateChecker.catagory*10-3);
+                            StateChecker.output += "You asked \n'" + StateChecker.questions.get(StateChecker.catagory).get(2) +"'";
+                            if (StateChecker.compareAttributes(StateChecker.catagory*10-3)) {
+                                StateChecker.output += "\n The answer is 'Yes.' \n";
+                            }
+                            else StateChecker.output += "\n The answer is 'Yes.' \n";
                         }
                         if (StateChecker.prompts.get(i).getId() == ID.Button4) {
-                            StateChecker.output = StateChecker.compareAttributes(StateChecker.catagory*10-4);
+                            StateChecker.output += "You asked \n'" + StateChecker.questions.get(StateChecker.catagory).get(3) +"'";
+                            if (StateChecker.compareAttributes(StateChecker.catagory*10-4)) {
+                                StateChecker.output += "\n The answer is 'Yes.' \n";
+                            }
+                            else StateChecker.output += "\n The answer is 'Yes.' \n";
                         }
                         if (StateChecker.prompts.get(i).getId() == ID.Button5) {
-                            StateChecker.output = StateChecker.compareAttributes(StateChecker.catagory*10-5);
+                            StateChecker.output += "You asked \n'" + StateChecker.questions.get(StateChecker.catagory).get(4) +"'";
+                            if (StateChecker.compareAttributes(StateChecker.catagory*10-5)) {
+                                StateChecker.output += "\n The answer is 'Yes.' \n";
+                            }
+                            else StateChecker.output += "\n The answer is 'Yes.' \n";
                         }
                         if (StateChecker.prompts.get(i).getId() == ID.Button6) {
                             StateChecker.catagory = 0;

@@ -3,7 +3,7 @@
     Mr.A ICS4U1
     Wednesday, January 10th, 2024
     Guess Who - Final Programming Assignment
-    Version Pre-Release 0.7a
+    Version Pre-Release 0.7b
     +Game.java [3] (MAIN)
     TODO: Add summary of contents in this class
 */

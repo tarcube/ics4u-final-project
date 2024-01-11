@@ -80,11 +80,13 @@ public class PromptQuestionButton extends GameObject {
             Font font = new Font("Splatfont 2", Font.PLAIN, Game.WIDTH/40);
             g.setFont(font);
             g.setColor(Game.randomColor);
-            if (StateChecker.output) text = "Yes";
-            else if (!StateChecker.output) text = "No";
-            g.drawString(text, x+w/10, y+h/2+h/3);
+            text = StateChecker.output;
+            int split = y;
+            for (String line : text.split("\n")) {
+                g.drawString(line, x+w/10, split += g.getFontMetrics().getHeight());
+            }
         }
-        if (!text.contains("+")) {
+        else if (!text.contains("+")) {
             g.drawString(text, x+w/10, y+h/2+h/3);
             unavailable = false;
         }
