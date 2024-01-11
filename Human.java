@@ -69,9 +69,11 @@ public class Human extends GameObject {
         }
 
         // renders pictures of humans
-        Image img1 = Toolkit.getDefaultToolkit().getImage(name+".png");
-        g.drawImage(img1, x, y, null);
-
+        try {
+            Image img1 = Toolkit.getDefaultToolkit().getImage(name+".png");
+            g.drawImage(img1, x, y, null);
+        }
+        catch (Exception e) {System.out.println(e);}
     }
 
     // This method handles if the mouse is hovering over a character box

@@ -115,6 +115,7 @@ public class BoardInitialiser {
             while (StateChecker.computerHuman.getIfOutlawed()) {
                 StateChecker.computerHuman = humans.get(r.nextInt(24));
             }
+            System.out.println(StateChecker.computerHuman.getName());
 
             Human Eliminate = new Human(Game.WIDTH/3-Game.WIDTH/4, Game.HEIGHT-Game.HEIGHT/6, Game.WIDTH/6, Game.HEIGHT/8, ID.Eliminate);
             Human Finish = new Human(Game.WIDTH/3, Game.HEIGHT-Game.HEIGHT/6, Game.WIDTH/6, Game.HEIGHT/8, ID.Finish);
