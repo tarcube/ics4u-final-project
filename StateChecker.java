@@ -21,6 +21,7 @@ public class StateChecker {
     public static int max_id;
 
     public static Boolean compareAttributes(int id, boolean ai, int j) {
+        System.out.println(id);
         Human human = computerGrid.get(j);
         if (!ai) {human = computerHuman;}
         catagory = -7;

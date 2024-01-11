@@ -70,8 +70,8 @@ public class Human extends GameObject {
 
         // renders pictures of humans
         try {
-            Image img1 = Toolkit.getDefaultToolkit().getImage(name+".png");
-            g.drawImage(img1, x, y, null);
+            // BufferedImage image = ImageIO.read(new File(name+".png"));
+            // g.drawImage(image, x, y, null);
         }
         catch (Exception e) {System.out.println(e);}
     }

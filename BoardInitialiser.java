@@ -68,6 +68,8 @@ public class BoardInitialiser {
             String name = humanNames.get(i);
             human.setName(name);
             // if character contains attribute, add that attribute to the character
+            if (attributes.get("_male_gender_").contains(name)) human.setGender("male");
+            if (attributes.get("_female_gender_").contains(name)) human.setGender("female");
             if (attributes.get("_brown_hair_").contains(name)) human.setHairColour("brown");
             if (attributes.get("_black_hair_").contains(name)) human.setHairColour("black");
             if (attributes.get("_blond_hair_").contains(name)) human.setHairColour("blond");
