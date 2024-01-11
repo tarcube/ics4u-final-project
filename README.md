@@ -6,4 +6,5 @@
 - Then also get Better Comments
 - Compile and run Game.java, the main class
 
+:D
 :)
