@@ -18,6 +18,7 @@ public class StateChecker {
     public static int catagory;
     public static String output = "";
     public static String computer = "Good Game!";
+    public static int max_id;
 
     public static Boolean compareAttributes(int id, boolean ai, int j) {
         Human human = computerGrid.get(j);
@@ -50,7 +51,7 @@ public class StateChecker {
     public static void aiGreedyAlgorithm() {
         int[] ids = new int[] {-11, -12, -13, -14, -15, -21, -22, -23, -24, -31, -32, -33, -41, -42, -43, -44, -51, -52, -53, -54, -61};
         float min_range = computerGrid.size();
-        int max_id = 0;
+        max_id = 0;
         for (int i = 0; i < ids.length; i++) {
             int count = 0;
             for (int j = 0; j < computerGrid.size(); j++) {
@@ -66,6 +67,17 @@ public class StateChecker {
             }
         }
         BoardInitialiser.Computer.setName("'" + questions.get((int)(max_id/10)).get(-max_id%10-1) +"'");
+    }
+
+    public static void aiRemoveHumansFromGrid(boolean answer, int id) {
+        for (int j = 0; j < computerGrid.size(); j++) {
+            if (compareAttributes(id, true, j)) {
+                if (!answer) computerGrid.remove(j);
+            }
+            if (!compareAttributes(id, true, j)) {
+                if (answer) computerGrid.remove(j);
+            }
+        }
     }
 
     public static String getCamera() {return camera;}

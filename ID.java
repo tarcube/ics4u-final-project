@@ -13,6 +13,8 @@ public enum ID {
     Finish,
     Guess,
     Computer,
+    Yes,
+    No,
     Button1,
     Button2,
     Button3,
