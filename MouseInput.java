@@ -123,42 +123,42 @@ public class MouseInput extends MouseAdapter {
                     else {
                         if (StateChecker.prompts.get(i).getId() == ID.Button1) {
                             StateChecker.output += "You asked \n'" + StateChecker.questions.get(StateChecker.catagory).get(0) +"'";
-                            if (StateChecker.compareAttributes(StateChecker.catagory*10-1)) {
+                            if (StateChecker.compareAttributes(StateChecker.catagory*10-1, false, 0)) {
                                 StateChecker.output += "\n The answer is 'Yes.' \n";
                             }
-                            else StateChecker.output += "\n The answer is 'Yes.' \n";
+                            else {StateChecker.output += "\n The answer is 'No.' \n";}
                         }
 
                         if (StateChecker.prompts.get(i).getId() == ID.Button2) {
                             StateChecker.output += "You asked \n'" + StateChecker.questions.get(StateChecker.catagory).get(1) +"'";
-                            if (StateChecker.compareAttributes(StateChecker.catagory*10-2)) {
+                            if (StateChecker.compareAttributes(StateChecker.catagory*10-2, false, 0)) {
                                 StateChecker.output += "\n The answer is 'Yes.' \n";
                             }
-                            else StateChecker.output += "\n The answer is 'Yes.' \n";
+                            else {StateChecker.output += "\n The answer is 'No.' \n";}
                         }
 
                         if (StateChecker.prompts.get(i).getId() == ID.Button3) {
                             StateChecker.output += "You asked \n'" + StateChecker.questions.get(StateChecker.catagory).get(2) +"'";
-                            if (StateChecker.compareAttributes(StateChecker.catagory*10-3)) {
+                            if (StateChecker.compareAttributes(StateChecker.catagory*10-3, false, 0)) {
                                 StateChecker.output += "\n The answer is 'Yes.' \n";
                             }
-                            else StateChecker.output += "\n The answer is 'Yes.' \n";
+                            else {StateChecker.output += "\n The answer is 'No.' \n";}
                         }
 
                         if (StateChecker.prompts.get(i).getId() == ID.Button4) {
                             StateChecker.output += "You asked \n'" + StateChecker.questions.get(StateChecker.catagory).get(3) +"'";
-                            if (StateChecker.compareAttributes(StateChecker.catagory*10-4)) {
+                            if (StateChecker.compareAttributes(StateChecker.catagory*10-4, false, 0)) {
                                 StateChecker.output += "\n The answer is 'Yes.' \n";
                             }
-                            else StateChecker.output += "\n The answer is 'Yes.' \n";
+                            else {StateChecker.output += "\n The answer is 'No.' \n";}
                         }
 
                         if (StateChecker.prompts.get(i).getId() == ID.Button5) {
                             StateChecker.output += "You asked \n'" + StateChecker.questions.get(StateChecker.catagory).get(4) +"'";
-                            if (StateChecker.compareAttributes(StateChecker.catagory*10-5)) {
+                            if (StateChecker.compareAttributes(StateChecker.catagory*10-5, false, 0)) {
                                 StateChecker.output += "\n The answer is 'Yes.' \n";
                             }
-                            else StateChecker.output += "\n The answer is 'Yes.' \n";
+                            else {StateChecker.output += "\n The answer is 'No.' \n";}
                         }
 
                         if (StateChecker.prompts.get(i).getId() == ID.Button6) {
@@ -200,6 +200,7 @@ public class MouseInput extends MouseAdapter {
                         for (int j = 0; j < BoardInitialiser.humans.size(); j++) {
                             BoardInitialiser.humans.get(j).setDy(Game.HEIGHT/30);
                         }
+                        StateChecker.aiGreedyAlgorithm();
                     }
 
                     else if (StateChecker.playerGrid.get(i).getId() == ID.Guess) {

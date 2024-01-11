@@ -15,6 +15,8 @@ public class BoardInitialiser {
     public static ArrayList<Human> humans = new ArrayList<>();
     // Handler for managing game objects
     private static Handler handler;
+    // Computer text output object
+    public static Human Computer;
 
     public BoardInitialiser(Handler handler) {
         this.handler = handler;
@@ -116,7 +118,7 @@ public class BoardInitialiser {
             Human Eliminate = new Human(Game.WIDTH/3-Game.WIDTH/4, Game.HEIGHT-Game.HEIGHT/6, Game.WIDTH/6, Game.HEIGHT/8, ID.Eliminate);
             Human Finish = new Human(Game.WIDTH/3, Game.HEIGHT-Game.HEIGHT/6, Game.WIDTH/6, Game.HEIGHT/8, ID.Finish);
             Human Guess = new Human(Game.WIDTH/3+Game.WIDTH/4, Game.HEIGHT-Game.HEIGHT/6, Game.WIDTH/6, Game.HEIGHT/8, ID.Guess);
-            Human Computer = new Human(Game.WIDTH/4, Game.HEIGHT/4-Game.HEIGHT, Game.WIDTH/2, Game.HEIGHT/2, ID.Computer);
+            Computer = new Human(Game.WIDTH/4, Game.HEIGHT/4-Game.HEIGHT, Game.WIDTH/2, Game.HEIGHT/2, ID.Computer);
             humans.add(Eliminate);
             humans.add(Finish);
             humans.add(Guess);
