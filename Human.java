@@ -38,35 +38,31 @@ public class Human extends GameObject {
 
     // this method handles ticks
     public void tick(int ticks) {
-        if (id == ID.Human) {
-            if (mouseOverHuman(HUD.mx, HUD.my)) hovered = true;
-            else hovered = false;
-            x += dx;
-            y += dy;
-            if (x < initX-Game.WIDTH) dx = 0;
-            if (x > initX) dx = 0;
-        }
+        if (mouseOverHuman(HUD.mx, HUD.my)) hovered = true;
+        else hovered = false;
+        x += dx;
+        y += dy;
+        if (x < initX-Game.WIDTH) dx = 0;
+        if (x > initX) dx = 0;
     }
 
     // This method handles how the GUI is displayed
     public void render(Graphics g) {
-        if (id == ID.Human) {
-            // generates a random background color
-            if (!hovered) g.setColor(Game.randomColorBy2);
-            else g.setColor(new Color(0, 0, 0, 64));
-            if (selected) g.setColor(new Color(255, 255, 0, 128));
-            g.fillRect(x, y, w, h);
-            // imports the font used for the game
-            Font font = new Font("Splatfont 2", Font.PLAIN, Game.WIDTH/40);
+        // generates a random background color
+        if (!hovered) g.setColor(Game.randomColorBy2);
+        else g.setColor(new Color(0, 0, 0, 64));
+        if (selected) g.setColor(new Color(255, 255, 0, 128));
+        g.fillRect(x, y, w, h);
+        // imports the font used for the game
+        Font font = new Font("Splatfont 2", Font.PLAIN, Game.WIDTH/40);
+        g.setFont(font);
+        g.setColor(Game.randomColor);
+        g.drawString(name, x+w/10, y+h/2+h/3);
+        if (outlawed) {
+            g.setColor(new Color(255, 0, 0, 255));
+            font = new Font("Splatfont 2", Font.PLAIN, Game.WIDTH/8);
             g.setFont(font);
-            g.setColor(Game.randomColor);
-            g.drawString(name, x+w/10, y+h/2+h/3);
-            if (outlawed) {
-                g.setColor(new Color(255, 0, 0, 255));
-                font = new Font("Splatfont 2", Font.PLAIN, Game.WIDTH/8);
-                g.setFont(font);
-                g.drawString("X", x+w/4, y+h);
-            }
+            g.drawString("X", x+w/4, y+h);
         }
     }
 

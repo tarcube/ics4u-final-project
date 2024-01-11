@@ -1,9 +1,9 @@
 /*
     Ian F., Kevin X., Matthew X.
     Mr.A ICS4U1
-    Wednesday, January 10th, 2024
+    Friday, January 12th, 2024
     Guess Who - Final Programming Assignment
-    Version Pre-Release 0.7b
+    Version Pre-Release 0.7c
     +Game.java [3] (MAIN)
     TODO: Add summary of contents in this class
 */

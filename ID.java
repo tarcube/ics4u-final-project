@@ -9,6 +9,9 @@ public enum ID {
     // These are constants of the enumeration. It represents an object ID.
     Object,
     Human,
+    Eliminate,
+    Finish,
+    Guess,
     Button1,
     Button2,
     Button3,

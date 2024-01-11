@@ -127,6 +127,21 @@ public class BoardInitialiser {
             while (StateChecker.computerHuman.getIfOutlawed()) {
                 StateChecker.computerHuman = humans.get(r.nextInt(24));
             }
+            Human Eliminate = new Human(Game.WIDTH/3-Game.WIDTH/4, Game.HEIGHT-Game.HEIGHT/6, Game.WIDTH/6, Game.HEIGHT/8, ID.Eliminate);
+            Human Finish = new Human(Game.WIDTH/3, Game.HEIGHT-Game.HEIGHT/6, Game.WIDTH/6, Game.HEIGHT/8, ID.Finish);
+            Human Guess = new Human(Game.WIDTH/3+Game.WIDTH/4, Game.HEIGHT-Game.HEIGHT/6, Game.WIDTH/6, Game.HEIGHT/8, ID.Guess);
+            humans.add(Eliminate);
+            humans.add(Finish);
+            humans.add(Guess);
+            handler.addObject(Eliminate);
+            handler.addObject(Finish);
+            handler.addObject(Guess);
+            Eliminate.setName("Toggle Flag");
+            Finish.setName("Finish Turn");
+            Guess.setName("Guess Who");
+            Eliminate.setDx(-Game.WIDTH/40);
+            Finish.setDx(-Game.WIDTH/40);
+            Guess.setDx(-Game.WIDTH/40);
             //// System.out.println(StateChecker.computerHuman.getName());
         }
         // opens the text file that contains the questions that can be asked
