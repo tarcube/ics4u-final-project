@@ -67,6 +67,9 @@ public class StateChecker {
             }
         }
         BoardInitialiser.Computer.setName("'" + questions.get((int)(max_id/10)).get(-max_id%10-1) +"'");
+        if (computerGrid.size() == 1) {
+            BoardInitialiser.Computer.setName("'Is your character " + computerGrid.get(0).getName() + "?'");
+        }
     }
 
     public static void aiRemoveHumansFromGrid(boolean answer, int id) {

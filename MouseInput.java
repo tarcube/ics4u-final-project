@@ -219,7 +219,10 @@ public class MouseInput extends MouseAdapter {
                     }
 
                     else if (StateChecker.turn == "Computer") {
-                        if (StateChecker.playerGrid.get(i).getId() == ID.Yes) {
+                        if (StateChecker.playerGrid.size() == 1) {
+                            StateChecker.computer = "Good Game!";
+                        }
+                        else if (StateChecker.playerGrid.get(i).getId() == ID.Yes) {
                             StateChecker.aiRemoveHumansFromGrid(true, StateChecker.max_id);
                             for (int j = 0; j < BoardInitialiser.humans.size(); j++) {
                                 BoardInitialiser.humans.get(j).setDy(-Game.HEIGHT/30);
