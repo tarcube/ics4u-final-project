@@ -67,13 +67,13 @@ public class MouseInput extends MouseAdapter {
                 BoardInitialiser.initialisePlayerVsComputer();
             }
             else if (mouseCollideRect(HUD.mx, HUD.my, HUD.op2)) {
-                // TODO: HUD.menu = "PvC2";
+                // TODO: HUD.setMenu("CvP");
             }
             else if (mouseCollideRect(HUD.mx, HUD.my, HUD.op3)) {
-                // TODO: HUD.menu = "PnP";
+                // TODO: HUD.setMenu("H2P");
             }
             else if (mouseCollideRect(HUD.mx, HUD.my, HUD.op4)) {
-                // TODO: HUD.menu = "LAN";
+                // TODO: TODO: HUD.setMenu("VMH");
             }
             else if (mouseCollideRect(HUD.mx, HUD.my, HUD.op6)) HUD.setMenu("Title");
         }
@@ -90,15 +90,6 @@ public class MouseInput extends MouseAdapter {
             if (MouseInput.mouseCollideRect(HUD.mx, HUD.my, new Rectangle(Game.WIDTH/4, Game.HEIGHT/2+Game.HEIGHT/3, Game.WIDTH/2, Game.HEIGHT/8))) {
                 BoardInitialiser.finishSetup(0);
             }
-            else for (int i = 0; i < BoardInitialiser.humans.size(); i++) {
-                if (BoardInitialiser.humans.get(i).mouseOverHuman(HUD.mx, HUD.my)) {
-                    BoardInitialiser.humans.get(i).setIfSelected(true);
-                    StateChecker.playerHuman = BoardInitialiser.humans.get(i);
-                    for (int j = 0; j < BoardInitialiser.humans.size(); j++) {
-                        if (i != j) BoardInitialiser.humans.get(j).setIfSelected(false);
-                    }
-                }
-            }
         }
 
         else if (StateChecker.getCamera() == "PromptQuestions") {
@@ -108,18 +99,23 @@ public class MouseInput extends MouseAdapter {
                         if (StateChecker.prompts.get(i).getId() == ID.Button1) {
                             StateChecker.catagory = -1;
                         }
+
                         if (StateChecker.prompts.get(i).getId() == ID.Button2) {
                             StateChecker.catagory = -2;
                         }
+
                         if (StateChecker.prompts.get(i).getId() == ID.Button3) {
                             StateChecker.catagory = -3;
                         }
+
                         if (StateChecker.prompts.get(i).getId() == ID.Button4) {
                             StateChecker.catagory = -4;
                         }
+
                         if (StateChecker.prompts.get(i).getId() == ID.Button5) {
                             StateChecker.catagory = -5;
                         }
+
                         if (StateChecker.prompts.get(i).getId() == ID.Button6) {
                             StateChecker.catagory = -6;
                         }
@@ -132,6 +128,7 @@ public class MouseInput extends MouseAdapter {
                             }
                             else StateChecker.output += "\n The answer is 'Yes.' \n";
                         }
+
                         if (StateChecker.prompts.get(i).getId() == ID.Button2) {
                             StateChecker.output += "You asked \n'" + StateChecker.questions.get(StateChecker.catagory).get(1) +"'";
                             if (StateChecker.compareAttributes(StateChecker.catagory*10-2)) {
@@ -139,6 +136,7 @@ public class MouseInput extends MouseAdapter {
                             }
                             else StateChecker.output += "\n The answer is 'Yes.' \n";
                         }
+
                         if (StateChecker.prompts.get(i).getId() == ID.Button3) {
                             StateChecker.output += "You asked \n'" + StateChecker.questions.get(StateChecker.catagory).get(2) +"'";
                             if (StateChecker.compareAttributes(StateChecker.catagory*10-3)) {
@@ -146,6 +144,7 @@ public class MouseInput extends MouseAdapter {
                             }
                             else StateChecker.output += "\n The answer is 'Yes.' \n";
                         }
+
                         if (StateChecker.prompts.get(i).getId() == ID.Button4) {
                             StateChecker.output += "You asked \n'" + StateChecker.questions.get(StateChecker.catagory).get(3) +"'";
                             if (StateChecker.compareAttributes(StateChecker.catagory*10-4)) {
@@ -153,6 +152,7 @@ public class MouseInput extends MouseAdapter {
                             }
                             else StateChecker.output += "\n The answer is 'Yes.' \n";
                         }
+
                         if (StateChecker.prompts.get(i).getId() == ID.Button5) {
                             StateChecker.output += "You asked \n'" + StateChecker.questions.get(StateChecker.catagory).get(4) +"'";
                             if (StateChecker.compareAttributes(StateChecker.catagory*10-5)) {
@@ -160,8 +160,60 @@ public class MouseInput extends MouseAdapter {
                             }
                             else StateChecker.output += "\n The answer is 'Yes.' \n";
                         }
+
                         if (StateChecker.prompts.get(i).getId() == ID.Button6) {
                             StateChecker.catagory = 0;
+                        }
+                    }
+                }
+            }
+        }
+
+        else if (StateChecker.getCamera() == "HumansGrid") {
+            for (int i = 0; i < StateChecker.playerGrid.size(); i++) {
+                if (StateChecker.playerGrid.get(i).mouseOverHuman(HUD.mx, HUD.my)) {
+                    if (StateChecker.playerGrid.get(i).getId() == ID.Human) {
+                        if (!StateChecker.playerGrid.get(i).getIfSelected()) {
+                            StateChecker.playerGrid.get(i).setIfSelected(true);
+                        }
+                        else if (StateChecker.playerGrid.get(i).getIfSelected()) {
+                            StateChecker.playerGrid.get(i).setIfSelected(false);
+                        }
+                    }
+
+                    else if (StateChecker.playerGrid.get(i).getId() == ID.Eliminate) {
+                        for (int j = 0; j < StateChecker.playerGrid.size(); j++) {
+                            if (StateChecker.playerGrid.get(j).getIfSelected()) {
+                                StateChecker.playerGrid.get(j).setIfSelected(false);
+                                if (!StateChecker.playerGrid.get(j).getIfOutlawed()) {
+                                    StateChecker.playerGrid.get(j).setIfOutlawed(true);
+                                }
+                                else if (StateChecker.playerGrid.get(j).getIfOutlawed()) {
+                                    StateChecker.playerGrid.get(j).setIfOutlawed(false);
+                                }
+                            }
+                        }
+                    }
+
+                    else if (StateChecker.playerGrid.get(i).getId() == ID.Finish) {
+                        StateChecker.turn = "Computer";
+                        for (int j = 0; j < BoardInitialiser.humans.size(); j++) {
+                            BoardInitialiser.humans.get(j).setDy(Game.HEIGHT/30);
+                        }
+                    }
+
+                    else if (StateChecker.playerGrid.get(i).getId() == ID.Guess) {
+                        StateChecker.turn = "Computer";
+                        for (int j = 0; j < BoardInitialiser.humans.size(); j++) {
+                            BoardInitialiser.humans.get(j).setDy(Game.HEIGHT/30);
+                            if (BoardInitialiser.humans.get(j).getIfSelected()) {
+                                if (BoardInitialiser.humans.get(j) == StateChecker.computerHuman) {
+                                    System.out.println(StateChecker.computerHuman.getName() + " was right!");
+                                }
+                                else {
+                                    System.out.println(BoardInitialiser.humans.get(j).getName() + " was wrong...");
+                                }
+                            }
                         }
                     }
                 }

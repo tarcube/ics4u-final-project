@@ -114,21 +114,21 @@ public class HUD {
         else if (menu == "Play") {
             font = new Font("Splatfont 2", Font.PLAIN, Game.WIDTH/16);
 
-            // Against AI V1
-            if (MouseInput.mouseCollideRect(mx, my, op1)) {drawCenteredString(g, "> Against AI V1 <", op1, font, Color.black, Color.yellow);}
-            else drawCenteredString(g, "Against AI V1", op1, font, Color.black, Color.white);
+            // User goes first!
+            if (MouseInput.mouseCollideRect(mx, my, op1)) {drawCenteredString(g, "> User goes first! <", op1, font, Color.black, Color.yellow);}
+            else drawCenteredString(g, "User goes first!", op1, font, Color.black, Color.white);
 
-            // Against AI V2
-            if (MouseInput.mouseCollideRect(mx, my, op2)) {drawCenteredString(g, "> Against AI V2 <", op2, font, Color.black, Color.yellow);}
-            else drawCenteredString(g, "Against AI V2", op2, font, Color.black, Color.white);
+            // AI goes first!
+            if (MouseInput.mouseCollideRect(mx, my, op2)) {drawCenteredString(g, "> AI goes first! <", op2, font, Color.black, Color.yellow);}
+            else drawCenteredString(g, "AI goes first!", op2, font, Color.black, Color.white);
 
-            // Pass And Play
-            if (MouseInput.mouseCollideRect(mx, my, op3)) {drawCenteredString(g, "> Pass And Play <", op3, font, Color.black, Color.yellow);}
-            else drawCenteredString(g, "Pass And Play", op3, font, Color.black, Color.white);
+            // How to Play?
+            if (MouseInput.mouseCollideRect(mx, my, op3)) {drawCenteredString(g, "> How to Play? <", op3, font, Color.black, Color.yellow);}
+            else drawCenteredString(g, "How to Play?", op3, font, Color.black, Color.white);
 
-            // Local Area Network
-            if (MouseInput.mouseCollideRect(mx, my, op4)) {drawCenteredString(g, "> Local Area Network <", op4, font, Color.black, Color.yellow);}
-            else drawCenteredString(g, "Local Area Network", op4, font, Color.black, Color.white);
+            // View Match History
+            if (MouseInput.mouseCollideRect(mx, my, op4)) {drawCenteredString(g, "> View Match History <", op4, font, Color.black, Color.yellow);}
+            else drawCenteredString(g, "View Match History", op4, font, Color.black, Color.white);
 
             // Back
             if (MouseInput.mouseCollideRect(mx, my, op6)) {drawCenteredString(g, "> Back <", op6, font, Color.black, Color.yellow);}
@@ -137,21 +137,23 @@ public class HUD {
 
         else if (menu == "PvC") {
             font = new Font("Splatfont 2", Font.PLAIN, Game.WIDTH/16);
-            drawCenteredString(g, "Choose Your Character", new Rectangle(Game.WIDTH/4, 0, Game.WIDTH/2, Game.HEIGHT/8), font, Color.black, Color.white);
+            drawCenteredString(g, "Are You Ready?", new Rectangle(Game.WIDTH/4, 0, Game.WIDTH/2, Game.HEIGHT/8), font, Color.black, Color.white);
             if (MouseInput.mouseCollideRect(mx, my, new Rectangle(Game.WIDTH/4, Game.HEIGHT/2+Game.HEIGHT/3, Game.WIDTH/2, Game.HEIGHT/8))) {
-                drawCenteredString(g, "> Confirm <", new Rectangle(Game.WIDTH/4, Game.HEIGHT/2+Game.HEIGHT/3, Game.WIDTH/2, Game.HEIGHT/8), font, Color.black, Color.yellow);
+                drawCenteredString(g, "> Yessir <", new Rectangle(Game.WIDTH/4, Game.HEIGHT/2+Game.HEIGHT/3, Game.WIDTH/2, Game.HEIGHT/8), font, Color.black, Color.yellow);
             }
-            else drawCenteredString(g, "Confirm", new Rectangle(Game.WIDTH/4, Game.HEIGHT/2+Game.HEIGHT/3, Game.WIDTH/2, Game.HEIGHT/8), font, Color.black, Color.white);
+            else drawCenteredString(g, "Yessir", new Rectangle(Game.WIDTH/4, Game.HEIGHT/2+Game.HEIGHT/3, Game.WIDTH/2, Game.HEIGHT/8), font, Color.black, Color.white);
         }
 
-        if (StateChecker.getCamera() == "PromptQuestions") {
-            font = new Font("Splatfont 2", Font.PLAIN, Game.WIDTH/8);
-            drawCenteredString(g, "<", new Rectangle(0, 0, Game.WIDTH/10, Game.HEIGHT), font, new Color(255, 255, 255, 64), new Color(255, 255, 255, 64));
-        }
+        if (StateChecker.turn == "Player") {
+            if (StateChecker.getCamera() == "PromptQuestions") {
+                font = new Font("Splatfont 2", Font.PLAIN, Game.WIDTH/8);
+                drawCenteredString(g, "<", new Rectangle(0, 0, Game.WIDTH/10, Game.HEIGHT), font, new Color(255, 255, 255, 64), new Color(255, 255, 255, 64));
+            }
 
-        if (StateChecker.getCamera() == "HumansGrid") {
-            font = new Font("Splatfont 2", Font.PLAIN, Game.WIDTH/8);
-            drawCenteredString(g, ">", new Rectangle(Game.WIDTH-Game.WIDTH/10, 0, Game.WIDTH/10, Game.HEIGHT), font, new Color(255, 255, 255, 64), new Color(255, 255, 255, 64));
+            if (StateChecker.getCamera() == "HumansGrid") {
+                font = new Font("Splatfont 2", Font.PLAIN, Game.WIDTH/8);
+                drawCenteredString(g, ">", new Rectangle(Game.WIDTH-Game.WIDTH/10, 0, Game.WIDTH/10, Game.HEIGHT), font, new Color(255, 255, 255, 64), new Color(255, 255, 255, 64));
+            }
         }
     }
 

@@ -27,6 +27,7 @@ public class Window extends Canvas {
             Scanner scanner = new Scanner(file);
             Game.WIDTH = scanner.nextInt();
             Game.HEIGHT = scanner.nextInt();
+            scanner.close();
         }
         catch (FileNotFoundException e) {
             System.out.println(e);

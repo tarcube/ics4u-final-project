@@ -44,6 +44,8 @@ public class Human extends GameObject {
         y += dy;
         if (x < initX-Game.WIDTH) dx = 0;
         if (x > initX) dx = 0;
+        if (y < initY) dy = 0;
+        if (y > initY+Game.HEIGHT) dy = 0;
     }
 
     // This method handles how the GUI is displayed

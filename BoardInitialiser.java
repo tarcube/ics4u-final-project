@@ -34,9 +34,6 @@ public class BoardInitialiser {
                 line = reader.nextLine();
                 if (line != "") humanNames.add(line);
             }
-            //// for (int i = 0; i < humans.size(); i++) {
-            ////     System.out.println(humans.get(i));
-            //// }
 
             // This hashmap handles all the names that each attribute contains
             HashMap<String, ArrayList<String>> attributes = new HashMap<>();
@@ -54,7 +51,6 @@ public class BoardInitialiser {
                 }
             }
             reader.close();
-            //// System.out.println(attributes);
             humanFactory(humanNames, attributes);
         }
         catch (FileNotFoundException e) {System.out.println(e);}
@@ -92,17 +88,12 @@ public class BoardInitialiser {
             humans.add(human);
             handler.addObject(human);
         }
-        //// for (int i = 0; i < 24; i++) System.out.println(humans.get(i).getName());
-        // Checks if the character is selected/highlighted by the user. If not it sets it back to false.
-        for (int j = 0; j < humans.size(); j++) {
-            humans.get(j).setIfSelected(false);
-        }
-        humans.get(r.nextInt(24)).setIfSelected(true);
     }
 
     // initializes the player vs AI gamemode
     public static void initialisePlayerVsComputer() {
         for (int i = 0; i < humans.size(); i++) {handler.removeObject(humans.get(i));}
+        for (int i = 0; i < StateChecker.prompts.size(); i++) {handler.removeObject(StateChecker.prompts.get(i));}
         parseHumanAttributes();
         StateChecker.computerGrid = new ArrayList<Human>(humans);
     }
@@ -115,11 +106,6 @@ public class BoardInitialiser {
             StateChecker.turn = "Player";
             for (int i = 0; i < humans.size(); i++) {
                 humans.get(i).setDx(-Game.WIDTH/40);
-                if (humans.get(i).getIfSelected()) {
-                    StateChecker.playerHuman = humans.get(i);
-                    humans.get(i).setIfOutlawed(true);
-                }
-                humans.get(i).setIfSelected(false);
             }
             StateChecker.playerGrid = humans;
             StateChecker.setCamera("PromptQuestions");
@@ -130,19 +116,23 @@ public class BoardInitialiser {
             Human Eliminate = new Human(Game.WIDTH/3-Game.WIDTH/4, Game.HEIGHT-Game.HEIGHT/6, Game.WIDTH/6, Game.HEIGHT/8, ID.Eliminate);
             Human Finish = new Human(Game.WIDTH/3, Game.HEIGHT-Game.HEIGHT/6, Game.WIDTH/6, Game.HEIGHT/8, ID.Finish);
             Human Guess = new Human(Game.WIDTH/3+Game.WIDTH/4, Game.HEIGHT-Game.HEIGHT/6, Game.WIDTH/6, Game.HEIGHT/8, ID.Guess);
+            Human Computer = new Human(Game.WIDTH/4, Game.HEIGHT/4-Game.HEIGHT, Game.WIDTH/2, Game.HEIGHT/2, ID.Computer);
             humans.add(Eliminate);
             humans.add(Finish);
             humans.add(Guess);
+            humans.add(Computer);
             handler.addObject(Eliminate);
             handler.addObject(Finish);
             handler.addObject(Guess);
+            handler.addObject(Computer);
             Eliminate.setName("Toggle Flag");
             Finish.setName("Finish Turn");
             Guess.setName("Guess Who");
+            Computer.setName("Good Game!");
             Eliminate.setDx(-Game.WIDTH/40);
             Finish.setDx(-Game.WIDTH/40);
             Guess.setDx(-Game.WIDTH/40);
-            //// System.out.println(StateChecker.computerHuman.getName());
+            Computer.setDx(-Game.WIDTH/40);
         }
         // opens the text file that contains the questions that can be asked
         try {
@@ -165,7 +155,6 @@ public class BoardInitialiser {
             reader.close();
         }
         catch (Exception e) {System.out.println(e);}
-        //// System.out.println(StateChecker.questions);
         addButtons();
         for (int i = 0; i < StateChecker.prompts.size(); i++) {
             StateChecker.prompts.get(i).setDx(-Game.WIDTH/40);

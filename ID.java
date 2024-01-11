@@ -12,6 +12,7 @@ public enum ID {
     Eliminate,
     Finish,
     Guess,
+    Computer,
     Button1,
     Button2,
     Button3,

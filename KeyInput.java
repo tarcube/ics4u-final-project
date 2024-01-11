@@ -6,6 +6,7 @@
 */
 
 // Imports
+import java.awt.*;
 import java.awt.event.*;
 import java.util.*;
 
@@ -25,11 +26,39 @@ public class KeyInput extends KeyAdapter {
     public void keyPressed(KeyEvent e) {
         // Get the key code of the key pressed
         int key = e.getKeyCode();
+
         // If the escape key was pressed
         if (key == KeyEvent.VK_ESCAPE) {
             System.out.println("Force quitting...");
             // Exit the program
             System.exit(1);
+        }
+
+        // ! For debugging purposes only, not intended for user client
+        // If the comma key was pressed
+        if (key == KeyEvent.VK_COMMA && Game.WIDTH > 480 && Game.HEIGHT > 360) {
+            // Decrease the resolution size of the window
+            Game.WIDTH -= 40;
+            Game.HEIGHT -= 30;
+            Window.frame.setSize(Game.WIDTH+Game.SPACEX, Game.HEIGHT+Game.SPACEY);
+            Window.frame.setLocationRelativeTo(null);
+        }
+
+        // ! For debugging purposes only, not intended for user client
+        // If the period key was pressed
+        if (key == KeyEvent.VK_PERIOD && Game.WIDTH < 960 && Game.HEIGHT < 720) {
+            // Increase the resolution size of the window
+            Game.WIDTH += 40;
+            Game.HEIGHT += 30;
+            Window.frame.setSize(Game.WIDTH+Game.SPACEX, Game.HEIGHT+Game.SPACEY);
+            Window.frame.setLocationRelativeTo(null);
+        }
+
+        // ! For debugging purposes only, not intended for user client
+        // If the slash key was pressed
+        if (key == KeyEvent.VK_SLASH) {
+            // Switch the colour theme
+            switchColourTheme();
         }
     }
 
@@ -38,5 +67,17 @@ public class KeyInput extends KeyAdapter {
     public void keyReleased(KeyEvent e) {
         // Get the key code of the key released
         int key = e.getKeyCode();
+    }
+
+    // Method to switch the colour theme
+    private void switchColourTheme() {
+        Game.red = (int) (Math.random()*128+64);
+        Game.green = (int) (Math.random()*128+64);
+        Game.blue = (int) (Math.random()*128+64);
+        Game.randomColor = new Color(Game.red, Game.green, Game.blue);
+        Game.randomColorBy2 = new Color(Game.red/2, Game.green/2, Game.blue/2);
+        // Play a sound effect
+        String file = "sfx/colon_3.wav";
+        audioplayer.play(file);
     }
 }
