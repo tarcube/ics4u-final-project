@@ -49,12 +49,13 @@ public class Human extends GameObject {
     }
 
     // This method handles how the GUI is displayed
-    public void render(Graphics g) {
+    public void render(Graphics g) { 
         // generates a random background color
         if (!hovered) g.setColor(Game.randomColorBy2);
         else g.setColor(new Color(0, 0, 0, 64));
         if (selected) g.setColor(new Color(255, 255, 0, 128));
         g.fillRect(x, y, w, h);
+
         // imports the font used for the game
         Font font = new Font("Splatfont 2", Font.PLAIN, Game.WIDTH/40);
         g.setFont(font);
@@ -66,6 +67,11 @@ public class Human extends GameObject {
             g.setFont(font);
             g.drawString("X", x+w/4, y+h);
         }
+
+        // renders pictures of humans
+        Image img1 = Toolkit.getDefaultToolkit().getImage(name+".png");
+        g.drawImage(img1, x, y, null);
+
     }
 
     // This method handles if the mouse is hovering over a character box
