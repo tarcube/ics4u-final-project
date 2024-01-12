@@ -123,10 +123,22 @@ public class MouseInput extends MouseAdapter {
                     if (StateChecker.playerGrid.get(i).getId() == ID.Yes) {
                         StateChecker.turn = "Done";
                         BoardInitialiser.Computer.setName("Computer wins, good game!");
+                        try {
+                            FileWriter fw = new FileWriter("log.txt", true);
+                            fw.write("\n\nComputer guessed right and won - " + Game.timer);
+                            fw.close();
+                        }
+                        catch (IOException e) {System.out.println(e);}
                     }
                     if (StateChecker.playerGrid.get(i).getId() == ID.No) {
                         StateChecker.turn = "Done";
                         BoardInitialiser.Computer.setName("Bruh.");
+                        try {
+                            FileWriter fw = new FileWriter("log.txt", true);
+                            fw.write("\n\nComputer guessed wrong and lost - " + Game.timer);
+                            fw.close();
+                        }
+                        catch (IOException e) {System.out.println(e);}
                     }
                 }
             }
@@ -359,9 +371,21 @@ public class MouseInput extends MouseAdapter {
                                     if (BoardInitialiser.humans.get(j).getIfSelected()) {
                                         if (BoardInitialiser.humans.get(j) == StateChecker.computerHuman) {
                                             BoardInitialiser.Computer.setName(BoardInitialiser.humans.get(j).getName() + " is right!");
+                                            try {
+                                                FileWriter fw = new FileWriter("log.txt", true);
+                                                fw.write("\n\nPlayer guessed right and won - " + Game.timer);
+                                                fw.close();
+                                            }
+                                            catch (IOException e) {System.out.println(e);}
                                         }
                                         else {
                                             BoardInitialiser.Computer.setName(BoardInitialiser.humans.get(j).getName() + " is wrong. Right one was " + StateChecker.computerHuman.getName());
+                                            try {
+                                                FileWriter fw = new FileWriter("log.txt", true);
+                                                fw.write("\n\nPlayer guessed wrong and lost - " + Game.timer);
+                                                fw.close();
+                                            }
+                                            catch (IOException e) {System.out.println(e);}
                                         }
                                     }
                                 }
@@ -380,6 +404,12 @@ public class MouseInput extends MouseAdapter {
                             }
                             StateChecker.turn = "Player";
                             StateChecker.catagory = 0;
+                            try {
+                                FileWriter fw = new FileWriter("log.txt", true);
+                                fw.write("\n\nPlayer responded 'Yes.' - " + Game.timer);
+                                fw.close();
+                            }
+                            catch (IOException e) {System.out.println(e);}
                         }
                         else if (StateChecker.playerGrid.get(i).getId() == ID.No) {
                             StateChecker.aiRemoveHumansFromGrid(false, StateChecker.max_id);
@@ -388,6 +418,12 @@ public class MouseInput extends MouseAdapter {
                             }
                             StateChecker.turn = "Player";
                             StateChecker.catagory = 0;
+                            try {
+                                FileWriter fw = new FileWriter("log.txt", true);
+                                fw.write("\n\nPlayer responded 'No.' - " + Game.timer);
+                                fw.close();
+                            }
+                            catch (IOException e) {System.out.println(e);}
                         }
                     }
                 }

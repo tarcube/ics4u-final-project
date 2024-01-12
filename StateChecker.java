@@ -5,6 +5,7 @@
 
 // Imports
 import java.util.*;
+import java.io.*;
 
 public class StateChecker {
     public static Human computerHuman;
@@ -70,10 +71,24 @@ public class StateChecker {
                 max_id = ids[i];
             }
         }
-        BoardInitialiser.Computer.setName("'" + questions.get((int)(max_id/10)).get(-max_id%10-1) +"'");
         if (computerGrid.size() == 1) {
             BoardInitialiser.Computer.setName("'Is your character " + computerGrid.get(0).getName() + "?'");
             turn = "Done?";
+            try {
+                FileWriter fw = new FileWriter("log.txt", true);
+                fw.write("\n\nComputer asked " + ("'Is your character " + computerGrid.get(0).getName() + "?'") +" - " + Game.timer);
+                fw.close();
+            }
+            catch (IOException e) {System.out.println(e);}
+        }
+        else {
+            BoardInitialiser.Computer.setName("'" + questions.get((int)(max_id/10)).get(-max_id%10-1) +"'");
+            try {
+                FileWriter fw = new FileWriter("log.txt", true);
+                fw.write("\n\nComputer asked " + ("'" + questions.get((int)(max_id/10)).get(-max_id%10-1) +"'") +" - " + Game.timer);
+                fw.close();
+            }
+            catch (IOException e) {System.out.println(e);}
         }
     }
 
