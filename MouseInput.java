@@ -131,14 +131,15 @@ public class MouseInput extends MouseAdapter {
                         catch (IOException e) {System.out.println(e);}
                     }
                     if (StateChecker.playerGrid.get(i).getId() == ID.No) {
-                        StateChecker.turn = "Done";
-                        BoardInitialiser.Computer.setName("Bruh.");
+                        StateChecker.turn = "ErrorCheck";
+                        BoardInitialiser.Computer.setName("Type below human's name, then hit enter.");
                         try {
                             FileWriter fw = new FileWriter("log.txt", true);
                             fw.write("\n\nComputer guessed wrong and lost - " + Game.timer);
                             fw.close();
                         }
                         catch (IOException e) {System.out.println(e);}
+                        KeyInput.typing = true;
                     }
                 }
             }

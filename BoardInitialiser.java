@@ -184,6 +184,7 @@ public class BoardInitialiser {
         Human Yes = new Human(Game.WIDTH/4-Game.WIDTH/20, Game.HEIGHT/5*3-Game.HEIGHT, Game.WIDTH/4, Game.HEIGHT/8, ID.Yes);
         Human No = new Human(Game.WIDTH/2+Game.WIDTH/20, Game.HEIGHT/5*3-Game.HEIGHT, Game.WIDTH/4, Game.HEIGHT/8, ID.No);
         Human Info = new Human(Game.WIDTH/4, Game.HEIGHT/16, Game.WIDTH/2, Game.HEIGHT/16, ID.Info);
+        Human TextField = new Human(Game.WIDTH/4-Game.WIDTH/20, Game.HEIGHT/5*3-Game.HEIGHT, Game.WIDTH/2, Game.HEIGHT/8, ID.TextField);
 
         humans.add(Eliminate);
         humans.add(Finish);
@@ -192,6 +193,7 @@ public class BoardInitialiser {
         humans.add(Yes);
         humans.add(No);
         humans.add(Info);
+        humans.add(TextField);
 
         handler.addObject(Eliminate);
         handler.addObject(Finish);
@@ -200,6 +202,7 @@ public class BoardInitialiser {
         handler.addObject(Yes);
         handler.addObject(No);
         handler.addObject(Info);
+        handler.addObject(TextField);
 
         Eliminate.setName("Toggle Flag");
         Finish.setName("Finish Turn");
@@ -217,6 +220,7 @@ public class BoardInitialiser {
             Yes.setDx(-Game.WIDTH/40);
             No.setDx(-Game.WIDTH/40);
             Info.setDx(-Game.WIDTH/40);
+            TextField.setDx(-Game.WIDTH/40);
         }
     }
 

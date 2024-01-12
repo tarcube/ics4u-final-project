@@ -54,18 +54,22 @@ public class Human extends GameObject {
         if (x > initX) dx = 0;
         if (y < initY) dy = 0;
         if (y > initY+Game.HEIGHT) dy = 0;
+        if (id == ID.TextField) {
+            name = KeyInput.typedInput;
+        }
     }
 
     // This method handles how the GUI is displayed
     public void render(Graphics g) {
 
         // Generates a random background color
-        boolean check1 = ((StateChecker.turn != "Done" || !(id == ID.Yes || id == ID.No)));
+        boolean check1 = (!(StateChecker.turn == "Done" || StateChecker.turn == "ErrorCheck") || !(id == ID.Yes || id == ID.No));
         boolean check2 = (StateChecker.turn != "Guessing" || !(id == ID.Eliminate || id == ID.Finish));
+        boolean check3 = (StateChecker.turn == "ErrorCheck" || id != ID.TextField);
         if (!hovered && check1 && check2) g.setColor(Game.randomColorBy2);
         else if (check1 && check2) g.setColor(new Color(0, 0, 0, 64));
         if (selected) g.setColor(new Color(255, 255, 0, 128));
-        g.fillRect(x, y, w, h);
+        if (check3) g.fillRect(x, y, w, h);
 
         // Renders pictures of characters
         g.drawImage(image, x+w/3, y, w/3*2, h, null);

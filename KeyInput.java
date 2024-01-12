@@ -12,9 +12,16 @@ import java.util.*;
 
 // This class extends KeyAdapter to handle keyboard inputs
 public class KeyInput extends KeyAdapter {
-    // ! Package calls for a keysPressed HashSet or the code will not work for some reason
+    // ! Package calls for a keysPressed HashSet or the code will not work
     public static HashSet<Integer> keysPressed = new HashSet<Integer>();
+    // Reference the AudioPlayer class
     public static AudioPlayer audioplayer;
+    // String that a user would type/input
+    public static String typedInput = "";
+    // Length of typedInput (stable state checker)
+    private static int i = 0;
+    // StateChecker whether or not the user needs to type/input
+    public static boolean typing = false;
 
     // Constructor to initialize the audioplayer object
     public KeyInput() {
@@ -26,6 +33,16 @@ public class KeyInput extends KeyAdapter {
     public void keyPressed(KeyEvent e) {
         // Get the key code of the key pressed
         int key = e.getKeyCode();
+        // Add it to the hashset
+        keysPressed.add(key);
+        if (key >= 32 && typing) {
+            typedInput += (char) key;
+            i++;
+        }
+        else if (key == 8 && i > 0) {
+            typedInput = typedInput.substring(0,i-1);
+            i--;
+        }
 
         // If the escape key was pressed
         if (key == KeyEvent.VK_ESCAPE) {
@@ -67,6 +84,8 @@ public class KeyInput extends KeyAdapter {
     public void keyReleased(KeyEvent e) {
         // Get the key code of the key released
         int key = e.getKeyCode();
+        // Remove it from the hashset
+        keysPressed.remove(key);
     }
 
     // Method to switch the colour theme

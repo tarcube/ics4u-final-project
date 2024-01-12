@@ -17,6 +17,7 @@ public enum ID {
     Yes,
     No,
     Info,
+    TextField,
     Button1,
     Button2,
     Button3,
