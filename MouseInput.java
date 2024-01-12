@@ -74,7 +74,7 @@ public class MouseInput extends MouseAdapter {
                 HUD.setMenu("H2P");
             }
             else if (mouseCollideRect(HUD.mx, HUD.my, HUD.op4)) {
-                // TODO: HUD.setMenu("VMH");
+                HUD.setMenu("VMH");
             }
             else if (mouseCollideRect(HUD.mx, HUD.my, HUD.op6)) HUD.setMenu("Title");
         }
@@ -88,6 +88,10 @@ public class MouseInput extends MouseAdapter {
         }
 
         else if (HUD.getMenu() == "H2P") {
+            if (mouseCollideRect(HUD.mx, HUD.my, HUD.op6)) HUD.setMenu("Play");
+        }
+
+        else if (HUD.getMenu() == "VMH") {
             if (mouseCollideRect(HUD.mx, HUD.my, HUD.op6)) HUD.setMenu("Play");
         }
 

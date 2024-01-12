@@ -149,6 +149,20 @@ public class HUD {
             else drawCenteredString(g, "Back", op6, font, Color.black, Color.white);
         }
 
+        else if (menu == "VMH") {
+            font = new Font("Splatfont 2", Font.PLAIN, Game.WIDTH/20);
+
+            // Match History
+            drawCenteredString(g, "Latest Match: Player vs Computer", op1, font, Color.black, Color.white);
+            drawCenteredString(g, "n guesses in n seconds", op2, font, Color.black, Color.white);
+            drawCenteredString(g, "x won the game", op3, font, Color.black, Color.white);
+            drawCenteredString(g, "Total Games: n", op4, font, Color.black, Color.white);
+
+            // Back
+            if (MouseInput.mouseCollideRect(mx, my, op6)) {drawCenteredString(g, "> Back <", op6, font, Color.black, Color.yellow);}
+            else drawCenteredString(g, "Back", op6, font, Color.black, Color.white);
+        }
+
         else if (menu == "PvC") {
             font = new Font("Splatfont 2", Font.PLAIN, Game.WIDTH/16);
             drawCenteredString(g, "Are You Ready?", new Rectangle(Game.WIDTH/4, 0, Game.WIDTH/2, Game.HEIGHT/8), font, Color.black, Color.white);

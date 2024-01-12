@@ -18,6 +18,7 @@ public class StateChecker {
     public static int catagory;
     public static String output = "";
     public static int max_id;
+    public static String log = "";
     // Initialise random number generator
     private static Random r = new Random();
 

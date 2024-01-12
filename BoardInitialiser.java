@@ -222,5 +222,6 @@ public class BoardInitialiser {
         for (int i = 0; i < StateChecker.prompts.size(); i++) {handler.removeObject(StateChecker.prompts.get(i));}
         humans.clear();
         StateChecker.prompts.clear();
+        StateChecker.output = "";
     }
 }
