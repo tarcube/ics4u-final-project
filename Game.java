@@ -6,6 +6,7 @@
     Version Pre-Release 0.9b
     +Game.java [3] (MAIN)
     TODO: Add summary of contents in this class
+    TODO: Add the text "First select character(s), then select action" on character selection page 
 */
 
 // Imports
@@ -70,7 +71,6 @@ public class Game extends Canvas implements Runnable {
     // Method to update the game state
     private void tick(int ticks) {
         handler.tick(ticks);
-        hud.tick();
     }
 
     // Method to start the game
