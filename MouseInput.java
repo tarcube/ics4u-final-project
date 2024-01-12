@@ -70,17 +70,27 @@ public class MouseInput extends MouseAdapter {
 
         // Actions in Play page
         else if (HUD.getMenu() == "Play") {
+
+            // When mouse clicks on set coordinates, go to selected window
+
+            // Player vs Computer: Type 0 means player goes first
             if (mouseCollideRect(HUD.mx, HUD.my, HUD.op1)) {
                 HUD.setMenu("PvC");
                 BoardInitialiser.initialisePlayerVsComputer(0);
             }
+
+            // Player vs Computer: Type 1 means computer goes first
             else if (mouseCollideRect(HUD.mx, HUD.my, HUD.op2)) {
                 HUD.setMenu("PvC");
                 BoardInitialiser.initialisePlayerVsComputer(1);
             }
+
+            // How to Play page
             else if (mouseCollideRect(HUD.mx, HUD.my, HUD.op3)) {
                 HUD.setMenu("H2P");
             }
+
+            // View Match History page
             else if (mouseCollideRect(HUD.mx, HUD.my, HUD.op4)) {
                 HUD.setMenu("VMH");
             }

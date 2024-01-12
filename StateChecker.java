@@ -8,16 +8,38 @@ import java.util.*;
 import java.io.*;
 
 public class StateChecker {
+
+    // Computer's chosen character
     public static Human computerHuman;
+
+    // Who's turn is it
     public static String turn;
+
+    // Tracks what page user is on
     private static String camera;
+
+    // Arraylist of characters for player 
     public static ArrayList<Human> playerGrid;
+
+    // Arraylist of characters for computer
     public static ArrayList<Human> computerGrid;
+
+    // Hashmap of questions
     public static HashMap<Integer, ArrayList<String>> questions = new HashMap<Integer, ArrayList<String>>();
+
+    // Arraylist of questions
     public static ArrayList<PromptQuestionButton> prompts = new ArrayList<>();
+
+    // Category of questions 
     public static int catagory;
+
+    // Computer's answer to the player's questions
     public static String output = "";
+
+    // Most optimal value used in computer algorithm 
     public static int max_id;
+
+    
     public static String log = "";
     public static ArrayList<Integer> idCheckComputed = new ArrayList<Integer>();
     public static ArrayList<Boolean> userResponses = new ArrayList<Boolean>();
