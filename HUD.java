@@ -9,8 +9,12 @@ import java.awt.*;
 public class HUD {
 
     private static String menu = "Title";
-    public static int mx, my; //m stands for mouse, x and y are positions
-    public static Rectangle op1, op2, op3, op4, op5, op6; //there is a maximum of six buttons on each page; all button positions are predetermined
+
+    //m stands for mouse, x and y are positions
+    public static int mx, my; 
+
+    //there is a maximum of six buttons on each page; all button positions are predetermined
+    public static Rectangle op1, op2, op3, op4, op5, op6; 
 
     public void render(Graphics g) {
 
@@ -89,77 +93,94 @@ public class HUD {
         else if (menu == "Information") {
 
             // Set font for Information page
-            font = new Font("Splatfont 2", Font.PLAIN, Game.WIDTH/16);
+            font = new Font("Splatfont 2", Font.PLAIN, Game.WIDTH/25);
 
-            // Renders text on this page
-            drawCenteredString(g, "", op1, font, Color.black, Color.white);
-            drawCenteredString(g, "Check", op2, font, Color.black, Color.white);
-            drawCenteredString(g, "README.md", op3, font, Color.black, Color.white);
-            drawCenteredString(g, "", op4, font, Color.black, Color.white);
+            // Renders information text on this page
+            drawCenteredString(g, "Welcome to Guess Who?, a two player game where players", op1, font, Color.black, Color.white);
+            drawCenteredString(g, "use differential yes or no questions to isolate a", op2, font, Color.black, Color.white);
+            drawCenteredString(g, "hidden character. The first player to guess the other", op3, font, Color.black, Color.white);
+            drawCenteredString(g, "player's hidden character wins.", op4, font, Color.black, Color.white);
 
-            // Back
+            // Renders the text "Back"
             if (MouseInput.mouseCollideRect(mx, my, op6)) {drawCenteredString(g, "> Back <", op6, font, Color.black, Color.yellow);}
             else drawCenteredString(g, "Back", op6, font, Color.black, Color.white);
         }
 
+        // Renders on Credits page
         else if (menu == "Credits") {
+
+            // Set font for Credits page
             font = new Font("Splatfont 2", Font.PLAIN, Game.WIDTH/16);
 
-            // Credits
-            drawCenteredString(g, "Ian F.", op1, font, Color.black, Color.white);
-            drawCenteredString(g, "Kevin X.", op2, font, Color.black, Color.white);
-            drawCenteredString(g, "Matthew X.", op3, font, Color.black, Color.white);
+            // Renders credits text on this page
+            drawCenteredString(g, "Project Manager - Ian F.", op1, font, Color.black, Color.white);
+            drawCenteredString(g, "Lead Programmger -Kevin X.", op2, font, Color.black, Color.white);
+            drawCenteredString(g, "Software Developer - Matthew X.", op3, font, Color.black, Color.white);
             drawCenteredString(g, "ICS4U", op4, font, Color.black, Color.white);
 
-            // Back
+            // Renders the text "Back"
             if (MouseInput.mouseCollideRect(mx, my, op6)) {drawCenteredString(g, "> Back <", op6, font, Color.black, Color.yellow);}
             else drawCenteredString(g, "Back", op6, font, Color.black, Color.white);
         }
 
+        // Renders on Play page
         else if (menu == "Play") {
+
+            // Set font for Play page
             font = new Font("Splatfont 2", Font.PLAIN, Game.WIDTH/16);
 
-            // User goes first!
+            // Renders the text "User goes first!"
             if (MouseInput.mouseCollideRect(mx, my, op1)) {drawCenteredString(g, "> User goes first! <", op1, font, Color.black, Color.yellow);}
             else drawCenteredString(g, "User goes first!", op1, font, Color.black, Color.white);
 
-            // AI goes first!
+            // Renders the text "AI goes first!"
             if (MouseInput.mouseCollideRect(mx, my, op2)) {drawCenteredString(g, "> AI goes first! <", op2, font, Color.black, Color.yellow);}
             else drawCenteredString(g, "AI goes first!", op2, font, Color.black, Color.white);
 
-            // How to Play?
+            // Renders the text "How to Play?"
             if (MouseInput.mouseCollideRect(mx, my, op3)) {drawCenteredString(g, "> How to Play? <", op3, font, Color.black, Color.yellow);}
             else drawCenteredString(g, "How to Play?", op3, font, Color.black, Color.white);
 
-            // View Match History
+            // Renders the text "View Match History"
             if (MouseInput.mouseCollideRect(mx, my, op4)) {drawCenteredString(g, "> View Match History <", op4, font, Color.black, Color.yellow);}
             else drawCenteredString(g, "View Match History", op4, font, Color.black, Color.white);
 
-            // Back
+            // Renders the text "Back"
             if (MouseInput.mouseCollideRect(mx, my, op6)) {drawCenteredString(g, "> Back <", op6, font, Color.black, Color.yellow);}
             else drawCenteredString(g, "Back", op6, font, Color.black, Color.white);
         }
 
+        // H2P = how to play
+        // Renders on H2P page
         else if (menu == "H2P") {
-            font = new Font("Splatfont 2", Font.PLAIN, Game.WIDTH/16);
 
-            // Info
-            drawCenteredString(g, "1: Pick your human", op1, font, Color.black, Color.white);
-            drawCenteredString(g, "2: Ask questions", op2, font, Color.black, Color.white);
-            drawCenteredString(g, "3: Guess the AI's human", op3, font, Color.black, Color.white);
-            drawCenteredString(g, "4: Optionally win", op4, font, Color.black, Color.white);
+            // Set font for H2P page
+            font = new Font("Splatfont 2", Font.PLAIN, Game.WIDTH/25);
 
-            // Back
+            // Renders H2P text on this page
+            drawCenteredString(g, "1: Choose your character", op1, font, Color.black, Color.white);
+            drawCenteredString(g, "2: Select who goes first", op2, font, Color.black, Color.white);
+            drawCenteredString(g, "3: Ask and answer computer questions", op3, font, Color.black, Color.white);
+            drawCenteredString(g, "4: Eliminate characters and guess when ready", op4, font, Color.black, Color.white);
+
+            // Renders the text "Back"
             if (MouseInput.mouseCollideRect(mx, my, op6)) {drawCenteredString(g, "> Back <", op6, font, Color.black, Color.yellow);}
             else drawCenteredString(g, "Back", op6, font, Color.black, Color.white);
         }
 
+        // PvC = player versus computer
+        // Renders on PvC page
         else if (menu == "PvC") {
+
+            // 
             font = new Font("Splatfont 2", Font.PLAIN, Game.WIDTH/16);
             drawCenteredString(g, "Are You Ready?", new Rectangle(Game.WIDTH/4, 0, Game.WIDTH/2, Game.HEIGHT/8), font, Color.black, Color.white);
+
+            // If mouse hovers over this box, "Yessir" is displayed differently 
             if (MouseInput.mouseCollideRect(mx, my, new Rectangle(Game.WIDTH/4, Game.HEIGHT/2+Game.HEIGHT/3, Game.WIDTH/2, Game.HEIGHT/8))) {
                 drawCenteredString(g, "> Yessir <", new Rectangle(Game.WIDTH/4, Game.HEIGHT/2+Game.HEIGHT/3, Game.WIDTH/2, Game.HEIGHT/8), font, Color.black, Color.yellow);
             }
+            // Renders 
             else drawCenteredString(g, "Yessir", new Rectangle(Game.WIDTH/4, Game.HEIGHT/2+Game.HEIGHT/3, Game.WIDTH/2, Game.HEIGHT/8), font, Color.black, Color.white);
         }
 
