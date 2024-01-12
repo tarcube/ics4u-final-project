@@ -19,9 +19,10 @@ public class StateChecker {
     public static String output = "";
     public static String computer = "Good Game!";
     public static int max_id;
+    // Initialise random number generator
+    private static Random r = new Random();
 
     public static Boolean compareAttributes(int id, boolean ai, int j) {
-        System.out.println(id);
         Human human = computerGrid.get(j);
         if (!ai) {human = computerHuman;}
         catagory = -7;
@@ -61,7 +62,10 @@ public class StateChecker {
                 }
             }
             int range = Math.abs(count - (computerGrid.size()-count));
-            //// System.out.println("Range: " + range + " | id: " + ids[i]);
+            if (range == min_range && r.nextInt(2) == 1) {
+                min_range = range;
+                max_id = ids[i];
+            }
             if (range < min_range) {
                 min_range = range;
                 max_id = ids[i];
@@ -74,13 +78,17 @@ public class StateChecker {
     }
 
     public static void aiRemoveHumansFromGrid(boolean answer, int id) {
+        ArrayList<Human> namesToRemove = new ArrayList<Human>();
         for (int j = 0; j < computerGrid.size(); j++) {
             if (compareAttributes(id, true, j)) {
-                if (!answer) computerGrid.remove(j);
+                if (!answer) namesToRemove.add(computerGrid.get(j));
             }
             if (!compareAttributes(id, true, j)) {
-                if (answer) computerGrid.remove(j);
+                if (answer) namesToRemove.add(computerGrid.get(j));
             }
+        }
+        for (int j = 0; j < namesToRemove.size(); j++) {
+            computerGrid.remove(namesToRemove.get(j));
         }
     }
 

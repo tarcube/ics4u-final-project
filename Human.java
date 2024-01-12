@@ -6,6 +6,9 @@
 
 // Imports
 import java.awt.*;
+import java.awt.image.*;
+import java.io.*;
+import javax.imageio.*;
 
 public class Human extends GameObject {
     // initialize all the character attribute variables
@@ -29,6 +32,8 @@ public class Human extends GameObject {
     private int dx = 0;
     private int dy = 0;
 
+    private BufferedImage image;
+
     public Human(int x, int y, int w, int h, ID id) {
         // inherits variables from GameObject
         super(x, y, w, h, id);
@@ -49,12 +54,15 @@ public class Human extends GameObject {
     }
 
     // This method handles how the GUI is displayed
-    public void render(Graphics g) { 
+    public void render(Graphics g) {
         // generates a random background color
         if (!hovered) g.setColor(Game.randomColorBy2);
         else g.setColor(new Color(0, 0, 0, 64));
         if (selected) g.setColor(new Color(255, 255, 0, 128));
         g.fillRect(x, y, w, h);
+
+        // renders pictures of humans
+        g.drawImage(image, x+w/3, y, w/3*2, h, null);
 
         // imports the font used for the game
         Font font = new Font("Splatfont 2", Font.PLAIN, Game.WIDTH/40);
@@ -67,13 +75,6 @@ public class Human extends GameObject {
             g.setFont(font);
             g.drawString("X", x+w/4, y+h);
         }
-
-        // renders pictures of humans
-        try {
-            // BufferedImage image = ImageIO.read(new File(name+".png"));
-            // g.drawImage(image, x, y, null);
-        }
-        catch (Exception e) {System.out.println(e);}
     }
 
     // This method handles if the mouse is hovering over a character box
@@ -88,7 +89,13 @@ public class Human extends GameObject {
 
     // Getters and Setter methods
     public String getName() {return name;}
-    public void setName(String name) {this.name = name;}
+    public void setName(String name) {
+        this.name = name;
+        try {
+            image = ImageIO.read(new File("img/"+name+".png"));
+        }
+        catch (IOException e) {}
+    }
     public String getGender() {return gender;}
     public void setGender(String gender) {this.gender = gender;}
     public String getHairColour() {return hairColour;}

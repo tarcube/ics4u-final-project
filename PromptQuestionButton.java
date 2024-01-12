@@ -77,7 +77,7 @@ public class PromptQuestionButton extends GameObject {
             else {text = "Back";}
         }
         if (id == ID.Button7 && StateChecker.catagory == -7) {
-            Font font = new Font("Splatfont 2", Font.PLAIN, Game.WIDTH/40);
+            Font font = new Font("Splatfont 2", Font.PLAIN, Game.WIDTH/60);
             g.setFont(font);
             g.setColor(Game.randomColor);
             text = StateChecker.output;
