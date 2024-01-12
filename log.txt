@@ -1,1 +1,123 @@
 - Start of log file -
+
+New Game - 1705070202101
+
+Computer asked 'Does your character have short hair?' - 1705070203101
+
+Player responded 'No.' - 1705070205101
+
+Computer asked 'Does your character have dark skin?' - 1705070205101
+
+Player responded 'Yes.' - 1705070206101
+
+Computer asked 'Does your character have visible teeth?' - 1705070207101
+
+Player responded 'No.' - 1705070208101
+
+Computer asked 'Does your character have blue eyes?' - 1705070209101
+
+Player responded 'No.' - 1705070210101
+
+Computer asked 'Is your character female?' - 1705070211101
+
+Player responded 'No.' - 1705070212101
+
+Computer asked 'Is your character AL?' - 1705070213101
+
+Computer guessed wrong and lost - 1705070214101
+
+New Game - 1705070239310
+
+Computer asked 'Does your character have short hair?' - 1705070240310
+
+Player responded 'No.' - 1705070242310
+
+Computer asked 'Does your character have tied hair?' - 1705070242310
+
+Player responded 'No.' - 1705070244310
+
+Computer asked 'Does your character have white hair?' - 1705070245310
+
+Player responded 'Yes.' - 1705070246310
+
+Computer asked 'Is your character male?' - 1705070247310
+
+Player responded 'Yes.' - 1705070249310
+
+Computer asked 'Does your character have brown eyes?' - 1705070249310
+
+Player responded 'No.' - 1705070251310
+
+Computer asked 'Is your character AL?' - 1705070251310
+
+Computer guessed wrong and lost - 1705070253310
+
+New Game - 1705070543801
+
+Computer asked 'Is your character female?' - 1705070544801
+
+Player responded 'No.' - 1705070545801
+
+Computer asked 'Does your character have dark skin?' - 1705070546801
+
+Player responded 'Yes.' - 1705070547801
+
+Computer asked 'Does your character have white hair?' - 1705070548801
+
+Player responded 'Yes.' - 1705070549801
+
+Computer asked 'Does your character have visible teeth?' - 1705070550801
+
+Player responded 'No.' - 1705070551801
+
+Computer asked 'Is your character AL?' - 1705070552801
+
+Computer guessed wrong and lost - 1705070553801
+
+New Game - 1705070633040
+
+Computer asked 'Is your character female?' - 1705070634040
+
+Player responded 'No.' - 1705070634040
+
+Computer asked 'Does your character have dark skin?' - 1705070635040
+
+Player responded 'Yes.' - 1705070639040
+
+Computer asked 'Does your character have black hair?' - 1705070639040
+
+Player responded 'No.' - 1705070641040
+
+Computer asked 'Does your character have green eyes?' - 1705070641040
+
+Player responded 'Yes.' - 1705070643040
+
+Computer asked 'Is your character AL?' - 1705070644040
+
+Computer guessed wrong and lost - 1705070645040
+
+New Game - 1705070670459
+
+Computer asked 'Is your character male?' - 1705070671459
+
+Player responded 'Yes.' - 1705070672459
+
+Computer asked 'Does your character have dark skin?' - 1705070672459
+
+Player responded 'Yes.' - 1705070673459
+
+Computer asked 'Does your character have white hair?' - 1705070674459
+
+Player responded 'Yes.' - 1705070675459
+
+Computer asked 'Does your character have glasses?' - 1705070676459
+
+Player responded 'Yes.' - 1705070678459
+
+Computer asked 'Does your character have brown eyes?' - 1705070678459
+
+Player responded 'No.' - 1705070680459
+
+Computer asked 'Is your character AL?' - 1705070680459
+
+Computer guessed wrong and lost - 1705070684459

@@ -39,6 +39,9 @@ public class KeyInput extends KeyAdapter {
             typedInput += (char) key;
             i++;
         }
+        else if (key == 10 && typing) {
+            StateChecker.errorCheck(typedInput);
+        }
         else if (key == 8 && i > 0) {
             typedInput = typedInput.substring(0,i-1);
             i--;

@@ -19,6 +19,8 @@ public class StateChecker {
     public static String output = "";
     public static int max_id;
     public static String log = "";
+    public static ArrayList<Integer> idCheckComputed = new ArrayList<Integer>();
+    public static ArrayList<Boolean> userResponses = new ArrayList<Boolean>();
     // Initialise random number generator
     private static Random r = new Random();
 
@@ -89,6 +91,7 @@ public class StateChecker {
                 fw.close();
             }
             catch (IOException e) {System.out.println(e);}
+            idCheckComputed.add(max_id);
         }
     }
 
@@ -104,6 +107,35 @@ public class StateChecker {
         }
         for (int j = 0; j < namesToRemove.size(); j++) {
             computerGrid.remove(namesToRemove.get(j));
+        }
+        userResponses.add(answer);
+    }
+
+    public static void errorCheck(String name) {
+        Human playerHuman;
+        for (int i = 0; i < playerGrid.size(); i++) {
+            if (name.toUpperCase().contains(playerGrid.get(i).getName())) {
+                playerHuman = playerGrid.get(i);
+            }
+        }
+        int numberOfQuestionsAndResponses = idCheckComputed.size() + userResponses.size();
+        String errors = "";
+        for (int i = 0; i < numberOfQuestionsAndResponses/2; i++) {
+            if (compareAttributes(idCheckComputed.get(i), false, 0) != userResponses.get(i)) {
+                errors += "Computer asked '" + questions.get((int)(idCheckComputed.get(i)/10)).get(-idCheckComputed.get(i)%10-1) +"'\n";
+                errors += "You answered " + userResponses.get(i) + ", when it should be " + !userResponses.get(i) + ".\n";
+            }
+        }
+        catagory = -7;
+        output = errors;
+        for (int i = 0; i < BoardInitialiser.humans.size(); i++) {
+            BoardInitialiser.humans.get(i).setDx(-Game.WIDTH/40);
+        }
+        for (int i = 0; i < StateChecker.prompts.size(); i++) {
+            StateChecker.prompts.get(i).setDx(-Game.WIDTH/40);
+        }
+        for (int j = 0; j < BoardInitialiser.humans.size(); j++) {
+            BoardInitialiser.humans.get(j).setDy(-Game.HEIGHT/30);
         }
     }
 
