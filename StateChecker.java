@@ -17,7 +17,6 @@ public class StateChecker {
     public static ArrayList<PromptQuestionButton> prompts = new ArrayList<>();
     public static int catagory;
     public static String output = "";
-    public static String computer = "Good Game!";
     public static int max_id;
     // Initialise random number generator
     private static Random r = new Random();

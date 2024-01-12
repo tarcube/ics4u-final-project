@@ -17,6 +17,8 @@ public class BoardInitialiser {
     private static Handler handler;
     // Computer text output object
     public static Human Computer;
+    //
+    public static int type;
 
     public BoardInitialiser(Handler handler) {
         this.handler = handler;
@@ -95,58 +97,57 @@ public class BoardInitialiser {
     }
 
     // initializes the player vs AI gamemode
-    public static void initialisePlayerVsComputer() {
-        for (int i = 0; i < humans.size(); i++) {handler.removeObject(humans.get(i));}
-        for (int i = 0; i < StateChecker.prompts.size(); i++) {handler.removeObject(StateChecker.prompts.get(i));}
+    public static void initialisePlayerVsComputer(int type) {
+        BoardInitialiser.type = type;
+        removeGameplay();
         parseHumanAttributes();
         StateChecker.computerGrid = new ArrayList<Human>(humans);
     }
 
     // This method finalizes the game after the player has chosen a character
     public static void finishSetup(int type) {
-        // Sets the question menu and sets it as the player's turn
-        if (type == 0) {
-            HUD.setMenu("");
-            StateChecker.turn = "Player";
-            for (int i = 0; i < humans.size(); i++) {
-                humans.get(i).setDx(-Game.WIDTH/40);
-            }
-            StateChecker.playerGrid = humans;
-            StateChecker.setCamera("PromptQuestions");
+        HUD.setMenu("");
+        StateChecker.turn = "Player";
+        for (int i = 0; i < humans.size(); i++) {
+            if (type == 0) humans.get(i).setDx(-Game.WIDTH/40);
+        }
+        StateChecker.playerGrid = humans;
+        if (type == 0) StateChecker.setCamera("PromptQuestions");
+        if (type == 1) StateChecker.setCamera("HumansGrid");
+        StateChecker.computerHuman = humans.get(r.nextInt(24));
+        while (StateChecker.computerHuman.getIfOutlawed()) {
             StateChecker.computerHuman = humans.get(r.nextInt(24));
-            while (StateChecker.computerHuman.getIfOutlawed()) {
-                StateChecker.computerHuman = humans.get(r.nextInt(24));
-            }
-            System.out.println(StateChecker.computerHuman.getName());
+        }
 
-            Human Eliminate = new Human(Game.WIDTH/3-Game.WIDTH/4, Game.HEIGHT-Game.HEIGHT/6, Game.WIDTH/6, Game.HEIGHT/8, ID.Eliminate);
-            Human Finish = new Human(Game.WIDTH/3, Game.HEIGHT-Game.HEIGHT/6, Game.WIDTH/6, Game.HEIGHT/8, ID.Finish);
-            Human Guess = new Human(Game.WIDTH/3+Game.WIDTH/4, Game.HEIGHT-Game.HEIGHT/6, Game.WIDTH/6, Game.HEIGHT/8, ID.Guess);
-            Computer = new Human(Game.WIDTH/4, Game.HEIGHT/4-Game.HEIGHT, Game.WIDTH/2, Game.HEIGHT/4, ID.Computer);
-            Human Yes = new Human(Game.WIDTH/4-Game.WIDTH/20, Game.HEIGHT/5*3-Game.HEIGHT, Game.WIDTH/4, Game.HEIGHT/8, ID.Yes);
-            Human No = new Human(Game.WIDTH/2+Game.WIDTH/20, Game.HEIGHT/5*3-Game.HEIGHT, Game.WIDTH/4, Game.HEIGHT/8, ID.No);
+        Human Eliminate = new Human(Game.WIDTH/3-Game.WIDTH/4, Game.HEIGHT-Game.HEIGHT/6, Game.WIDTH/6, Game.HEIGHT/8, ID.Eliminate);
+        Human Finish = new Human(Game.WIDTH/3, Game.HEIGHT-Game.HEIGHT/6, Game.WIDTH/6, Game.HEIGHT/8, ID.Finish);
+        Human Guess = new Human(Game.WIDTH/3+Game.WIDTH/4, Game.HEIGHT-Game.HEIGHT/6, Game.WIDTH/6, Game.HEIGHT/8, ID.Guess);
+        Computer = new Human(Game.WIDTH/4, Game.HEIGHT/4-Game.HEIGHT, Game.WIDTH/2, Game.HEIGHT/4, ID.Computer);
+        Human Yes = new Human(Game.WIDTH/4-Game.WIDTH/20, Game.HEIGHT/5*3-Game.HEIGHT, Game.WIDTH/4, Game.HEIGHT/8, ID.Yes);
+        Human No = new Human(Game.WIDTH/2+Game.WIDTH/20, Game.HEIGHT/5*3-Game.HEIGHT, Game.WIDTH/4, Game.HEIGHT/8, ID.No);
 
-            humans.add(Eliminate);
-            humans.add(Finish);
-            humans.add(Guess);
-            humans.add(Computer);
-            humans.add(Yes);
-            humans.add(No);
+        humans.add(Eliminate);
+        humans.add(Finish);
+        humans.add(Guess);
+        humans.add(Computer);
+        humans.add(Yes);
+        humans.add(No);
 
-            handler.addObject(Eliminate);
-            handler.addObject(Finish);
-            handler.addObject(Guess);
-            handler.addObject(Computer);
-            handler.addObject(Yes);
-            handler.addObject(No);
+        handler.addObject(Eliminate);
+        handler.addObject(Finish);
+        handler.addObject(Guess);
+        handler.addObject(Computer);
+        handler.addObject(Yes);
+        handler.addObject(No);
 
-            Eliminate.setName("Toggle Flag");
-            Finish.setName("Finish Turn");
-            Guess.setName("Guess Who");
-            Computer.setName("Good Game!");
-            Yes.setName("Yes");
-            No.setName("No");
+        Eliminate.setName("Toggle Flag");
+        Finish.setName("Finish Turn");
+        Guess.setName("Guess Who");
+        Computer.setName("Good Game!");
+        Yes.setName("Yes");
+        No.setName("No");
 
+        if (type == 0) {
             Eliminate.setDx(-Game.WIDTH/40);
             Finish.setDx(-Game.WIDTH/40);
             Guess.setDx(-Game.WIDTH/40);
@@ -154,6 +155,7 @@ public class BoardInitialiser {
             Yes.setDx(-Game.WIDTH/40);
             No.setDx(-Game.WIDTH/40);
         }
+
         // opens the text file that contains the questions that can be asked
         try {
             File file = new File("QuestionPrompt.txt");
@@ -177,9 +179,17 @@ public class BoardInitialiser {
         catch (Exception e) {System.out.println(e);}
         addButtons();
         for (int i = 0; i < StateChecker.prompts.size(); i++) {
-            StateChecker.prompts.get(i).setDx(-Game.WIDTH/40);
+            if (type == 0) StateChecker.prompts.get(i).setDx(-Game.WIDTH/40);
         }
         StateChecker.catagory = 0;
+
+        if (type == 1) {
+            StateChecker.turn = "Computer";
+            for (int j = 0; j < BoardInitialiser.humans.size(); j++) {
+                BoardInitialiser.humans.get(j).setDy(Game.HEIGHT/30);
+            }
+            StateChecker.aiGreedyAlgorithm();
+        }
     }
 
     // This method adds buttons to the GUI for each option
@@ -205,5 +215,10 @@ public class BoardInitialiser {
         op = new PromptQuestionButton(Game.WIDTH/4+Game.WIDTH, Game.HEIGHT/7*0+Game.HEIGHT/12, Game.WIDTH/2, Game.HEIGHT-Game.HEIGHT/6, ID.Button7);
         handler.addObject(op);
         StateChecker.prompts.add(op);
+    }
+
+    public static void removeGameplay() {
+        for (int i = 0; i < humans.size(); i++) {handler.removeObject(humans.get(i));}
+        for (int i = 0; i < StateChecker.prompts.size(); i++) {handler.removeObject(StateChecker.prompts.get(i));}
     }
 }

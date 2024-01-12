@@ -64,16 +64,17 @@ public class MouseInput extends MouseAdapter {
         else if (HUD.getMenu() == "Play") {
             if (mouseCollideRect(HUD.mx, HUD.my, HUD.op1)) {
                 HUD.setMenu("PvC");
-                BoardInitialiser.initialisePlayerVsComputer();
+                BoardInitialiser.initialisePlayerVsComputer(0);
             }
             else if (mouseCollideRect(HUD.mx, HUD.my, HUD.op2)) {
-                // TODO: HUD.setMenu("CvP");
+                HUD.setMenu("PvC");
+                BoardInitialiser.initialisePlayerVsComputer(1);
             }
             else if (mouseCollideRect(HUD.mx, HUD.my, HUD.op3)) {
-                // TODO: HUD.setMenu("H2P");
+                HUD.setMenu("H2P");
             }
             else if (mouseCollideRect(HUD.mx, HUD.my, HUD.op4)) {
-                // TODO: TODO: HUD.setMenu("VMH");
+                // TODO: HUD.setMenu("VMH");
             }
             else if (mouseCollideRect(HUD.mx, HUD.my, HUD.op6)) HUD.setMenu("Title");
         }
@@ -86,9 +87,21 @@ public class MouseInput extends MouseAdapter {
             if (mouseCollideRect(HUD.mx, HUD.my, HUD.op6)) HUD.setMenu("Title");
         }
 
+        else if (HUD.getMenu() == "H2P") {
+            if (mouseCollideRect(HUD.mx, HUD.my, HUD.op6)) HUD.setMenu("Play");
+        }
+
         else if (HUD.getMenu() == "PvC") {
             if (MouseInput.mouseCollideRect(HUD.mx, HUD.my, new Rectangle(Game.WIDTH/4, Game.HEIGHT/2+Game.HEIGHT/3, Game.WIDTH/2, Game.HEIGHT/8))) {
-                BoardInitialiser.finishSetup(0);
+                BoardInitialiser.finishSetup(BoardInitialiser.type);
+            }
+        }
+
+        else if (StateChecker.turn == "Done") {
+            if (mouseCollideRect(HUD.mx, HUD.my, HUD.op6)) {
+                BoardInitialiser.removeGameplay();
+                StateChecker.turn = "";
+                HUD.setMenu("Play");
             }
         }
 
@@ -204,15 +217,15 @@ public class MouseInput extends MouseAdapter {
                     }
 
                     else if (StateChecker.playerGrid.get(i).getId() == ID.Guess) {
-                        StateChecker.turn = "Computer";
+                        StateChecker.turn = "Done";
                         for (int j = 0; j < BoardInitialiser.humans.size(); j++) {
                             BoardInitialiser.humans.get(j).setDy(Game.HEIGHT/30);
                             if (BoardInitialiser.humans.get(j).getIfSelected()) {
                                 if (BoardInitialiser.humans.get(j) == StateChecker.computerHuman) {
-                                    System.out.println(StateChecker.computerHuman.getName() + " was right!");
+                                    BoardInitialiser.Computer.setName(BoardInitialiser.humans.get(j).getName() + " is right!");
                                 }
                                 else {
-                                    System.out.println(BoardInitialiser.humans.get(j).getName() + " was wrong...");
+                                    BoardInitialiser.Computer.setName(BoardInitialiser.humans.get(j).getName() + " is wrong. Right one was " + StateChecker.computerHuman.getName());
                                 }
                             }
                         }
@@ -220,7 +233,7 @@ public class MouseInput extends MouseAdapter {
 
                     else if (StateChecker.turn == "Computer") {
                         if (StateChecker.playerGrid.size() == 1) {
-                            StateChecker.computer = "Good Game!";
+                            //
                         }
                         else if (StateChecker.playerGrid.get(i).getId() == ID.Yes) {
                             StateChecker.aiRemoveHumansFromGrid(true, StateChecker.max_id);
