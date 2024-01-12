@@ -3,7 +3,7 @@
     Mr.A ICS4U1
     Friday, January 12th, 2024
     Guess Who - Final Programming Assignment
-    Version Pre-Release 0.9c
+    Version Pre-Release 0.9d
     +Game.java [3] (MAIN)
     TODO: Add summary of contents in this class
     TODO: Add the text "First select character(s), then select action" on character selection page 

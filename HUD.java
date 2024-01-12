@@ -183,10 +183,10 @@ public class HUD {
             font = new Font("Splatfont 2", Font.PLAIN, Game.WIDTH/20);
 
             // Match History
-            drawCenteredString(g, "Latest Match: Player vs Computer", op1, font, Color.black, Color.white);
-            drawCenteredString(g, "n guesses in n seconds", op2, font, Color.black, Color.white);
-            drawCenteredString(g, "x won the game", op3, font, Color.black, Color.white);
-            drawCenteredString(g, "Total Games: n", op4, font, Color.black, Color.white);
+            drawCenteredString(g, "", op1, font, Color.black, Color.white);
+            drawCenteredString(g, "Check", op2, font, Color.black, Color.white);
+            drawCenteredString(g, "log.txt", op3, font, Color.black, Color.white);
+            drawCenteredString(g, "", op4, font, Color.black, Color.white);
 
             // Renders the text "Back"
             if (MouseInput.mouseCollideRect(mx, my, op6)) {drawCenteredString(g, "> Back <", op6, font, Color.black, Color.yellow);}
