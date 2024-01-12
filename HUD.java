@@ -201,12 +201,12 @@ public class HUD {
             font = new Font("Splatfont 2", Font.PLAIN, Game.WIDTH/16);
             drawCenteredString(g, "Are You Ready?", new Rectangle(Game.WIDTH/4, 0, Game.WIDTH/2, Game.HEIGHT/8), font, Color.black, Color.white);
 
-            // If mouse hovers over this box, "Yessir" is displayed differently 
+            // If mouse hovers over this box, "Yes" is displayed differently
             if (MouseInput.mouseCollideRect(mx, my, new Rectangle(Game.WIDTH/4, Game.HEIGHT/2+Game.HEIGHT/3, Game.WIDTH/2, Game.HEIGHT/8))) {
-                drawCenteredString(g, "> Yessir <", new Rectangle(Game.WIDTH/4, Game.HEIGHT/2+Game.HEIGHT/3, Game.WIDTH/2, Game.HEIGHT/8), font, Color.black, Color.yellow);
+                drawCenteredString(g, "> Yes <", new Rectangle(Game.WIDTH/4, Game.HEIGHT/2+Game.HEIGHT/3, Game.WIDTH/2, Game.HEIGHT/8), font, Color.black, Color.yellow);
             }
-            // Renders the text "Yessir"
-            else drawCenteredString(g, "Yessir", new Rectangle(Game.WIDTH/4, Game.HEIGHT/2+Game.HEIGHT/3, Game.WIDTH/2, Game.HEIGHT/8), font, Color.black, Color.white);
+            // Renders the text "Yes"
+            else drawCenteredString(g, "Yes", new Rectangle(Game.WIDTH/4, Game.HEIGHT/2+Game.HEIGHT/3, Game.WIDTH/2, Game.HEIGHT/8), font, Color.black, Color.white);
         }
 
         // Renders when it is player's turn

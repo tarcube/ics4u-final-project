@@ -3,7 +3,7 @@
     Mr.A ICS4U1
     Friday, January 12th, 2024
     Guess Who - Final Programming Assignment
-    Version Pre-Release 0.9d
+    Version Pre-Release 0.9e
     +Game.java [3] (MAIN)
 
     This is the main class of the game. 
@@ -11,8 +11,6 @@
         Game constructor
         Important variables for setup
         Important methods (game start and stop, running, rendering, game loop)
-
-        TODO: Add the text "First select character(s), then select action" on character selection page 
 */
 
 // Imports

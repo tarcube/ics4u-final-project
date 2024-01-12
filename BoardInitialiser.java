@@ -130,42 +130,7 @@ public class BoardInitialiser {
             StateChecker.computerHuman = humans.get(r.nextInt(24));
         }
 
-        Human Eliminate = new Human(Game.WIDTH/3-Game.WIDTH/4, Game.HEIGHT-Game.HEIGHT/6, Game.WIDTH/6, Game.HEIGHT/8, ID.Eliminate);
-        Human Finish = new Human(Game.WIDTH/3, Game.HEIGHT-Game.HEIGHT/6, Game.WIDTH/6, Game.HEIGHT/8, ID.Finish);
-        Human Guess = new Human(Game.WIDTH/3+Game.WIDTH/4, Game.HEIGHT-Game.HEIGHT/6, Game.WIDTH/6, Game.HEIGHT/8, ID.Guess);
-        Computer = new Human(Game.WIDTH/4, Game.HEIGHT/4-Game.HEIGHT, Game.WIDTH/2, Game.HEIGHT/4, ID.Computer);
-        Human Yes = new Human(Game.WIDTH/4-Game.WIDTH/20, Game.HEIGHT/5*3-Game.HEIGHT, Game.WIDTH/4, Game.HEIGHT/8, ID.Yes);
-        Human No = new Human(Game.WIDTH/2+Game.WIDTH/20, Game.HEIGHT/5*3-Game.HEIGHT, Game.WIDTH/4, Game.HEIGHT/8, ID.No);
-
-        humans.add(Eliminate);
-        humans.add(Finish);
-        humans.add(Guess);
-        humans.add(Computer);
-        humans.add(Yes);
-        humans.add(No);
-
-        handler.addObject(Eliminate);
-        handler.addObject(Finish);
-        handler.addObject(Guess);
-        handler.addObject(Computer);
-        handler.addObject(Yes);
-        handler.addObject(No);
-
-        Eliminate.setName("Toggle Flag");
-        Finish.setName("Finish Turn");
-        Guess.setName("Guess Who");
-        Computer.setName("Good Game!");
-        Yes.setName("Yes");
-        No.setName("No");
-
-        if (type == 0) {
-            Eliminate.setDx(-Game.WIDTH/40);
-            Finish.setDx(-Game.WIDTH/40);
-            Guess.setDx(-Game.WIDTH/40);
-            Computer.setDx(-Game.WIDTH/40);
-            Yes.setDx(-Game.WIDTH/40);
-            No.setDx(-Game.WIDTH/40);
-        }
+        addButtons1(type);
 
         // opens the text file that contains the questions that can be asked
         try {
@@ -188,7 +153,7 @@ public class BoardInitialiser {
             reader.close();
         }
         catch (Exception e) {System.out.println(e);}
-        addButtons();
+        addButtons2();
         for (int i = 0; i < StateChecker.prompts.size(); i++) {
             if (type == 0) StateChecker.prompts.get(i).setDx(-Game.WIDTH/40);
         }
@@ -211,7 +176,52 @@ public class BoardInitialiser {
     }
 
     // This method adds buttons to the GUI for each option
-    public static void addButtons() {
+    public static void addButtons1(int type) {
+        Human Eliminate = new Human(Game.WIDTH/3-Game.WIDTH/4, Game.HEIGHT-Game.HEIGHT/6, Game.WIDTH/6, Game.HEIGHT/8, ID.Eliminate);
+        Human Finish = new Human(Game.WIDTH/3, Game.HEIGHT-Game.HEIGHT/6, Game.WIDTH/6, Game.HEIGHT/8, ID.Finish);
+        Human Guess = new Human(Game.WIDTH/3+Game.WIDTH/4, Game.HEIGHT-Game.HEIGHT/6, Game.WIDTH/6, Game.HEIGHT/8, ID.Guess);
+        Computer = new Human(Game.WIDTH/4, Game.HEIGHT/4-Game.HEIGHT, Game.WIDTH/2, Game.HEIGHT/4, ID.Computer);
+        Human Yes = new Human(Game.WIDTH/4-Game.WIDTH/20, Game.HEIGHT/5*3-Game.HEIGHT, Game.WIDTH/4, Game.HEIGHT/8, ID.Yes);
+        Human No = new Human(Game.WIDTH/2+Game.WIDTH/20, Game.HEIGHT/5*3-Game.HEIGHT, Game.WIDTH/4, Game.HEIGHT/8, ID.No);
+        Human Info = new Human(Game.WIDTH/4, Game.HEIGHT/16, Game.WIDTH/2, Game.HEIGHT/16, ID.Info);
+
+        humans.add(Eliminate);
+        humans.add(Finish);
+        humans.add(Guess);
+        humans.add(Computer);
+        humans.add(Yes);
+        humans.add(No);
+        humans.add(Info);
+
+        handler.addObject(Eliminate);
+        handler.addObject(Finish);
+        handler.addObject(Guess);
+        handler.addObject(Computer);
+        handler.addObject(Yes);
+        handler.addObject(No);
+        handler.addObject(Info);
+
+        Eliminate.setName("Toggle Flag");
+        Finish.setName("Finish Turn");
+        Guess.setName("Guess Who");
+        Computer.setName("Good Game!");
+        Yes.setName("Yes");
+        No.setName("No");
+        Info.setName("First select human(s), then select action");
+
+        if (type == 0) {
+            Eliminate.setDx(-Game.WIDTH/40);
+            Finish.setDx(-Game.WIDTH/40);
+            Guess.setDx(-Game.WIDTH/40);
+            Computer.setDx(-Game.WIDTH/40);
+            Yes.setDx(-Game.WIDTH/40);
+            No.setDx(-Game.WIDTH/40);
+            Info.setDx(-Game.WIDTH/40);
+        }
+    }
+
+    // This method adds buttons to the GUI for each option
+    public static void addButtons2() {
         PromptQuestionButton op = new PromptQuestionButton(Game.WIDTH/4+Game.WIDTH, Game.HEIGHT/7*0+Game.HEIGHT/12, Game.WIDTH/2, Game.HEIGHT/8, ID.Button1);
         handler.addObject(op);
         StateChecker.prompts.add(op);

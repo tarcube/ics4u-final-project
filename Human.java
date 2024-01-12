@@ -46,7 +46,7 @@ public class Human extends GameObject {
 
     // Method for handling ticks
     public void tick(int ticks) {
-        if (mouseOverHuman(HUD.mx, HUD.my) && id != ID.Computer) hovered = true;
+        if (mouseOverHuman(HUD.mx, HUD.my) && !(id == ID.Computer || id == ID.Info)) hovered = true;
         else hovered = false;
         x += dx;
         y += dy;

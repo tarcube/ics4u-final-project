@@ -16,6 +16,7 @@ public enum ID {
     Computer,
     Yes,
     No,
+    Info,
     Button1,
     Button2,
     Button3,
