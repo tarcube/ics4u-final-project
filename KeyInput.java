@@ -19,7 +19,7 @@ public class KeyInput extends KeyAdapter {
     // String that a user would type/input
     public static String typedInput = "";
     // Length of typedInput (stable state checker)
-    private static int i = 0;
+    public static int i = 0;
     // StateChecker whether or not the user needs to type/input
     public static boolean typing = false;
 

@@ -256,5 +256,6 @@ public class BoardInitialiser {
         StateChecker.prompts.clear();
         StateChecker.output = "";
         KeyInput.typedInput = "";
+        KeyInput.i = 0;
     }
 }
