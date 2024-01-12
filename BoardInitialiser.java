@@ -9,27 +9,38 @@ import java.util.*;
 import java.io.*;
 
 public class BoardInitialiser {
+
     // Initialise random number generator
     private static Random r = new Random();
-    // ArrayList of humans
+
+    // ArrayList of humans/characters
     public static ArrayList<Human> humans = new ArrayList<>();
+
     // Handler for managing game objects
     private static Handler handler;
+
     // Computer text output object
     public static Human Computer;
-    //
+
+    // Variable to determine who goes first
+    // Type 0 = Player
+    // Type 1 = Computer
     public static int type;
 
+    // Constructor method for handler 
     public BoardInitialiser(Handler handler) {
         this.handler = handler;
     }
 
     // This method parses a text file to gather information about which attributes humans have
     public static void parseHumanAttributes() {
+
         try {
+
             // Creates ArrayList that stores all of the character names
             ArrayList<String> humanNames = new ArrayList<String>(24);
             String line = "";
+            
             // This Scanner Class identifies all the character names from the text file and inputs them into the ArrayList
             File file = new File("HumanAttribute.txt");
             Scanner reader = new Scanner(file);
