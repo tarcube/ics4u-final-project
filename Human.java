@@ -56,8 +56,10 @@ public class Human extends GameObject {
     // This method handles how the GUI is displayed
     public void render(Graphics g) {
         // generates a random background color
-        if (!hovered && (StateChecker.turn != "Done" || !(id == ID.Yes || id == ID.No))) g.setColor(Game.randomColorBy2);
-        else if (StateChecker.turn != "Done" || !(id == ID.Yes || id == ID.No)) g.setColor(new Color(0, 0, 0, 64));
+        boolean check1 = ((StateChecker.turn != "Done" || !(id == ID.Yes || id == ID.No)));
+        boolean check2 = (StateChecker.turn != "Guessing" || !(id == ID.Eliminate || id == ID.Finish));
+        if (!hovered && check1 && check2) g.setColor(Game.randomColorBy2);
+        else if (check1 && check2) g.setColor(new Color(0, 0, 0, 64));
         if (selected) g.setColor(new Color(255, 255, 0, 128));
         g.fillRect(x, y, w, h);
 

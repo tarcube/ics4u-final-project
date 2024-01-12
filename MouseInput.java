@@ -232,25 +232,36 @@ public class MouseInput extends MouseAdapter {
                     }
 
                     else if (StateChecker.playerGrid.get(i).getId() == ID.Guess) {
-                        StateChecker.turn = "Done";
-                        for (int j = 0; j < BoardInitialiser.humans.size(); j++) {
-                            BoardInitialiser.humans.get(j).setDy(Game.HEIGHT/30);
-                            if (BoardInitialiser.humans.get(j).getIfSelected()) {
-                                if (BoardInitialiser.humans.get(j) == StateChecker.computerHuman) {
-                                    BoardInitialiser.Computer.setName(BoardInitialiser.humans.get(j).getName() + " is right!");
-                                }
-                                else {
-                                    BoardInitialiser.Computer.setName(BoardInitialiser.humans.get(j).getName() + " is wrong. Right one was " + StateChecker.computerHuman.getName());
+                        if (StateChecker.turn == "Guessing") {
+                            StateChecker.turn = "Done";
+                            int count = 0;
+                            for (int j = 0; j < BoardInitialiser.humans.size(); j++) {
+                                if (BoardInitialiser.humans.get(j).getIfSelected()) {
+                                    count++;
                                 }
                             }
+                            if (count != 1) StateChecker.turn = "Player";
+                            if (count == 1) {
+                                for (int j = 0; j < BoardInitialiser.humans.size(); j++) {
+                                    BoardInitialiser.humans.get(j).setDy(Game.HEIGHT/30);
+                                    if (BoardInitialiser.humans.get(j).getIfSelected()) {
+                                        if (BoardInitialiser.humans.get(j) == StateChecker.computerHuman) {
+                                            BoardInitialiser.Computer.setName(BoardInitialiser.humans.get(j).getName() + " is right!");
+                                        }
+                                        else {
+                                            BoardInitialiser.Computer.setName(BoardInitialiser.humans.get(j).getName() + " is wrong. Right one was " + StateChecker.computerHuman.getName());
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        else {
+                            StateChecker.turn = "Guessing";
                         }
                     }
 
                     else if (StateChecker.turn == "Computer") {
-                        if (StateChecker.playerGrid.size() == 1) {
-                            //
-                        }
-                        else if (StateChecker.playerGrid.get(i).getId() == ID.Yes) {
+                        if (StateChecker.playerGrid.get(i).getId() == ID.Yes) {
                             StateChecker.aiRemoveHumansFromGrid(true, StateChecker.max_id);
                             for (int j = 0; j < BoardInitialiser.humans.size(); j++) {
                                 BoardInitialiser.humans.get(j).setDy(-Game.HEIGHT/30);
