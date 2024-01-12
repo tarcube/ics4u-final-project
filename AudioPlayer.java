@@ -8,16 +8,21 @@
 import javax.sound.sampled.*;
 
 public class AudioPlayer {
+
     // method that handles playing sound effect files (.wav)
     public static void play(String file) {
-        // try catch in case sound file could not be found
+
+        // try catch in case sound file cannot be found
         try {
-            // sound file getter
+
+            // sound file getter 
             AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(Game.class.getResource(file));
             Clip sound = AudioSystem.getClip();
+
             // plays the sound
             sound.open(audioInputStream);
             sound.start();
+            
         } catch (Exception err) {
             // error message
             System.out.println(err);

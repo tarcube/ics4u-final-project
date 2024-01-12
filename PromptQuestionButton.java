@@ -6,6 +6,7 @@
 // Import
 import java.awt.*;
 
+// Child class of GameObject
 public class PromptQuestionButton extends GameObject {
     private boolean hovered;
     private boolean unavailable;
