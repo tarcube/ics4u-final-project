@@ -61,6 +61,7 @@ public class StateChecker {
                 }
             }
             int range = Math.abs(count - (computerGrid.size()-count));
+            System.out.println(ids[i] + " " + range);
             if (range == min_range && r.nextInt(2) == 1) {
                 min_range = range;
                 max_id = ids[i];

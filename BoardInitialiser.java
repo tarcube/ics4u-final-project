@@ -220,5 +220,7 @@ public class BoardInitialiser {
     public static void removeGameplay() {
         for (int i = 0; i < humans.size(); i++) {handler.removeObject(humans.get(i));}
         for (int i = 0; i < StateChecker.prompts.size(); i++) {handler.removeObject(StateChecker.prompts.get(i));}
+        humans.clear();
+        StateChecker.prompts.clear();
     }
 }
