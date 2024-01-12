@@ -8,10 +8,9 @@
 import java.awt.*;
 import java.awt.event.*;
 
-// TODO: complete detailed comments 
-
-// handles all mouse activities 
+// Handles all mouse activities 
 public class MouseInput extends MouseAdapter {
+
     public static AudioPlayer audioplayer;
 
     // Constructor to initialize the audioplayer object
@@ -19,20 +18,27 @@ public class MouseInput extends MouseAdapter {
         audioplayer = new AudioPlayer();
     }
 
-    // actions when mouse is pressed
+    // Actions when mouse is pressed
     public void mousePressed(MouseEvent e) {
-        // sound feedback everytime mouse is pressed
+
+        // Sound feedback everytime mouse is pressed
         String file = "sfx/colon_3.wav";
         audioplayer.play(file);
 
+        // Actions in Title page
         if (HUD.getMenu() == "Title") {
+
+            // When mouse clicks on set coordinates, change page according to input
             if (mouseCollideRect(HUD.mx, HUD.my, HUD.op3)) HUD.setMenu("Play");
             else if (mouseCollideRect(HUD.mx, HUD.my, HUD.op4)) HUD.setMenu("Settings");
             else if (mouseCollideRect(HUD.mx, HUD.my, HUD.op5)) HUD.setMenu("Information");
             else if (mouseCollideRect(HUD.mx, HUD.my, HUD.op6)) HUD.setMenu("Credits");
         }
 
+        // Actions in Settings page
         else if (HUD.getMenu() == "Settings") {
+
+            // Whem mouse clicks on set coordinates, change window size according to input
             if (mouseCollideRect(HUD.mx, HUD.my, HUD.op1)) {
                 Game.WIDTH = 640;
                 Game.HEIGHT = 480;
@@ -61,6 +67,7 @@ public class MouseInput extends MouseAdapter {
             else if (mouseCollideRect(HUD.mx, HUD.my, HUD.op6)) HUD.setMenu("Title");
         }
 
+        // Actions in Play page
         else if (HUD.getMenu() == "Play") {
             if (mouseCollideRect(HUD.mx, HUD.my, HUD.op1)) {
                 HUD.setMenu("PvC");
