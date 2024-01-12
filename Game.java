@@ -3,7 +3,7 @@
     Mr.A ICS4U1
     Friday, January 12th, 2024
     Guess Who - Final Programming Assignment
-    Version Release 1.01
+    Version Release 1.02
     +Game.java [3] (MAIN)
 
     This is the main class of the game. 

@@ -113,7 +113,8 @@ public class StateChecker {
 
     public static void errorCheck(String name) {
         int playerHuman = 0;
-        computerGrid = BoardInitialiser.humans;
+        computerGrid.clear();
+        computerGrid = playerGrid;
         for (int i = 0; i < playerGrid.size(); i++) {
             if (name.toUpperCase().contains(playerGrid.get(i).getName())) {
                 playerHuman = i;

@@ -1,1 +1,71 @@
 - Start of log file -
+
+New Game - 1705078055322
+
+Computer asked 'Is your character female?' - 1705078056322
+
+Player responded 'No.' - 1705078058322
+
+Computer asked 'Does your character have dark skin?' - 1705078062322
+
+Player responded 'Yes.' - 1705078063322
+
+Computer asked 'Does your character have black hair?' - 1705078065322
+
+Player responded 'Yes.' - 1705078066322
+
+Computer asked 'Does your character have brown eyes?' - 1705078067322
+
+Player responded 'Yes.' - 1705078069322
+
+Computer asked 'Does your character have piercings?' - 1705078070322
+
+Player responded 'Yes.' - 1705078073322
+
+Computer asked 'Is your character JORDAN?' - 1705078074322
+
+Computer guessed wrong and lost - 1705078075322
+
+Start of Error Detection Check Log
+
+Computer asked 'Does your character have piercings?'
+Player answered true, when it should be false.
+
+End of Error Detection Check Log - 1705078077322
+
+New Game - 1705078218606
+
+Computer asked 'Is your character female?' - 1705078222606
+
+Player responded 'No.' - 1705078223606
+
+Computer asked 'Does your character have pale skin?' - 1705078224606
+
+Player responded 'No.' - 1705078224606
+
+Computer asked 'Does your character have white hair?' - 1705078225606
+
+Player responded 'No.' - 1705078226606
+
+Computer asked 'Does your character have headgear?' - 1705078227606
+
+Player responded 'No.' - 1705078228606
+
+Computer asked 'Does your character have piercings?' - 1705078229606
+
+Player responded 'No.' - 1705078229606
+
+Computer asked 'Is your character GABE?' - 1705078230606
+
+Computer guessed wrong and lost - 1705078231606
+
+Start of Error Detection Check Log
+
+Computer asked 'Is your character female?'
+Player answered false, when it should be true.
+
+End of Error Detection Check Log - 1705078232606
+
+New Game - 1705078238606
+
+Computer asked 'Does your character have short hair?' - 1705078239606
