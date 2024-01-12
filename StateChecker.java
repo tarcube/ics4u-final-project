@@ -123,11 +123,18 @@ public class StateChecker {
         for (int i = 0; i < numberOfQuestionsAndResponses/2; i++) {
             if (compareAttributes(idCheckComputed.get(i), false, 0) != userResponses.get(i)) {
                 errors += "Computer asked '" + questions.get((int)(idCheckComputed.get(i)/10)).get(-idCheckComputed.get(i)%10-1) +"'\n";
-                errors += "You answered " + userResponses.get(i) + ", when it should be " + !userResponses.get(i) + ".\n";
+                errors += "Player answered " + userResponses.get(i) + ", when it should be " + !userResponses.get(i) + ".\n";
             }
         }
         catagory = -7;
+        turn = "Done";
         output = errors;
+        try {
+            FileWriter fw = new FileWriter("log.txt", true);
+            fw.write("\n\nStart of Error Detection Check Log\n\n" + errors + "\nEnd of Error Detection Check Log - " + Game.timer);
+            fw.close();
+        }
+        catch (IOException e) {System.out.println(e);}
         for (int i = 0; i < BoardInitialiser.humans.size(); i++) {
             BoardInitialiser.humans.get(i).setDx(-Game.WIDTH/40);
         }
