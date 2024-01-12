@@ -7,6 +7,7 @@
 // Imports
 import java.awt.*;
 import java.awt.event.*;
+import java.io.*;
 
 // Handles all mouse activities 
 public class MouseInput extends MouseAdapter {
@@ -19,7 +20,7 @@ public class MouseInput extends MouseAdapter {
     }
 
     // Actions when mouse is pressed
-    public void mousePressed(MouseEvent e) {
+    public void mousePressed(MouseEvent err) {
 
         // Sound feedback everytime mouse is pressed
         String file = "sfx/colon_3.wav";
@@ -162,42 +163,142 @@ public class MouseInput extends MouseAdapter {
                     else {
                         if (StateChecker.prompts.get(i).getId() == ID.Button1) {
                             StateChecker.output += "You asked \n'" + StateChecker.questions.get(StateChecker.catagory).get(0) +"'";
+                            try {
+                                FileWriter fw = new FileWriter("log.txt", true);
+                                fw.write("\n\nPlayer asked '" + StateChecker.questions.get(StateChecker.catagory).get(0) +"' - " + Game.timer);
+                                fw.close();
+                            }
+                            catch (IOException e) {System.out.println(e);}
                             if (StateChecker.compareAttributes(StateChecker.catagory*10-1, false, 0)) {
                                 StateChecker.output += "\n The answer is 'Yes.' \n";
+                                try {
+                                    FileWriter fw = new FileWriter("log.txt", true);
+                                    fw.write("\n\nComputer responded with 'Yes.' - " + Game.timer);
+                                    fw.close();
+                                }
+                                catch (IOException e) {System.out.println(e);}
                             }
-                            else {StateChecker.output += "\n The answer is 'No.' \n";}
+                            else {
+                                StateChecker.output += "\n The answer is 'No.' \n";
+                                try {
+                                    FileWriter fw = new FileWriter("log.txt", true);
+                                    fw.write("\n\nComputer responded with 'No.' - " + Game.timer);
+                                    fw.close();
+                                }
+                                catch (IOException e) {System.out.println(e);}
+                            }
                         }
 
                         if (StateChecker.prompts.get(i).getId() == ID.Button2) {
                             StateChecker.output += "You asked \n'" + StateChecker.questions.get(StateChecker.catagory).get(1) +"'";
+                            try {
+                                FileWriter fw = new FileWriter("log.txt", true);
+                                fw.write("\n\nPlayer asked '" + StateChecker.questions.get(StateChecker.catagory).get(1) +"' - " + Game.timer);
+                                fw.close();
+                            }
+                            catch (IOException e) {System.out.println(e);}
                             if (StateChecker.compareAttributes(StateChecker.catagory*10-2, false, 0)) {
                                 StateChecker.output += "\n The answer is 'Yes.' \n";
+                                try {
+                                    FileWriter fw = new FileWriter("log.txt", true);
+                                    fw.write("\n\nComputer responded with 'Yes.' - " + Game.timer);
+                                    fw.close();
+                                }
+                                catch (IOException e) {System.out.println(e);}
                             }
-                            else {StateChecker.output += "\n The answer is 'No.' \n";}
+                            else {
+                                StateChecker.output += "\n The answer is 'No.' \n";
+                                try {
+                                    FileWriter fw = new FileWriter("log.txt", true);
+                                    fw.write("\n\nComputer responded with 'No.' - " + Game.timer);
+                                    fw.close();
+                                }
+                                catch (IOException e) {System.out.println(e);}
+                            }
                         }
 
                         if (StateChecker.prompts.get(i).getId() == ID.Button3) {
                             StateChecker.output += "You asked \n'" + StateChecker.questions.get(StateChecker.catagory).get(2) +"'";
+                            try {
+                                FileWriter fw = new FileWriter("log.txt", true);
+                                fw.write("\n\nPlayer asked '" + StateChecker.questions.get(StateChecker.catagory).get(2) +"' - " + Game.timer);
+                                fw.close();
+                            }
+                            catch (IOException e) {System.out.println(e);}
                             if (StateChecker.compareAttributes(StateChecker.catagory*10-3, false, 0)) {
                                 StateChecker.output += "\n The answer is 'Yes.' \n";
+                                try {
+                                    FileWriter fw = new FileWriter("log.txt", true);
+                                    fw.write("\n\nComputer responded with 'Yes.' - " + Game.timer);
+                                    fw.close();
+                                }
+                                catch (IOException e) {System.out.println(e);}
                             }
-                            else {StateChecker.output += "\n The answer is 'No.' \n";}
+                            else {
+                                StateChecker.output += "\n The answer is 'No.' \n";
+                                try {
+                                    FileWriter fw = new FileWriter("log.txt", true);
+                                    fw.write("\n\nComputer responded with 'No.' - " + Game.timer);
+                                    fw.close();
+                                }
+                                catch (IOException e) {System.out.println(e);}
+                            }
                         }
 
                         if (StateChecker.prompts.get(i).getId() == ID.Button4) {
                             StateChecker.output += "You asked \n'" + StateChecker.questions.get(StateChecker.catagory).get(3) +"'";
+                            try {
+                                FileWriter fw = new FileWriter("log.txt", true);
+                                fw.write("\n\nPlayer asked '" + StateChecker.questions.get(StateChecker.catagory).get(3) +"' - " + Game.timer);
+                                fw.close();
+                            }
+                            catch (IOException e) {System.out.println(e);}
                             if (StateChecker.compareAttributes(StateChecker.catagory*10-4, false, 0)) {
                                 StateChecker.output += "\n The answer is 'Yes.' \n";
+                                try {
+                                    FileWriter fw = new FileWriter("log.txt", true);
+                                    fw.write("\n\nComputer responded with 'Yes.' - " + Game.timer);
+                                    fw.close();
+                                }
+                                catch (IOException e) {System.out.println(e);}
                             }
-                            else {StateChecker.output += "\n The answer is 'No.' \n";}
+                            else {
+                                StateChecker.output += "\n The answer is 'No.' \n";
+                                try {
+                                    FileWriter fw = new FileWriter("log.txt", true);
+                                    fw.write("\n\nComputer responded with 'No.' - " + Game.timer);
+                                    fw.close();
+                                }
+                                catch (IOException e) {System.out.println(e);}
+                            }
                         }
 
                         if (StateChecker.prompts.get(i).getId() == ID.Button5) {
                             StateChecker.output += "You asked \n'" + StateChecker.questions.get(StateChecker.catagory).get(4) +"'";
+                            try {
+                                FileWriter fw = new FileWriter("log.txt", true);
+                                fw.write("\n\nPlayer asked '" + StateChecker.questions.get(StateChecker.catagory).get(4) +"' - " + Game.timer);
+                                fw.close();
+                            }
+                            catch (IOException e) {System.out.println(e);}
                             if (StateChecker.compareAttributes(StateChecker.catagory*10-5, false, 0)) {
                                 StateChecker.output += "\n The answer is 'Yes.' \n";
+                                try {
+                                    FileWriter fw = new FileWriter("log.txt", true);
+                                    fw.write("\n\nComputer responded with 'Yes.' - " + Game.timer);
+                                    fw.close();
+                                }
+                                catch (IOException e) {System.out.println(e);}
                             }
-                            else {StateChecker.output += "\n The answer is 'No.' \n";}
+                            else {
+                                StateChecker.output += "\n The answer is 'No.' \n";
+                                try {
+                                    FileWriter fw = new FileWriter("log.txt", true);
+                                    fw.write("\n\nComputer responded with 'No.' - " + Game.timer);
+                                    fw.close();
+                                }
+                                catch (IOException e) {System.out.println(e);}
+                            }
                         }
 
                         if (StateChecker.prompts.get(i).getId() == ID.Button6) {
