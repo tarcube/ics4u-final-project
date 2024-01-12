@@ -70,7 +70,6 @@ public class Game extends Canvas implements Runnable {
     // Method to update the game state
     private void tick(int ticks) {
         handler.tick(ticks);
-        hud.tick();
     }
 
     // Method to start the game

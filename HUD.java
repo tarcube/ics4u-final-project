@@ -7,24 +7,24 @@
 import java.awt.*;
 
 public class HUD {
-    private static String menu = "Title";
-    public static int mx, my;
-    public static Rectangle op1, op2, op3, op4, op5, op6;
 
-    public void tick() {}
+    private static String menu = "Title";
+    public static int mx, my; //m stands for mouse, x and y are positions
+    public static Rectangle op1, op2, op3, op4, op5, op6; //there is a maximum of six buttons on each page; all button positions are predetermined
 
     public void render(Graphics g) {
-        // Frames
+
+        // Frame counter (60 fps)
         Font font = new Font("Splatfont 2", Font.PLAIN, Game.WIDTH/32);
         Rectangle rect = new Rectangle(0, 0, Game.WIDTH/16, Game.HEIGHT/16);
         drawCenteredString(g, ""+(Game.frames), rect, font, Color.white, Color.black);
 
-        // Timer
+        // Match clock measured in seconds 
         font = new Font("Splatfont 2", Font.PLAIN, Game.WIDTH/32);
         rect = new Rectangle(0, Game.HEIGHT/16, Game.WIDTH/16, Game.HEIGHT/16);
         drawCenteredString(g, ""+((Game.timer-Game.init)/1000), rect, font, Color.white, Color.black);
 
-        // Options
+        // Initializing position of every option box
         op1 = new Rectangle(Game.WIDTH/4, Game.HEIGHT/8, Game.WIDTH/2, Game.HEIGHT/8);
         op2 = new Rectangle(Game.WIDTH/4, Game.HEIGHT/2-Game.HEIGHT/4, Game.WIDTH/2, Game.HEIGHT/8);
         op3 = new Rectangle(Game.WIDTH/4, Game.HEIGHT/2-Game.HEIGHT/8, Game.WIDTH/2, Game.HEIGHT/8);
@@ -32,61 +32,66 @@ public class HUD {
         op5 = new Rectangle(Game.WIDTH/4, Game.HEIGHT/2+Game.HEIGHT/8, Game.WIDTH/2, Game.HEIGHT/8);
         op6 = new Rectangle(Game.WIDTH/4, Game.HEIGHT/2+Game.HEIGHT/4, Game.WIDTH/2, Game.HEIGHT/8);
 
+        // Renders on Title page
         if (menu == "Title") {
-            // Title
+
+            // Renders the text "Guess Who?"
             font = new Font("Splatfont 2", Font.PLAIN, Game.WIDTH/8);
             rect = new Rectangle(Game.WIDTH/4, 0, Game.WIDTH/2, Game.HEIGHT/3);
             drawCenteredString(g, "Guess Who?", rect, font, Color.red, Color.blue);
 
-            // Play
+            // Renders the text "Play"
             font = new Font("Splatfont 2", Font.PLAIN, Game.WIDTH/16);
             if (MouseInput.mouseCollideRect(mx, my, op3)) {drawCenteredString(g, "> Play <", op3, font, Color.black, Color.yellow);}
             else drawCenteredString(g, "Play", op3, font, Color.black, Color.white);
 
-            // Settings
-            font = new Font("Splatfont 2", Font.PLAIN, Game.WIDTH/16);
+            // Renders the text "Settings"
             if (MouseInput.mouseCollideRect(mx, my, op4)) {drawCenteredString(g, "> Settings <", op4, font, Color.black, Color.yellow);}
             else drawCenteredString(g, "Settings", op4, font, Color.black, Color.white);
 
-            // Information
-            font = new Font("Splatfont 2", Font.PLAIN, Game.WIDTH/16);
+            // Renders the text "Information"
             if (MouseInput.mouseCollideRect(mx, my, op5)) {drawCenteredString(g, "> Information <", op5, font, Color.black, Color.yellow);}
             else drawCenteredString(g, "Information", op5, font, Color.black, Color.white);
 
-            // Credits
-            font = new Font("Splatfont 2", Font.PLAIN, Game.WIDTH/16);
+            // Renders the text "Credits"
             if (MouseInput.mouseCollideRect(mx, my, op6)) {drawCenteredString(g, "> Credits <", op6, font, Color.black, Color.yellow);}
             else drawCenteredString(g, "Credits", op6, font, Color.black, Color.white);
         }
 
+        // Renders on Settings page 
         else if (menu == "Settings") {
+
+            // Set font for Settings page
             font = new Font("Splatfont 2", Font.PLAIN, Game.WIDTH/16);
 
-            // 640x480
+            // Renders the text "640x480"
             if (MouseInput.mouseCollideRect(mx, my, op1)) {drawCenteredString(g, "> 640x480 <", op1, font, Color.black, Color.yellow);}
             else drawCenteredString(g, "640x480", op1, font, Color.black, Color.white);
 
-            // 800x600
+            // Renders the text "800x600"
             if (MouseInput.mouseCollideRect(mx, my, op2)) {drawCenteredString(g, "> 800x600 <", op2, font, Color.black, Color.yellow);}
             else drawCenteredString(g, "800x600", op2, font, Color.black, Color.white);
 
-            // 960x720
+            // Renders the text "960x720"
             if (MouseInput.mouseCollideRect(mx, my, op3)) {drawCenteredString(g, "> 960x720 <", op3, font, Color.black, Color.yellow);}
             else drawCenteredString(g, "960x720", op3, font, Color.black, Color.white);
 
-            // Colour
+            // Renders the text "BG Colour"
             if (MouseInput.mouseCollideRect(mx, my, op4)) {drawCenteredString(g, "> BG Colour <", op4, font, Color.black, Color.yellow);}
             else drawCenteredString(g, "BG Colour", op4, font, Color.black, Color.white);
 
-            // Back
+            // Renders the text "Back"
             if (MouseInput.mouseCollideRect(mx, my, op6)) {drawCenteredString(g, "> Back <", op6, font, Color.black, Color.yellow);}
             else drawCenteredString(g, "Back", op6, font, Color.black, Color.white);
         }
 
+        // Renders on Information page 
         else if (menu == "Information") {
+
+            // Set font for Information page
             font = new Font("Splatfont 2", Font.PLAIN, Game.WIDTH/16);
 
-            // Info
+            // Renders text on this page
             drawCenteredString(g, "", op1, font, Color.black, Color.white);
             drawCenteredString(g, "Check", op2, font, Color.black, Color.white);
             drawCenteredString(g, "README.md", op3, font, Color.black, Color.white);
