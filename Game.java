@@ -16,29 +16,39 @@ import java.awt.image.*;
 // This class extends the Canvas class and implements the Runnable interface
 // indicating it can be used as a separate thread
 public class Game extends Canvas implements Runnable {
+
     // Static variables for the canvas size
     public static int WIDTH = 800, HEIGHT = 600;
+
     // Variables for the window size
     public static int SPACEX = 14, SPACEY = 36;
+
     // Thread for the game
     private Thread thread;
+
     // Flag to check if the game is running
     private boolean running = false;
+
     // Handler for managing game objects
     private Handler handler;
+
     // HUD for the game
     private HUD hud;
+
     // Backend classes for the game
     public static BoardInitialiser boardInitialiser;
     public static StateChecker stateChecker;
+
     // Get the exact time that the program was initialized
     public static final long init = System.currentTimeMillis();
-    // timer
+
+    // Timer
     public static long timer;
-    // frames
+
+    // Frames
     public static int frames;
 
-    // Random colors for the game
+    // Random colors for the backgrounds
     public static int red = (int) (Math.random()*128+64);
     public static int green = (int) (Math.random()*128+64);
     public static int blue = (int) (Math.random()*128+64);
@@ -47,21 +57,29 @@ public class Game extends Canvas implements Runnable {
 
     // Constructor for the game
     public Game() {
+
         // Initialize the handler
         handler = new Handler();
+
         // Add key listener
         this.addKeyListener(new KeyInput());
+
         // Add MouseListener
         this.addMouseListener(new MouseInput());
+
         // Add MouseMotionListener
         this.addMouseMotionListener(new MouseInput());
+
         // Create a new window for the game
         new Window(WIDTH+SPACEX, HEIGHT+SPACEY, "Guess Who?", this);
+
         // Create a new HUD for the game
         hud = new HUD();
+
         // Add the backend to the game
         boardInitialiser = new BoardInitialiser(handler);
         stateChecker = new StateChecker();
+
         // Add objects to the game
         handler.addObject(new Object(0, 0, 0, 0, ID.Object));
         handler.addObject(new Human(0, 0, 0, 0, ID.Object));
@@ -98,6 +116,7 @@ public class Game extends Canvas implements Runnable {
         timer = System.currentTimeMillis();
         frames = 0;
         int ticks = 0;
+        
         // Game loop
         while (running) {
             long now = System.nanoTime();
