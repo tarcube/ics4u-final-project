@@ -1,6 +1,11 @@
 /*
     +HUD.java [6] (Frontend)
-    TODO: Add summary of contents in this class
+   
+    This class handles all the renders for GUI. 
+    There is a maximum of 6 lines of text for each page.
+    Some text is displayed differently when mouse is hovering over it.
+    External research used to centre text since defualt is to place it left.
+    Getter and setter used for mouse input.
 */
 
 // Imports
@@ -8,12 +13,14 @@ import java.awt.*;
 
 public class HUD {
 
+    // This variable is changed by the user's clicks when they go to different pages. 
+    // Set as "Title" first since that is the first page when program starts.
     private static String menu = "Title";
 
-    //m stands for mouse, x and y are positions
+    // m stands for mouse, x and y are positions
     public static int mx, my; 
 
-    //there is a maximum of six buttons on each page; all button positions are predetermined
+    // There is a maximum of six buttons on each page; all button positions are predetermined
     public static Rectangle op1, op2, op3, op4, op5, op6; 
 
     public void render(Graphics g) {
@@ -36,6 +43,8 @@ public class HUD {
         op5 = new Rectangle(Game.WIDTH/4, Game.HEIGHT/2+Game.HEIGHT/8, Game.WIDTH/2, Game.HEIGHT/8);
         op6 = new Rectangle(Game.WIDTH/4, Game.HEIGHT/2+Game.HEIGHT/4, Game.WIDTH/2, Game.HEIGHT/8);
 
+
+        // Setter methods in MouseInput class determine the menu
         // Renders on Title page
         if (menu == "Title") {
 
@@ -172,7 +181,7 @@ public class HUD {
         // Renders on PvC page
         else if (menu == "PvC") {
 
-            // 
+            // Renders the text "Are You Ready?"
             font = new Font("Splatfont 2", Font.PLAIN, Game.WIDTH/16);
             drawCenteredString(g, "Are You Ready?", new Rectangle(Game.WIDTH/4, 0, Game.WIDTH/2, Game.HEIGHT/8), font, Color.black, Color.white);
 
@@ -180,50 +189,65 @@ public class HUD {
             if (MouseInput.mouseCollideRect(mx, my, new Rectangle(Game.WIDTH/4, Game.HEIGHT/2+Game.HEIGHT/3, Game.WIDTH/2, Game.HEIGHT/8))) {
                 drawCenteredString(g, "> Yessir <", new Rectangle(Game.WIDTH/4, Game.HEIGHT/2+Game.HEIGHT/3, Game.WIDTH/2, Game.HEIGHT/8), font, Color.black, Color.yellow);
             }
-            // Renders 
+            // Renders the text "Yessir"
             else drawCenteredString(g, "Yessir", new Rectangle(Game.WIDTH/4, Game.HEIGHT/2+Game.HEIGHT/3, Game.WIDTH/2, Game.HEIGHT/8), font, Color.black, Color.white);
         }
 
+        // Renders when it is player's turn
         if (StateChecker.turn == "Player") {
+
+            // If on the questions page, render "<" (symbol to go back to character grid)
             if (StateChecker.getCamera() == "PromptQuestions") {
                 font = new Font("Splatfont 2", Font.PLAIN, Game.WIDTH/8);
                 drawCenteredString(g, "<", new Rectangle(0, 0, Game.WIDTH/10, Game.HEIGHT), font, new Color(255, 255, 255, 64), new Color(255, 255, 255, 64));
             }
 
+            // If on human grid, render ">" (symbol to go to questions page)
             if (StateChecker.getCamera() == "HumansGrid") {
                 font = new Font("Splatfont 2", Font.PLAIN, Game.WIDTH/8);
                 drawCenteredString(g, ">", new Rectangle(Game.WIDTH-Game.WIDTH/10, 0, Game.WIDTH/10, Game.HEIGHT), font, new Color(255, 255, 255, 64), new Color(255, 255, 255, 64));
             }
         }
 
+        // Renders on finished screen
         else if (StateChecker.turn == "Done") {
             font = new Font("Splatfont 2", Font.PLAIN, Game.WIDTH/16);
 
-            // Back
+            // Renders the text "Back"
             if (MouseInput.mouseCollideRect(mx, my, op6)) {drawCenteredString(g, "> Back <", op6, font, Color.black, Color.yellow);}
             else drawCenteredString(g, "Back", op6, font, Color.black, Color.white);
         }
     }
 
-    // ? https://stackoverflow.com/questions/27706197/how-can-i-center-graphics-drawstring-in-java
+    // Source: https://stackoverflow.com/questions/27706197/how-can-i-center-graphics-drawstring-in-java 
+    // Function to centre text 
     public void drawCenteredString(Graphics g, String text, Rectangle rect, Font font, Color color1, Color color2) {
-        // Get the FontMetrics
+
+        // Get the FontMetrics (String width, height, ascent)
+        // Ascent: recommended distance above the baseline for singled spaced text
         FontMetrics metrics = g.getFontMetrics(font);
+
         // Determine the X coordinate for the text
         int x = rect.x + (rect.width - metrics.stringWidth(text)) / 2;
+
         // Determine the Y coordinate for the text (note we add the ascent, as in java 2d 0 is top of the screen)
         int y = rect.y + ((rect.height - metrics.getHeight()) / 2) + metrics.getAscent();
+
         // Set the font
         g.setFont(font);
-        // Set the colour
+
+        // Set the colour 
         g.setColor(Game.randomColorBy2);
-        // Draw the String
+
+        // Draw the strings for the shadow from text (bottom layer)
         g.drawString(text, x-(rect.width)/32, y+(Game.HEIGHT/50));
         g.drawString(text, x, y+(Game.HEIGHT/50));
         g.drawString(text, x+(rect.width)/32, y+(Game.HEIGHT/50));
+
         // Set the colour
         g.setColor(color2);
-        // Draw the Strings
+
+        // Draw the strings for the border for text (surrounds text)
         g.drawString(text, x-(Game.WIDTH/100), y);
         g.drawString(text, x+(Game.WIDTH/100), y);
         g.drawString(text, x, y-(Game.HEIGHT/100));
@@ -232,12 +256,17 @@ public class HUD {
         g.drawString(text, x+(Game.WIDTH/100), y+(Game.HEIGHT/100));
         g.drawString(text, x-(Game.WIDTH/100), y+(Game.HEIGHT/100));
         g.drawString(text, x+(Game.WIDTH/100), y-(Game.HEIGHT/100));
+
         // Set the colour
         g.setColor(color1);
-        // Draw the String
+
+        // Draw the strings for the text itself (topmost layer)
         g.drawString(text, x, y);
     }
 
+    // Getter method for menu
     public static String getMenu() {return menu;}
+
+    // Setter method for menu
     public static void setMenu(String menu) {HUD.menu = menu;}
 }
