@@ -36,16 +36,24 @@ public class StateChecker {
     // Computer's answer to the player's questions
     public static String output = "";
 
-    // Most optimal value used in computer algorithm 
+    // Most optimal question used in computer algorithm 
     public static int max_id;
 
-    
+    //TODO: what does this do
     public static String log = "";
+
+    // Arraylist of IDs checked for algorithm
     public static ArrayList<Integer> idCheckComputed = new ArrayList<Integer>();
+
+    // Arraylist of user responses to computer's questions
     public static ArrayList<Boolean> userResponses = new ArrayList<Boolean>();
+
     // Initialise random number generator
     private static Random r = new Random();
 
+    // Method to compare attribute to character
+    // Return: boolean type if attribute is in character
+    // Param: attribute id, player turn, loop counter 
     public static Boolean compareAttributes(int id, boolean ai, int j) {
         Human human = computerGrid.get(j);
         if (!ai) {human = computerHuman;}
@@ -74,13 +82,20 @@ public class StateChecker {
         return null;
     }
 
+    // Method for computer AI algorithm
     public static void aiGreedyAlgorithm() {
+
+        // Question ID options
         int[] ids = new int[] {-11, -12, -13, -14, -15, -21, -22, -23, -24, -31, -32, -33, -41, -42, -43, -44, -51, -52, -53, -54, -61};
         float min_range = computerGrid.size();
+
+        // Set best question ID as zero
         max_id = 0;
+
         for (int i = 0; i < ids.length; i++) {
             int count = 0;
             for (int j = 0; j < computerGrid.size(); j++) {
+                // Add one to count everytime an attribute is true 
                 if (compareAttributes(ids[i], true, j)) {
                     count++;
                 }
