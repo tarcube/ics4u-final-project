@@ -7,7 +7,6 @@
 import java.util.*;
 
 public class StateChecker {
-    public static Human playerHuman;
     public static Human computerHuman;
     public static String turn;
     private static String camera;

@@ -190,6 +190,13 @@ public class BoardInitialiser {
             }
             StateChecker.aiGreedyAlgorithm();
         }
+
+        try {
+            FileWriter fw = new FileWriter("log.txt", true);
+            fw.write("\n\nNew Game - " + Game.timer);
+            fw.close();
+        }
+        catch (IOException e) {System.out.println(e);}
     }
 
     // This method adds buttons to the GUI for each option
