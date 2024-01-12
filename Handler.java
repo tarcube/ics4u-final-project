@@ -10,6 +10,7 @@ import java.awt.*;
 import java.util.*;
 
 public class Handler {
+
     // LinkedList that holds all GameObject instances
     LinkedList<GameObject> object = new LinkedList<GameObject>();
     
@@ -31,6 +32,7 @@ public class Handler {
 
     // Method to add a GameObject to the list
     public void addObject(GameObject object) {this.object.add(object);}
+    
     // Method to remove a GameObject from the list
     public void removeObject(GameObject object) {this.object.remove(object);}
 }

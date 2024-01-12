@@ -5,8 +5,14 @@
     Guess Who - Final Programming Assignment
     Version Pre-Release 0.9d
     +Game.java [3] (MAIN)
-    TODO: Add summary of contents in this class
-    TODO: Add the text "First select character(s), then select action" on character selection page 
+
+    This is the main class of the game. 
+    Includes:
+        Game constructor
+        Important variables for setup
+        Important methods (game start and stop, running, rendering, game loop)
+
+        TODO: Add the text "First select character(s), then select action" on character selection page 
 */
 
 // Imports

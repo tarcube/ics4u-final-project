@@ -7,12 +7,17 @@
 // Imports
 import java.awt.*;
 
+// Abstract class to create template for other objects
 public abstract class GameObject {
+
     // Declaring protected instance variables
+
     // x and y coordinates of object 
     protected int x, y;
+
     // width and height of the object
     protected int w, h;
+
     // unique identifier for each object
     protected ID id;
 
@@ -27,9 +32,10 @@ public abstract class GameObject {
 
     // Abstract methods that will be implemented in the subclasses
 
-    // method to update the state of the object
+    // Method to update the state of the object
     public abstract void tick(int ticks);
-    // method to draw the object
+
+    // Method to draw the object
     public abstract void render(Graphics g);
 
     // Getter and setter methods for the instance variables

@@ -6,6 +6,7 @@
 */
 
 public enum ID {
+    
     // These are constants of the enumeration. It represents an object ID.
     Object,
     Human,

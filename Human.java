@@ -10,8 +10,10 @@ import java.awt.image.*;
 import java.io.*;
 import javax.imageio.*;
 
+// Class to create character objects
 public class Human extends GameObject {
-    // initialize all the character attribute variables
+
+    // Initialize all the character attribute variables
     private String name = "";
     private String gender;
     private String hairColour;
@@ -35,13 +37,14 @@ public class Human extends GameObject {
     private BufferedImage image;
 
     public Human(int x, int y, int w, int h, ID id) {
-        // inherits variables from GameObject
+
+        // Inherits variables from GameObject
         super(x, y, w, h, id);
         this.initX = x;
         this.initY = y;
     }
 
-    // this method handles ticks
+    // Method for handling ticks
     public void tick(int ticks) {
         if (mouseOverHuman(HUD.mx, HUD.my) && id != ID.Computer) hovered = true;
         else hovered = false;
@@ -55,7 +58,8 @@ public class Human extends GameObject {
 
     // This method handles how the GUI is displayed
     public void render(Graphics g) {
-        // generates a random background color
+
+        // Generates a random background color
         boolean check1 = ((StateChecker.turn != "Done" || !(id == ID.Yes || id == ID.No)));
         boolean check2 = (StateChecker.turn != "Guessing" || !(id == ID.Eliminate || id == ID.Finish));
         if (!hovered && check1 && check2) g.setColor(Game.randomColorBy2);
@@ -63,14 +67,16 @@ public class Human extends GameObject {
         if (selected) g.setColor(new Color(255, 255, 0, 128));
         g.fillRect(x, y, w, h);
 
-        // renders pictures of humans
+        // Renders pictures of characters
         g.drawImage(image, x+w/3, y, w/3*2, h, null);
 
-        // imports the font used for the game
+        // Imports the font used for the game
         Font font = new Font("Splatfont 2", Font.PLAIN, Game.WIDTH/40);
         g.setFont(font);
         g.setColor(Game.randomColor);
         g.drawString(name, x+w/10, y+h/2+h/3);
+
+        // If outlawed, draw red "X" inside character box
         if (outlawed) {
             g.setColor(new Color(255, 0, 0, 255));
             font = new Font("Splatfont 2", Font.PLAIN, Game.WIDTH/8);
