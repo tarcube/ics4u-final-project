@@ -112,16 +112,17 @@ public class StateChecker {
     }
 
     public static void errorCheck(String name) {
-        Human playerHuman;
+        int playerHuman = 0;
+        computerGrid = BoardInitialiser.humans;
         for (int i = 0; i < playerGrid.size(); i++) {
             if (name.toUpperCase().contains(playerGrid.get(i).getName())) {
-                playerHuman = playerGrid.get(i);
+                playerHuman = i;
             }
         }
         int numberOfQuestionsAndResponses = idCheckComputed.size() + userResponses.size();
         String errors = "";
         for (int i = 0; i < numberOfQuestionsAndResponses/2; i++) {
-            if (compareAttributes(idCheckComputed.get(i), false, 0) != userResponses.get(i)) {
+            if (compareAttributes(idCheckComputed.get(i), false, playerHuman) != userResponses.get(i)) {
                 errors += "Computer asked '" + questions.get((int)(idCheckComputed.get(i)/10)).get(-idCheckComputed.get(i)%10-1) +"'\n";
                 errors += "Player answered " + userResponses.get(i) + ", when it should be " + !userResponses.get(i) + ".\n";
             }
