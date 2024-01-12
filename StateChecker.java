@@ -123,7 +123,7 @@ public class StateChecker {
         int numberOfQuestionsAndResponses = idCheckComputed.size() + userResponses.size();
         String errors = "";
         for (int i = 0; i < numberOfQuestionsAndResponses/2; i++) {
-            if (compareAttributes(idCheckComputed.get(i), false, playerHuman) != userResponses.get(i)) {
+            if (compareAttributes(idCheckComputed.get(i), true, playerHuman) != userResponses.get(i)) {
                 errors += "Computer asked '" + questions.get((int)(idCheckComputed.get(i)/10)).get(-idCheckComputed.get(i)%10-1) +"'\n";
                 errors += "Player answered " + userResponses.get(i) + ", when it should be " + !userResponses.get(i) + ".\n";
             }
