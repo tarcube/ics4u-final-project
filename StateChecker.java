@@ -61,7 +61,6 @@ public class StateChecker {
                 }
             }
             int range = Math.abs(count - (computerGrid.size()-count));
-            System.out.println(ids[i] + " " + range);
             if (range == min_range && r.nextInt(2) == 1) {
                 min_range = range;
                 max_id = ids[i];
@@ -74,6 +73,7 @@ public class StateChecker {
         BoardInitialiser.Computer.setName("'" + questions.get((int)(max_id/10)).get(-max_id%10-1) +"'");
         if (computerGrid.size() == 1) {
             BoardInitialiser.Computer.setName("'Is your character " + computerGrid.get(0).getName() + "?'");
+            turn = "Done?";
         }
     }
 

@@ -3,17 +3,10 @@
     Mr.A ICS4U1
     Friday, January 12th, 2024
     Guess Who - Final Programming Assignment
-    Version Pre-Release 0.8h
+    Version Pre-Release 0.8i
     +Game.java [3] (MAIN)
     TODO: Add summary of contents in this class
 */
-
-// TODO: Self-explanatory
-// ! Use this if the code contains errors
-// ? Use this if you need help optimizing the code
-// * Use this to highlight comments
-// . Use this for normal comments
-//// Use this to disregard things
 
 // Imports
 import java.awt.*;

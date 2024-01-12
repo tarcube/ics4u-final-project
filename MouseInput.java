@@ -105,6 +105,21 @@ public class MouseInput extends MouseAdapter {
             }
         }
 
+        else if (StateChecker.turn == "Done?") {
+            for (int i = 0; i < StateChecker.playerGrid.size(); i++) {
+                if (StateChecker.playerGrid.get(i).mouseOverHuman(HUD.mx, HUD.my)) {
+                    if (StateChecker.playerGrid.get(i).getId() == ID.Yes) {
+                        StateChecker.turn = "Done";
+                        BoardInitialiser.Computer.setName("Computer wins, good game!");
+                    }
+                    if (StateChecker.playerGrid.get(i).getId() == ID.No) {
+                        StateChecker.turn = "Done";
+                        BoardInitialiser.Computer.setName("Bruh.");
+                    }
+                }
+            }
+        }
+
         else if (StateChecker.getCamera() == "PromptQuestions") {
             for (int i = 0; i < StateChecker.prompts.size(); i++) {
                 if (StateChecker.prompts.get(i).mouseOverButton(HUD.mx, HUD.my) && !StateChecker.prompts.get(i).getIfUnavailable()) {
