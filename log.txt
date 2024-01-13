@@ -1,1 +1,38 @@
 - Start of log file -
+
+New Game - 1705109428582
+
+Computer asked 'Is your character male?' - 1705109430582
+
+Player responded 'Yes.' - 1705109431582
+
+Computer asked 'Does your character have dark skin?' - 1705109432582
+
+Player responded 'Yes.' - 1705109433582
+
+Computer asked 'Does your character have black hair?' - 1705109433582
+
+Player responded 'No.' - 1705109434582
+
+Computer asked 'Does your character have no hair?' - 1705109435582
+
+Player responded 'Yes.' - 1705109437582
+
+Computer asked 'Does your character have brown eyes?' - 1705109437582
+
+Player responded 'No.' - 1705109439582
+
+Computer asked 'Is your character AL?' - 1705109440582
+
+Computer guessed wrong and lost - 1705109441582
+
+Start of Error Detection Check Log
+
+Computer asked 'Is your character male?'
+Player answered true, when it should be false.
+Computer asked 'Does your character have dark skin?'
+Player answered true, when it should be false.
+Computer asked 'Does your character have no hair?'
+Player answered true, when it should be false.
+
+End of Error Detection Check Log - 1705109444582

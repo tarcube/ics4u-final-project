@@ -153,13 +153,16 @@ public class StateChecker {
         computerGrid.clear();
         computerGrid = playerGrid;
         for (int i = 0; i < playerGrid.size(); i++) {
-            if (name.toUpperCase().contains(playerGrid.get(i).getName())) {
+            if (KeyInput.typedInput.toUpperCase().contains(playerGrid.get(i).getName())) {
                 playerHuman = i;
             }
         }
-        int numberOfQuestionsAndResponses = idCheckComputed.size() + userResponses.size();
+        int numberOfQuestionsAndResponses = (idCheckComputed.size() + userResponses.size())/2;
+        //// for (int i = 0; i < idCheckComputed.size(); i++) System.out.println(questions.get((int)(idCheckComputed.get(i)/10)).get(-idCheckComputed.get(i)%10-1));
+        //// System.out.println(userResponses);
+        ////System.out.println(numberOfQuestionsAndResponses);
         String errors = "";
-        for (int i = 0; i < numberOfQuestionsAndResponses/2; i++) {
+        for (int i = 0; i < numberOfQuestionsAndResponses; i++) {
             if (compareAttributes(idCheckComputed.get(i), true, playerHuman) != userResponses.get(i)) {
                 errors += "Computer asked '" + questions.get((int)(idCheckComputed.get(i)/10)).get(-idCheckComputed.get(i)%10-1) +"'\n";
                 errors += "Player answered " + userResponses.get(i) + ", when it should be " + !userResponses.get(i) + ".\n";
