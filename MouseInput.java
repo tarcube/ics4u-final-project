@@ -166,9 +166,12 @@ public class MouseInput extends MouseAdapter {
             }
         }
 
+        // Actions in prompt questions page
         else if (StateChecker.getCamera() == "PromptQuestions") {
             for (int i = 0; i < StateChecker.prompts.size(); i++) {
                 if (StateChecker.prompts.get(i).mouseOverButton(HUD.mx, HUD.my) && !StateChecker.prompts.get(i).getIfUnavailable()) {
+
+                    // Gets category based on mouse input
                     if (StateChecker.catagory == 0) {
                         if (StateChecker.prompts.get(i).getId() == ID.Button1) {
                             StateChecker.catagory = -1;
@@ -197,6 +200,8 @@ public class MouseInput extends MouseAdapter {
                     else {
                         if (StateChecker.prompts.get(i).getId() == ID.Button1) {
                             StateChecker.output += "You asked \n'" + StateChecker.questions.get(StateChecker.catagory).get(0) +"'";
+
+                            // Add information to log.txt based on mouse input
                             try {
                                 FileWriter fw = new FileWriter("log.txt", true);
                                 fw.write("\n\nPlayer asked '" + StateChecker.questions.get(StateChecker.catagory).get(0) +"' - " + Game.timer);
@@ -343,8 +348,11 @@ public class MouseInput extends MouseAdapter {
             }
         }
 
+        // Actions for character grid page
         else if (StateChecker.getCamera() == "HumansGrid") {
             for (int i = 0; i < StateChecker.playerGrid.size(); i++) {
+
+                // Selecting characters
                 if (StateChecker.playerGrid.get(i).mouseOverHuman(HUD.mx, HUD.my)) {
                     if (StateChecker.playerGrid.get(i).getId() == ID.Human) {
                         if (!StateChecker.playerGrid.get(i).getIfSelected()) {
@@ -355,6 +363,7 @@ public class MouseInput extends MouseAdapter {
                         }
                     }
 
+                    // Eliminate characters
                     else if (StateChecker.playerGrid.get(i).getId() == ID.Eliminate) {
                         for (int j = 0; j < StateChecker.playerGrid.size(); j++) {
                             if (StateChecker.playerGrid.get(j).getIfSelected()) {
@@ -369,6 +378,7 @@ public class MouseInput extends MouseAdapter {
                         }
                     }
 
+                    // Finish turn
                     else if (StateChecker.playerGrid.get(i).getId() == ID.Finish) {
                         StateChecker.turn = "Computer";
                         for (int j = 0; j < BoardInitialiser.humans.size(); j++) {
@@ -377,6 +387,7 @@ public class MouseInput extends MouseAdapter {
                         StateChecker.aiGreedyAlgorithm();
                     }
 
+                    // Guess character
                     else if (StateChecker.playerGrid.get(i).getId() == ID.Guess) {
                         if (StateChecker.turn == "Guessing") {
                             StateChecker.turn = "Done";
@@ -386,6 +397,8 @@ public class MouseInput extends MouseAdapter {
                                     count++;
                                 }
                             }
+
+                            // Error check: it will not allow player to guess more than one character
                             if (count != 1) StateChecker.turn = "Player";
                             if (count == 1) {
                                 for (int j = 0; j < BoardInitialiser.humans.size(); j++) {
@@ -393,6 +406,8 @@ public class MouseInput extends MouseAdapter {
                                     if (BoardInitialiser.humans.get(j).getIfSelected()) {
                                         if (BoardInitialiser.humans.get(j) == StateChecker.computerHuman) {
                                             BoardInitialiser.Computer.setName(BoardInitialiser.humans.get(j).getName() + " is right!");
+
+                                            // Add information to log.txt
                                             try {
                                                 FileWriter fw = new FileWriter("log.txt", true);
                                                 fw.write("\n\nPlayer guessed right and won - " + Game.timer);
@@ -419,6 +434,8 @@ public class MouseInput extends MouseAdapter {
                     }
 
                     else if (StateChecker.turn == "Computer") {
+
+                        // Player answers computer's questions with yes
                         if (StateChecker.playerGrid.get(i).getId() == ID.Yes) {
                             StateChecker.aiRemoveHumansFromGrid(true, StateChecker.max_id);
                             for (int j = 0; j < BoardInitialiser.humans.size(); j++) {
@@ -426,6 +443,8 @@ public class MouseInput extends MouseAdapter {
                             }
                             StateChecker.turn = "Player";
                             StateChecker.catagory = 0;
+
+                            // Add information to log.txt
                             try {
                                 FileWriter fw = new FileWriter("log.txt", true);
                                 fw.write("\n\nPlayer responded 'Yes.' - " + Game.timer);
@@ -433,6 +452,8 @@ public class MouseInput extends MouseAdapter {
                             }
                             catch (IOException e) {System.out.println(e);}
                         }
+
+                        // Player answers computer's questions with no
                         else if (StateChecker.playerGrid.get(i).getId() == ID.No) {
                             StateChecker.aiRemoveHumansFromGrid(false, StateChecker.max_id);
                             for (int j = 0; j < BoardInitialiser.humans.size(); j++) {
@@ -440,6 +461,8 @@ public class MouseInput extends MouseAdapter {
                             }
                             StateChecker.turn = "Player";
                             StateChecker.catagory = 0;
+
+                            // Add information to log.txt
                             try {
                                 FileWriter fw = new FileWriter("log.txt", true);
                                 fw.write("\n\nPlayer responded 'No.' - " + Game.timer);
@@ -453,9 +476,10 @@ public class MouseInput extends MouseAdapter {
         }
     }
 
-    // actions when moused is released 
+    // Actions when moused is released 
     public void mouseReleased(MouseEvent e) {}
 
+    // Arrow actions for switching between questions and character grid screens
     public void mouseMoved(MouseEvent e) {
         HUD.mx = e.getX();
         HUD.my = e.getY();
@@ -481,6 +505,7 @@ public class MouseInput extends MouseAdapter {
         }
     }
 
+    // Mouse locator
     public static boolean mouseCollideRect(int mx, int my, Rectangle rect) {
         if ((mx > rect.x && mx < rect.x + rect.width) && (my > rect.y && my < rect.y + rect.height)) {
             return true;
