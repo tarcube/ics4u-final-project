@@ -50,7 +50,9 @@ public class BoardInitialiser {
                 if (line != "") humanNames.add(line);
             }
 
-            // This hashmap handles all the names that each attribute contains
+            // This hashmap handles all the character names that each attribute contains
+            // Key: attributes 
+            // Value: character names that have the attribute 
             HashMap<String, ArrayList<String>> attributes = new HashMap<>();
             String attribute = "";
             ArrayList<String> names = new ArrayList<String>();
@@ -66,6 +68,8 @@ public class BoardInitialiser {
                 }
             }
             reader.close();
+
+            // Run method to build human objects
             humanFactory(humanNames, attributes);
         }
         catch (FileNotFoundException e) {System.out.println(e);}
@@ -74,13 +78,15 @@ public class BoardInitialiser {
     // This method takes the information gathered earlier and builds the human objects
     public static void humanFactory(ArrayList<String> humanNames, HashMap<String, ArrayList<String>> attributes) {
         for (int i = 0; i < humanNames.size(); i++) {
+
             // Each character's position in the grid
             int x = (int)(i%6+1)*Game.WIDTH/7-Game.WIDTH/9;
             int y = (int)(Math.floor(i/6)+1)*Game.HEIGHT/6;
             Human human = new Human(x, y, Game.WIDTH/8, Game.HEIGHT/8, ID.Human);
             String name = humanNames.get(i);
             human.setName(name);
-            // if character contains attribute, add that attribute to the character
+
+            // If character contains attribute, add that attribute to the character
             if (attributes.get("_male_gender_").contains(name)) human.setGender("male");
             if (attributes.get("_female_gender_").contains(name)) human.setGender("female");
             if (attributes.get("_brown_hair_").contains(name)) human.setHairColour("brown");

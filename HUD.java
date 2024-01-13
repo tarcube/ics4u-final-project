@@ -123,7 +123,7 @@ public class HUD {
 
             // Renders credits text on this page
             drawCenteredString(g, "Project Manager - Ian F.", op1, font, Color.black, Color.white);
-            drawCenteredString(g, "Lead Programmger -Kevin X.", op2, font, Color.black, Color.white);
+            drawCenteredString(g, "Lead Programmer - Kevin X.", op2, font, Color.black, Color.white);
             drawCenteredString(g, "Software Developer - Matthew X.", op3, font, Color.black, Color.white);
             drawCenteredString(g, "ICS4U", op4, font, Color.black, Color.white);
 
