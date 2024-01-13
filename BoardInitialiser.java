@@ -113,7 +113,7 @@ public class BoardInitialiser {
         }
     }
 
-    // initializes the player vs AI gamemode
+    // Initializes the player vs AI gamemode
     public static void initialisePlayerVsComputer(int type) {
         BoardInitialiser.type = type;
         removeGameplay();
@@ -138,7 +138,7 @@ public class BoardInitialiser {
 
         addButtons1(type);
 
-        // opens the text file that contains the questions that can be asked
+        // Opens the text file that contains the questions that can be asked
         try {
             File file = new File("QuestionPrompt.txt");
             Scanner reader = new Scanner(file);
@@ -230,7 +230,7 @@ public class BoardInitialiser {
         }
     }
 
-    // This method adds buttons to the GUI for each option
+    // This method adds buttons to the GUI for each  question option
     public static void addButtons2() {
         PromptQuestionButton op = new PromptQuestionButton(Game.WIDTH/4+Game.WIDTH, Game.HEIGHT/7*0+Game.HEIGHT/12, Game.WIDTH/2, Game.HEIGHT/8, ID.Button1);
         handler.addObject(op);
@@ -255,6 +255,7 @@ public class BoardInitialiser {
         StateChecker.prompts.add(op);
     }
 
+    // If "Back" button pressed in "menu: done", run method to remove character objects on screen 
     public static void removeGameplay() {
         for (int i = 0; i < humans.size(); i++) {handler.removeObject(humans.get(i));}
         for (int i = 0; i < StateChecker.prompts.size(); i++) {handler.removeObject(StateChecker.prompts.get(i));}
