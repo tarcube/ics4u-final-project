@@ -148,12 +148,12 @@ public class StateChecker {
         userResponses.add(answer);
     }
 
-    public static void errorCheck(String name) {
+    public static void errorCheck(String typedInput) {
         int playerHuman = 0;
         computerGrid.clear();
         computerGrid = playerGrid;
         for (int i = 0; i < playerGrid.size(); i++) {
-            if (KeyInput.typedInput.toUpperCase().contains(playerGrid.get(i).getName())) {
+            if (typedInput.toUpperCase().contains(playerGrid.get(i).getName())) {
                 playerHuman = i;
             }
         }
@@ -161,10 +161,7 @@ public class StateChecker {
         //// System.out.println(userResponses);
         ////System.out.println(numberOfQuestionsAndResponses);
         String errors = "";
-        int iykwim = 0;
-        if (r.nextInt(100) % 2 == 1) {iykwim = idCheckComputed.size();}
-        else {iykwim = userResponses.size();}
-        for (int i = 0; i < iykwim; i++) {
+        for (int i = 0; i < (idCheckComputed.size()+userResponses.size())/2; i++) {
             if (compareAttributes(idCheckComputed.get(i), true, playerHuman) != userResponses.get(i)) {
                 errors += "Computer asked '" + questions.get((int)(idCheckComputed.get(i)/10)).get(-idCheckComputed.get(i)%10-1) +"'\n";
                 errors += "Player answered " + userResponses.get(i) + ", when it should be " + !userResponses.get(i) + ".\n";
