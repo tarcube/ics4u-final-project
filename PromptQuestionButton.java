@@ -1,6 +1,8 @@
 /*
     +PromptQuestionButton.java [12] (Backend)
-    TODO: Add summary of contents in this class
+
+    This class handles rendering of the question prompts for the player to choose from.
+    
 */
 
 // Import
@@ -15,12 +17,14 @@ public class PromptQuestionButton extends GameObject {
     private int dx = 0;
     private int dy = 0;
 
+    // Inherit attributes from GameObject
     public PromptQuestionButton(int x, int y, int w, int h, ID id) {
         super(x, y, w, h, id);
         this.initX = x - Game.WIDTH;
         this.initY = y;
     }
 
+    // Tick method
     public void tick(int ticks) {
         if (mouseOverButton(HUD.mx, HUD.my) && StateChecker.catagory != -7) hovered = true;
         else hovered = false;
@@ -30,6 +34,7 @@ public class PromptQuestionButton extends GameObject {
         if (x > initX+Game.WIDTH) dx = 0;
     }
 
+    // Renders questions that player chooses from 
     public void render(Graphics g) {
         if (id != ID.Button7 || StateChecker.catagory == -7) {
             if (!hovered) g.setColor(Game.randomColorBy2);
@@ -98,6 +103,7 @@ public class PromptQuestionButton extends GameObject {
         }
     }
 
+    // Mouse locator
     public boolean mouseOverButton(int mx, int my) {
         if ((mx > x && mx < x + w) && (my > y && my < y + h)) {
             return true;
@@ -107,7 +113,10 @@ public class PromptQuestionButton extends GameObject {
         }
     }
 
+    // Setter method for unavailable boolean variable
     public boolean getIfUnavailable() {return unavailable;}
+
+    // Setter methods to get change in x and y positions
     public void setDx(int dx) {this.dx = dx;}
     public void setDy(int dy) {this.dy = dy;}
 }
