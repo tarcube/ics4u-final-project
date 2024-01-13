@@ -119,6 +119,7 @@ public class MouseInput extends MouseAdapter {
             }
         }
 
+        // Return to "Play" page when pressed done
         else if (StateChecker.turn == "Done") {
             if (mouseCollideRect(HUD.mx, HUD.my, HUD.op6)) {
                 BoardInitialiser.removeGameplay();
@@ -130,9 +131,13 @@ public class MouseInput extends MouseAdapter {
         else if (StateChecker.turn == "Done?") {
             for (int i = 0; i < StateChecker.playerGrid.size(); i++) {
                 if (StateChecker.playerGrid.get(i).mouseOverHuman(HUD.mx, HUD.my)) {
+
+                    // If computer won actions
                     if (StateChecker.playerGrid.get(i).getId() == ID.Yes) {
                         StateChecker.turn = "Done";
                         BoardInitialiser.Computer.setName("Computer wins, good game!");
+
+                        // Write "computer won" message to log.txt
                         try {
                             FileWriter fw = new FileWriter("log.txt", true);
                             fw.write("\n\nComputer guessed right and won - " + Game.timer);
@@ -140,9 +145,15 @@ public class MouseInput extends MouseAdapter {
                         }
                         catch (IOException e) {System.out.println(e);}
                     }
+
+                    // If computer lost actions
                     if (StateChecker.playerGrid.get(i).getId() == ID.No) {
                         StateChecker.turn = "ErrorCheck";
+
+                        // Retrieve 
                         BoardInitialiser.Computer.setName("Type below human's name, then hit enter.");
+
+                        // Write "computer lost" message to log.txt
                         try {
                             FileWriter fw = new FileWriter("log.txt", true);
                             fw.write("\n\nComputer guessed wrong and lost - " + Game.timer);
