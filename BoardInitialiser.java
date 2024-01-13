@@ -1,7 +1,7 @@
 /*
     +BoardInitialiser.java [2] (Backend)
     
-    This class initializes all the necessary components for creating the character board
+    This class initialises all the necessary components for creating the character board
 */
 
 // Imports
@@ -113,7 +113,7 @@ public class BoardInitialiser {
         }
     }
 
-    // Initializes the player vs AI gamemode
+    // Initialises the player vs AI gamemode
     public static void initialisePlayerVsComputer(int type) {
         BoardInitialiser.type = type;
         removeGameplay();

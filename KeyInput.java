@@ -23,7 +23,7 @@ public class KeyInput extends KeyAdapter {
     // StateChecker whether or not the user needs to type/input
     public static boolean typing = false;
 
-    // Constructor to initialize the audioplayer object
+    // Constructor to initialise the audioplayer object
     public KeyInput() {
         audioplayer = new AudioPlayer();
     }

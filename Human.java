@@ -13,7 +13,7 @@ import javax.imageio.*;
 // Class to create character objects
 public class Human extends GameObject {
 
-    // Initialize all the character attribute variables
+    // Initialise all the character attribute variables
     private String name = "";
     private String gender;
     private String hairColour;

@@ -43,7 +43,7 @@ public class Game extends Canvas implements Runnable {
     public static BoardInitialiser boardInitialiser;
     public static StateChecker stateChecker;
 
-    // Get the exact time that the program was initialized
+    // Get the exact time that the program was initialised
     public static final long init = System.currentTimeMillis();
 
     // Timer
@@ -62,7 +62,7 @@ public class Game extends Canvas implements Runnable {
     // Constructor for the game
     public Game() {
 
-        // Initialize the handler
+        // Initialise the handler
         handler = new Handler();
 
         // Add key listener

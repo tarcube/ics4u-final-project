@@ -14,7 +14,7 @@ public class MouseInput extends MouseAdapter {
 
     public static AudioPlayer audioplayer;
 
-    // Constructor to initialize the audioplayer object
+    // Constructor to initialise the audioplayer object
     public MouseInput() {
         audioplayer = new AudioPlayer();
     }
