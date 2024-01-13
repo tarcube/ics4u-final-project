@@ -157,12 +157,9 @@ public class StateChecker {
                 playerHuman = i;
             }
         }
-        //// for (int i = 0; i < idCheckComputed.size(); i++) System.out.println(questions.get((int)(idCheckComputed.get(i)/10)).get(-idCheckComputed.get(i)%10-1));
-        //// System.out.println(userResponses);
-        ////System.out.println(numberOfQuestionsAndResponses);
         String errors = "";
         for (int i = 0; i < (idCheckComputed.size()+userResponses.size())/2; i++) {
-            if (compareAttributes(idCheckComputed.get(i), true, playerHuman) != userResponses.get(i)) {
+            if (!(compareAttributes(idCheckComputed.get(i), true, playerHuman).equals(userResponses.get(i)))) {
                 errors += "Computer asked '" + questions.get((int)(idCheckComputed.get(i)/10)).get(-idCheckComputed.get(i)%10-1) +"'\n";
                 errors += "Player answered " + userResponses.get(i) + ", when it should be " + !userResponses.get(i) + ".\n";
             }
