@@ -1,6 +1,7 @@
 /*
     +StateChecker.java [13] (Backend)
-    TODO: Add summary of contents in this class
+
+    This class handles events that happen in-game and its current state.
 */
 
 // Imports
@@ -95,21 +96,30 @@ public class StateChecker {
         for (int i = 0; i < ids.length; i++) {
             int count = 0;
             for (int j = 0; j < computerGrid.size(); j++) {
+
                 // Add one to count everytime an attribute is true 
                 if (compareAttributes(ids[i], true, j)) {
                     count++;
                 }
             }
+
+            // The range or difference between if the user answers yes or no
             int range = Math.abs(count - (computerGrid.size()-count));
+
+            // Randomise the question if the result is the same
             if (range == min_range && r.nextInt(2) == 1) {
                 min_range = range;
                 max_id = ids[i];
             }
+
+            // If the new range is less than the previous min_range, replace it
             if (range < min_range) {
                 min_range = range;
                 max_id = ids[i];
             }
         }
+
+        // If the computer is down to the last human, guess them
         if (computerGrid.size() == 1) {
             BoardInitialiser.Computer.setName("'Is your character " + computerGrid.get(0).getName() + "?'");
             turn = "Done?";
@@ -120,6 +130,8 @@ public class StateChecker {
             }
             catch (IOException e) {System.out.println(e);}
         }
+
+        // Else, ask the question
         else {
             BoardInitialiser.Computer.setName("'" + questions.get((int)(max_id/10)).get(-max_id%10-1) +"'");
             try {
@@ -132,6 +144,7 @@ public class StateChecker {
         }
     }
 
+    // Method to remove humans from the computer's grid
     public static void aiRemoveHumansFromGrid(boolean answer, int id) {
         ArrayList<Human> namesToRemove = new ArrayList<Human>();
         for (int j = 0; j < computerGrid.size(); j++) {
@@ -148,31 +161,42 @@ public class StateChecker {
         userResponses.add(answer);
     }
 
+    // If the user responds no to the computer's guess of the player's human, then this method checks for contradictions
     public static void errorCheck(String typedInput) {
         int playerHuman = 0;
         computerGrid.clear();
         computerGrid = playerGrid;
+
+        // Compares the typed input from the user against pre-existing human names
         for (int i = 0; i < playerGrid.size(); i++) {
             if (typedInput.toUpperCase().contains(playerGrid.get(i).getName())) {
                 playerHuman = i;
             }
         }
+
         String errors = "";
+        // ! Extensive testing had been done to look for a bug in the error checking code, but it had not been fixed.
         for (int i = 0; i < (idCheckComputed.size()+userResponses.size())/2; i++) {
             if (!(compareAttributes(idCheckComputed.get(i), true, playerHuman).equals(userResponses.get(i)))) {
                 errors += "Computer asked '" + questions.get((int)(idCheckComputed.get(i)/10)).get(-idCheckComputed.get(i)%10-1) +"'\n";
                 errors += "Player answered " + userResponses.get(i) + ", when it should be " + !userResponses.get(i) + ".\n";
             }
         }
+
+        // Display the contradictions to the user
         catagory = -7;
         turn = "Done";
         output = errors;
+
+        // Write to log file
         try {
             FileWriter fw = new FileWriter("log.txt", true);
             fw.write("\n\nStart of Error Detection Check Log\n\n" + errors + "\nEnd of Error Detection Check Log - " + Game.timer);
             fw.close();
         }
         catch (IOException e) {System.out.println(e);}
+
+        // Pan the camera
         for (int i = 0; i < BoardInitialiser.humans.size(); i++) {
             BoardInitialiser.humans.get(i).setDx(-Game.WIDTH/40);
         }
@@ -184,6 +208,7 @@ public class StateChecker {
         }
     }
 
+    // Getters and setters for the camera variable
     public static String getCamera() {return camera;}
     public static void setCamera(String camera) {StateChecker.camera = camera;}
 }
