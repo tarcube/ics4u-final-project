@@ -36,3 +36,144 @@ Computer asked 'Does your character have no hair?'
 Player answered true, when it should be false.
 
 End of Error Detection Check Log - 1705109444582
+
+New Game - 1705110991092
+
+Computer asked 'Is your character male?' - 1705110992092
+
+Player responded 'Yes.' - 1705110994092
+
+Computer asked 'Does your character have pale skin?' - 1705110995092
+
+Player responded 'No.' - 1705110996092
+
+Computer asked 'Does your character have white hair?' - 1705110997092
+
+Player responded 'Yes.' - 1705110998092
+
+Computer asked 'Does your character have visible teeth?' - 1705110999092
+
+Player responded 'No.' - 1705111000092
+
+Computer asked 'Is your character AL?' - 1705111001092
+
+Computer guessed wrong and lost - 1705111002092
+
+Start of Error Detection Check Log
+
+Computer asked 'Is your character male?'
+Player answered true, when it should be false.
+Computer asked 'Does your character have white hair?'
+Player answered true, when it should be false.
+
+End of Error Detection Check Log - 1705111004092
+
+New Game - 1705111091147
+
+Computer asked 'Is your character female?' - 1705111092147
+
+Player responded 'No.' - 1705111093147
+
+Computer asked 'Does your character have pale skin?' - 1705111094147
+
+Player responded 'No.' - 1705111095147
+
+Computer asked 'Does your character have white hair?' - 1705111096147
+
+Player responded 'Yes.' - 1705111097147
+
+Computer asked 'Does your character have glasses?' - 1705111098147
+
+Player responded 'Yes.' - 1705111099147
+
+Computer asked 'Does your character have brown eyes?' - 1705111100147
+
+Player responded 'No.' - 1705111102147
+
+Computer asked 'Is your character AL?' - 1705111102147
+
+Computer guessed wrong and lost - 1705111103147
+
+New Game - 1705111135661
+
+Computer asked 'Is your character female?' - 1705111136661
+
+Player responded 'No.' - 1705111137661
+
+Computer asked 'Does your character have dark skin?' - 1705111138661
+
+Player responded 'Yes.' - 1705111139661
+
+Computer asked 'Does your character have black hair?' - 1705111140661
+
+Player responded 'No.' - 1705111141661
+
+Computer asked 'Does your character have visible teeth?' - 1705111141661
+
+Player responded 'No.' - 1705111143661
+
+Computer asked 'Is your character AL?' - 1705111143661
+
+Computer guessed wrong and lost - 1705111145661
+
+Start of Error Detection Check Log
+
+Computer asked 'Does your character have dark skin?'
+Player answered true, when it should be false.
+
+End of Error Detection Check Log - 1705111146661
+
+New Game - 1705111254497
+
+Player asked 'Does your character have visible teeth?' - 1705111256497
+
+Computer responded with 'No.' - 1705111256497
+
+Player guessed wrong and lost - 1705111263497
+
+New Game - 1705111274497
+
+Player asked 'Does your character have visible teeth?' - 1705111275497
+
+Computer responded with 'No.' - 1705111275497
+
+Computer asked 'Is your character female?' - 1705111279497
+
+Player responded 'No.' - 1705111280497
+
+Player guessed wrong and lost - 1705111282497
+
+New Game - 1705111843696
+
+Computer asked 'Is your character female?' - 1705111844696
+
+Player responded 'No.' - 1705111844696
+
+Computer asked 'Does your character have pale skin?' - 1705111845696
+
+Player responded 'No.' - 1705111846696
+
+Computer asked 'Does your character have white hair?' - 1705111847696
+
+Player responded 'Yes.' - 1705111848696
+
+Computer asked 'Does your character have glasses?' - 1705111849696
+
+Player responded 'Yes.' - 1705111850696
+
+Computer asked 'Does your character have visible teeth?' - 1705111851696
+
+Player responded 'No.' - 1705111852696
+
+Computer asked 'Is your character AL?' - 1705111853696
+
+Computer guessed wrong and lost - 1705111854696
+
+Start of Error Detection Check Log
+
+Computer asked 'Does your character have white hair?'
+Player answered true, when it should be false.
+Computer asked 'Does your character have glasses?'
+Player answered true, when it should be false.
+
+End of Error Detection Check Log - 1705111857696
