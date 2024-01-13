@@ -1,7 +1,7 @@
 /*
     +Object.java [11] (Frontend)
     
-    TODO: Add summary of contents in this class
+    The class Object handles the state, representation, and rendering of objects in the game
 */
 
 // Imports
