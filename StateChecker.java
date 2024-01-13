@@ -39,7 +39,7 @@ public class StateChecker {
     // Most optimal question used in computer algorithm 
     public static int max_id;
 
-    //TODO: what does this do
+    // String to write in log text file 
     public static String log = "";
 
     // Arraylist of IDs checked for algorithm
