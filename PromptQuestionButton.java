@@ -10,10 +10,18 @@ import java.awt.*;
 
 // Child class of GameObject
 public class PromptQuestionButton extends GameObject {
+
+    // variable if mouse is hovering over set coordinates 
     private boolean hovered;
+
+    // variable used to define if a button cannot be clicked or being hovered
     private boolean unavailable;
+
+    // variables for the initial position of the button before it moves
     private int initX;
     private int initY;
+
+    // variables for change in velocity of the mouse
     private int dx = 0;
     private int dy = 0;
 
